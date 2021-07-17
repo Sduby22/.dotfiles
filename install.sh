@@ -10,6 +10,8 @@ ln -s ${PWD}/skhd ~/.config
 ln -s ${PWD}/yabai ~/.config
 ln -s ${PWD}/spacebar ~/.config
 
+# nvim
+ln -s ${PWD}/nvim ~/.config
+
 cd ./aria2_rpc && ./mac_install.sh
 
-ln -s ${PWD}/nvim ~/.config

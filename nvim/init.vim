@@ -17,6 +17,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'vim-scripts/gitignore'
 Plug 'tpope/vim-sleuth'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
 call plug#end()
 
 set path+=**                                                                    
@@ -29,3 +30,4 @@ set mouse+=a
 set noerrorbells visualbell t_vb=
 
 source ~/.config/nvim/firenvim.vim
+lua require('lua-config')
