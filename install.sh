@@ -12,4 +12,4 @@ ln -s ${PWD}/spacebar ~/.config
 
 cd ./aria2_rpc && ./mac_install.sh
 
-
+ln -s ${PWD}/nvim ~/.config
