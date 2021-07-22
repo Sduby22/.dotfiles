@@ -18,3 +18,4 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - [cd ./aria2_rpc && ./mac_install.sh, Add aria2 rpc services]
