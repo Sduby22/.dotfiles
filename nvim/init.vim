@@ -32,6 +32,7 @@ Plug 'rktjmp/lush.nvim'
 Plug 'npxbr/gruvbox.nvim'
 Plug 'Raimondi/delimitMate'
 Plug 'preservim/nerdcommenter'
+Plug 'junegunn/vim-easy-align'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
