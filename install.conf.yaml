@@ -6,8 +6,12 @@
 
 - link:
     ~/.tmux.conf: tmux.conf
-    ~/.vim: vim
-    ~/.vimrc: vimrc
+    ~/.config/nvim: nvim
+    ~/.config/skhd: skhd
+    ~/.config/spacebar: spacebar
+    ~/.config/yabai: yabai
+    ~/.config/aria2_rpc: aria2_rpc
+    ~/.zshrc: zshrc
 
 - create:
     - ~/.vim/undo-history
