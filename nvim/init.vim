@@ -31,6 +31,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'rktjmp/lush.nvim'
 Plug 'npxbr/gruvbox.nvim'
 Plug 'Raimondi/delimitMate'
+Plug 'preservim/nerdcommenter'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -46,6 +47,7 @@ set wildignore+=**/node_modules/**
 set wildignore+=**/.git/**
 set clipboard+=unnamedplus
 
+let mapleader=" "
 nmap Q <Nop> 
 imap <C-c> <esc>
 set mouse+=a
