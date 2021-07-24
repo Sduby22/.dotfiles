@@ -12,6 +12,7 @@
     ~/.config/yabai: yabai
     ~/.config/aria2_rpc: aria2_rpc
     ~/.zshrc: zshrc
+    ~/.config/clash: clash
 
 - create:
     - ~/.vim/undo-history

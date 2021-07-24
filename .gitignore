@@ -1,3 +1,8 @@
 aria2.session
 *.userdb
 sync
+config.yaml
+Country.mmdb
+subscription_link
+
+clash/subscription_link
