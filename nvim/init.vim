@@ -20,25 +20,37 @@ set completeopt=menuone,noselect
 syntax on
 
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-surround'
+
+" Shared plugins
 Plug 'airblade/vim-rooter'
 Plug 'farmergreg/vim-lastplace'
 Plug 'vim-scripts/gitignore'
 Plug 'tpope/vim-sleuth'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
-Plug 'wakatime/vim-wakatime'
-Plug 'rktjmp/lush.nvim'
-Plug 'npxbr/gruvbox.nvim'
+
+Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
+if !exists('g:vscode')
+" Vscode disabled plugins
+Plug 'rktjmp/lush.nvim'
+Plug 'npxbr/gruvbox.nvim'
+
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'wakatime/vim-wakatime'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'hrsh7th/nvim-compe'
+endif
+
 call plug#end()
 
 let g:go_fmt_autosave = 0
@@ -56,7 +68,8 @@ set noerrorbells visualbell t_vb=
 
 source ~/.config/nvim/firenvim.vim
 source ~/.config/nvim/indent.vim
-lua require('lua-config')
+
+if !exists('g:vscode')
 
 colorscheme gruvbox
 set termguicolors
@@ -69,3 +82,28 @@ inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR"
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+lua require('lua-config')
+
+else 
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+  },
+}
+EOF
+endif
+
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=300 }
+augroup END
