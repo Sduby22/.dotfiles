@@ -15,6 +15,10 @@ if [[ "$(uname -s)" = "Darwin" ]]; then
       [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
       ;;
   esac
+else
+  # Fedora
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 if [[ -n $SSH_CONNECTION ]]; then
