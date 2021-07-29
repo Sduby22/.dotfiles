@@ -12,7 +12,7 @@
     ~/.config/yabai: yabai
     ~/.config/aria2_rpc: aria2_rpc
     ~/.zshrc: zshrc
-    ~/.config/clash: clash
+    ~/.config/i3: i3
 
 - create:
     - ~/.vim/undo-history
@@ -20,3 +20,4 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [cd ./aria2_rpc && ./mac_install.sh, Add aria2 rpc services]
+  - [pip3 install pynvim]

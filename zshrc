@@ -16,9 +16,11 @@ if [[ "$(uname -s)" = "Darwin" ]]; then
       ;;
   esac
 else
-  # Fedora
-  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  # Arch & Manjaro
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 fi
 
 if [[ -n $SSH_CONNECTION ]]; then
@@ -60,8 +62,14 @@ alias lgit=lazygit
 alias ls='ls -G'
 alias xcp=pbcopy
 alias cl=clear
-alias myproxy="source ~/scripts/myproxy.sh"
-alias unproxy="source ~/scripts/unproxy.sh"
+myproxy() {
+	export http_proxy=http://127.0.0.1:7890;
+	export https_proxy=http://127.0.0.1:7890;
+}
+unproxy() {
+	export http_proxy=;
+	export https_proxy=;
+}
 # alias rg=ranger
 alias vim=nvim
 alias v=nvim
