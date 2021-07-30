@@ -1,5 +1,6 @@
 alt - e : open ~
 alt - return : alacritty
+f12 : alacritty --config-file ~/.config/alacritty/float.yaml
 
 # Navigation
 alt - h : yabai -m window --focus west
