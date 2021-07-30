@@ -13,6 +13,7 @@
     ~/.config/aria2_rpc: aria2_rpc
     ~/.zshrc: zshrc
     ~/.config/i3: i3
+    ~/.config/alacritty: alacritty
 
 - create:
     - ~/.vim/undo-history

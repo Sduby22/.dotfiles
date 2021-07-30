@@ -1,4 +1,5 @@
-cmd - e : open ~
+alt - e : open ~
+alt - return : alacritty
 
 # Navigation
 alt - h : yabai -m window --focus west
@@ -50,8 +51,8 @@ alt - f : \
     yabai -m window --toggle float; \
     yabai -m window --toggle border
 
-# Make window native fullscreen
-alt - return         : yabai -m window --toggle zoom-fullscreen
+# Make window fullscreen
+cmd - return         : yabai -m window --toggle zoom-fullscreen
 
 # Focus space
 alt - 1 : yabai -m space --focus 1
