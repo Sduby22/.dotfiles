@@ -43,6 +43,9 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 if !exists('g:vscode')
 " Vscode disabled plugins
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 Plug 'rktjmp/lush.nvim'
 Plug 'npxbr/gruvbox.nvim'
 
@@ -74,6 +77,7 @@ set noerrorbells visualbell t_vb=
 
 source ~/.config/nvim/firenvim.vim
 source ~/.config/nvim/indent.vim
+source ~/.config/nvim/leaderf.vim
 
 if !exists('g:vscode')
 
