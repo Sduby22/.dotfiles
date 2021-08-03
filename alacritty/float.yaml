@@ -420,11 +420,11 @@ font:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-  #program: /bin/zsh
-  #args:
-    #- -c
-    #- "tmux new-session -A -s main"
+shell:
+  program: /bin/zsh
+  args:
+    - -c
+    - "tmux new-session -A -s float"
 
 # Startup directory
 #
