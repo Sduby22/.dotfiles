@@ -43,6 +43,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 if !exists('g:vscode')
 " Vscode disabled plugins
+Plug 'tpope/vim-fugitive'
 Plug 'rktjmp/lush.nvim'
 Plug 'npxbr/gruvbox.nvim'
 
