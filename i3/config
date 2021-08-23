@@ -112,6 +112,8 @@ bindsym $mod+button1 floating toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+bindsym $alt+Tab exec --no-startup-id rofi -modi combi -combi-modi window -show combi
+
 # focus the child container
 #bindsym $mod+d focus child
 
@@ -195,6 +197,7 @@ bindsym $mod+r mode "resize"
 # Plasma compatibility improvements
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+for_window [class="Steam"] floating enable
 
 for_window [class="yakuake"] floating enable
 for_window [class="systemsettings"] floating enable

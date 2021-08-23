@@ -14,11 +14,13 @@ set smarttab
 set smartcase ignorecase
 set autoindent
 set nu rnu
+set pumheight=10
 
 set completeopt=menuone,noselect
 
 syntax on
 
+" Install vim-plug if not exist
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -83,38 +85,24 @@ source ~/.config/nvim/leaderf.vim
 
 if !exists('g:vscode')
 
-colorscheme gruvbox
-set termguicolors
+  colorscheme gruvbox
+  set termguicolors
 
-let g:UltiSnipsExpandTrigger="<C-x>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+  let g:UltiSnipsExpandTrigger="<C-x>"
+  let g:UltiSnipsJumpForwardTrigger="<C-j>"
+  let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
-inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-lua require('lua-config')
+  inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
+  inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+  inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+  inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+  lua require('lua-config')
 
 else 
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-      },
-    },
-  },
-}
-EOF
+  lua requite('vscode-config')
 endif
 
+" Yank highlighting
 augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=300 }
