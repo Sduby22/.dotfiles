@@ -48,6 +48,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'rktjmp/lush.nvim'
 Plug 'npxbr/gruvbox.nvim'
+Plug 'Th3Whit3Wolf/one-nvim'
 
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'wakatime/vim-wakatime'
