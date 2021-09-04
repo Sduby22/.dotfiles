@@ -15,6 +15,7 @@
     ~/.config/i3: i3
     ~/.config/alacritty: alacritty
     ~/.gitignore: global_gitignore/.gitignore
+    ~/.config/systemd/user/aria2.service: aria2_rpc/aria2.service
 
 - create:
     - ~/.vim/undo-history
@@ -23,3 +24,5 @@
   - [git submodule update --init --recursive, Installing submodules]
   - [cd ./aria2_rpc && ./mac_install.sh, Add aria2 rpc services]
   - [pip3 install pynvim]
+  - touch ~/.config/aria2_rpc/aria2.session 
+

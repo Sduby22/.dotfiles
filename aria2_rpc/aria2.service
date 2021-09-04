@@ -1,0 +1,11 @@
+[Unit]
+Description=Aria2c download manager
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/aria2c --console-log-level=warn --enable-rpc --rpc-listen-all --conf-path=.config/aria2_rpc/aria2.conf
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
