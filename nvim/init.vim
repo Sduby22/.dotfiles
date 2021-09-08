@@ -80,9 +80,7 @@ imap <C-c> <esc>
 set mouse+=a
 set noerrorbells visualbell t_vb=
 
-source ~/.config/nvim/firenvim.vim
 source ~/.config/nvim/indent.vim
-source ~/.config/nvim/leaderf.vim
 
 if !exists('g:vscode')
 
@@ -99,7 +97,11 @@ if !exists('g:vscode')
   inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
   lua require('lua-config')
 
+  source ~/.config/nvim/firenvim.vim
+  source ~/.config/nvim/leaderf.vim
+
 else 
+
   lua requite('vscode-config')
 endif
 
