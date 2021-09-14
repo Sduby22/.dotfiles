@@ -5,6 +5,7 @@
 - clean: ['~']
 
 - link:
+    ~/.vimrc: .vimrc
     ~/.tmux.conf: tmux.conf
     ~/.config/nvim: nvim
     ~/.config/skhd: skhd
@@ -14,6 +15,7 @@
     ~/.zshrc: zshrc
     ~/.config/i3: i3
     ~/.config/alacritty: alacritty
+    ~/.config/kitty: kitty
     ~/.gitignore: global_gitignore/.gitignore
     ~/.config/systemd/user/aria2.service: aria2_rpc/aria2.service
 
