@@ -29,6 +29,12 @@ else
   export EDITOR='vim'
 fi
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
 # autoload -U zsh-newuser-install
 # zsh-newuser-install -f
 # The following lines were added by compinstall
@@ -83,5 +89,5 @@ myproxy
 mkcd() { mkdir -p "$@" && cd "$@"; }
 
 alias rmds='find . | egrep "DS|dSYM" | xargs rm'
-alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/alacritty-theme/themes/'
+alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/base16-alacritty/colors'
 #alias clang='/usr/bin/clang'
