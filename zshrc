@@ -2,9 +2,9 @@ if [[ "$(uname -s)" = "Darwin" ]]; then
   case "$(arch)" in
     "i386" )
       # x86 Mac
-      source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-      source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-      [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+      #source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+      #source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+      #[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
       ;;
     "arm64" )
       # Mac with Apple Silicon
@@ -26,7 +26,7 @@ fi
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vi'
 else
-  export EDITOR='nvim'
+  export EDITOR='vim'
 fi
 
 # autoload -U zsh-newuser-install
@@ -71,7 +71,7 @@ unproxy() {
 	export https_proxy=;
 }
 # alias rg=ranger
-alias vim=nvim
+alias vim=vim
 alias v=nvim
 
 myproxy
@@ -83,4 +83,5 @@ myproxy
 mkcd() { mkdir -p "$@" && cd "$@"; }
 
 alias rmds='find . | egrep "DS|dSYM" | xargs rm'
-alias clang='/usr/bin/clang'
+alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/alacritty-theme/themes/'
+#alias clang='/usr/bin/clang'
