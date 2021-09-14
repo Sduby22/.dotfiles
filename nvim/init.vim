@@ -8,12 +8,12 @@ set smartindent
 set autoindent
 set expandtab
 set tabstop=4
-set shiftwidth=4
+set shiftwidth=0
 set sts=-1
 set smarttab
 set smartcase ignorecase
 set autoindent
-set nu rnu
+"set nu rnu
 set pumheight=10
 
 set completeopt=menuone,noselect
@@ -52,6 +52,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'rktjmp/lush.nvim'
 Plug 'npxbr/gruvbox.nvim'
+Plug 'chriskempson/base16-vim'
 Plug 'Th3Whit3Wolf/one-nvim'
 
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -84,8 +85,13 @@ source ~/.config/nvim/indent.vim
 
 if !exists('g:vscode')
 
-  colorscheme gruvbox
-  set termguicolors
+	if filereadable(expand("~/.vimrc_background"))
+	  let base16colorspace=256          " Remove this line if not necessary
+	  source ~/.vimrc_background
+	else
+	  colorscheme gruvbox
+	  set termguicolors
+	endif
 
   let g:UltiSnipsExpandTrigger="<C-x>"
   let g:UltiSnipsJumpForwardTrigger="<C-j>"
