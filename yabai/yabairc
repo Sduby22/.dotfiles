@@ -31,7 +31,7 @@ yabai -m config mouse_follows_focus         off
 yabai -m config focus_follows_mouse         autofocus
 
 yabai -m config window_topmost              on
-yabai -m config window_opacity              on
+yabai -m config window_opacity              off
 yabai -m config window_shadow               float
 
 yabai -m config window_border               on 
@@ -67,6 +67,7 @@ yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add app="WeChat" manage=off
 yabai -m rule --add app="Finder" manage=off
+yabai -m rule --add app="Nutstore" manage=off
 
 ignore="(系统偏好设置)"
 yabai -m rule --add title="${ignore}" manage=off
