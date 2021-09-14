@@ -1,5 +1,5 @@
 alt - e : open ~
-alt - return : alacritty
+alt - return : kitty -d=~
 f12 : alacritty --config-file ~/.config/alacritty/float.yaml
 
 # Navigation
@@ -48,12 +48,12 @@ shift + alt - x : yabai -m space --mirror x-axis
 shift + alt - y : yabai -m space --mirror y-axis
 
 # Float / Unfloat window
-alt - f : \
+shift + alt - space : \
     yabai -m window --toggle float; \
     yabai -m window --toggle border
 
 # Make window fullscreen
-cmd - return         : yabai -m window --toggle zoom-fullscreen
+alt - f         : yabai -m window --toggle zoom-fullscreen
 
 # Focus space
 alt - 1 : yabai -m space --focus 1
