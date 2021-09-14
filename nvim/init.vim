@@ -86,7 +86,7 @@ source ~/.config/nvim/indent.vim
 if !exists('g:vscode')
 
 	if filereadable(expand("~/.vimrc_background"))
-	  let base16colorspace=256          " Remove this line if not necessary
+	  "let base16colorspace=256          " Remove this line if not necessary
 	  source ~/.vimrc_background
 	else
 	  colorscheme gruvbox
