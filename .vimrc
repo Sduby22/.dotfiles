@@ -47,4 +47,5 @@ set mouse+=a
 " disable visual bells because they are annoying.
 set noerrorbells visualbell t_vb=
 
+" Make Ctrl-C behave the same way as esc
 imap <C-c> <esc>

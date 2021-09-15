@@ -13,7 +13,3 @@ for fname in os.listdir('../base16-alacritty/colors'):
     st = os.stat(fname)
     os.chmod(fname, st.st_mode | stat.S_IEXEC)
 
-with open(f'{home}/.zshrc', 'a', encoding='utf8') as f:
-    f.write('\nexport PATH=$PATH:~/.config/alacritty/color_scripts/')
-
-

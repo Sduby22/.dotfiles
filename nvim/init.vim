@@ -55,7 +55,7 @@ Plug 'npxbr/gruvbox.nvim'
 Plug 'chriskempson/base16-vim'
 Plug 'Th3Whit3Wolf/one-nvim'
 
-Plug 'lukas-reineke/indent-blankline.nvim'
+"Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'wakatime/vim-wakatime'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
