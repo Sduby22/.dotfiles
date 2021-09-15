@@ -112,43 +112,10 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     #family: Cascadia Mono PL
-    family: DejaVu Sans Mono
+    family: Monaco for Powerline
 
     # The `style` can be specified to pick a specific face.
-    style: Book
-
-  # Bold font face
-  bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: DejaVu Sans Mono
-
-    # The `style` can be specified to pick a specific face.
-    style: Bold
-
-  # Italic font face
-  italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: DejaVu Sans Mono
-
-    # The `style` can be specified to pick a specific face.
-    style: Oblique
-
-  # Bold italic font face
-  bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: DejaVu Sans Mono
-
-    # The `style` can be specified to pick a specific face.
-    style: Bold Oblique
+    style: Regular
 
   # Point size
   size: 14
@@ -156,9 +123,9 @@ font:
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
-  #offset:
-  #  x: 0
-  #  y: 0
+  offset:
+    x: 0
+    y: 3
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
@@ -343,11 +310,11 @@ colors:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-shell:
-  program: /bin/zsh
-  args:
-    - -c
-    - "tmux new-session -A -s main"
+#shell:
+  #program: /bin/zsh
+  #args:
+    #- -c
+    #- "tmux new-session -A -s main"
 
 # Startup directory
 #
