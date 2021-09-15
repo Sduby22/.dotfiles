@@ -40,7 +40,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat','do': ':TSUpdate'}  
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 if !exists('g:vscode')
@@ -52,7 +52,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'rktjmp/lush.nvim'
 Plug 'npxbr/gruvbox.nvim'
-Plug 'chriskempson/base16-vim'
+Plug 'RRethy/nvim-base16'
+"Plug 'chriskempson/base16-vim'
 Plug 'Th3Whit3Wolf/one-nvim'
 
 "Plug 'lukas-reineke/indent-blankline.nvim'

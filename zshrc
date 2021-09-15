@@ -30,10 +30,10 @@ else
 fi
 
 # Base16 Shell
-#BASE16_SHELL="$HOME/.config/base16-shell/"
-#[ -n "$PS1" ] && \
-#    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-#        eval "$("$BASE16_SHELL/profile_helper.sh")"
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+	eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # autoload -U zsh-newuser-install
 # zsh-newuser-install -f
@@ -92,4 +92,4 @@ alias rmds='find . | egrep "DS|dSYM" | xargs rm'
 alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/base16-alacritty/colors'
 #alias clang='/usr/bin/clang'
 
-export PATH=$PATH:~/.config/alacritty/color_scripts
+#export PATH=$PATH:~/.config/alacritty/color_scripts
