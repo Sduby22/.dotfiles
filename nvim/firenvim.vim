@@ -3,8 +3,7 @@
 " File: firenvim.vim
 
 if exists('g:started_by_firenvim')
-    colorscheme one-nvim
-    set background=dark
+	let base16colorspace=256          " Remove this line if not necessary
 
     let s:fontsize = 22
     function! AdjustFontSizeF(amount)

@@ -222,3 +222,8 @@ exec xrandr --output DP-1 --mode 1920x1080 --rate 144.00
 
 exec --no-startup-id thunar --daemon &
 exec --no-startup-id nm-applet --no-agent &
+exec --no-startup-id pasystray &
+
+exec --no-startup-id picom -b 
+exec --no-startup-id /usr/bin/setxkbmap -option "ctrl:nocaps"
+

@@ -18,6 +18,7 @@
     ~/.config/kitty: kitty
     ~/.gitignore: global_gitignore/.gitignore
     ~/.config/systemd/user/aria2.service: aria2_rpc/aria2.service
+    ~/.Xmodmap: Xmodmap
 
 - create:
     - ~/.vim/undo-history
@@ -27,4 +28,6 @@
   - [cd ./aria2_rpc && ./mac_install.sh, Add aria2 rpc services]
   - [pip3 install pynvim]
   - touch ~/.config/aria2_rpc/aria2.session 
-
+  - [pip3 install --user alacritty-colorscheme, install alacritty color cli]
+  - [git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell, base16 shell]
+  - [cd ./alacritty/color_scripts/ && python3 _genscripts.py, generate color scripts]

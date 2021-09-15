@@ -2,3 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "alacritty/base16-alacritty"]
+	path = alacritty/base16-alacritty
+	url = https://github.com/aarowill/base16-alacritty.git
