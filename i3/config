@@ -225,5 +225,3 @@ exec --no-startup-id nm-applet --no-agent &
 exec --no-startup-id pasystray &
 
 exec --no-startup-id picom -b 
-exec --no-startup-id /usr/bin/setxkbmap -option "ctrl:nocaps"
-

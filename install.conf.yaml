@@ -2,6 +2,10 @@
     link:
       relink: true
 
+- shell:
+  - command: git submodule update --init --recursive
+    description: Installing submodules 
+      
 - clean: ['~']
 
 - crossplatform-link:
@@ -36,7 +40,7 @@
     ~/.config/systemd/user/aria2.service:
       path: aria2_rpc/aria2.service
       platform: linux
-    ~/.Xmodmap:
+    ~/.xmodmaprc:
       path: Xmodmap
       platform: linux
 
@@ -44,8 +48,6 @@
     - ~/.vim/undo-history
 
 - crossplatform-shell:
-  - command: git submodule update --init --recursive
-    description: Installing submodules 
   - command: cd ./aria2_rpc && ./mac_install.sh
     description: Add aria2 rpc services 
     platform: darwin
