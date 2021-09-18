@@ -1,5 +1,5 @@
 alt - e : open ~
-alt - return : alacritty
+alt - return : kitty -d=~
 f12 : alacritty --config-file ~/.config/alacritty/float.yaml
 
 # Navigation

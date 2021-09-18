@@ -39,7 +39,7 @@ set wildignore+=**/node_modules/**
 set wildignore+=**/.git/**
 
 " Set the default copy register to system clipboard
-set clipboard+=unnamedplus
+set clipboard=unnamed
 
 " enable mouse control
 set mouse+=a

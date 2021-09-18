@@ -9,6 +9,8 @@
 - clean: ['~']
 
 - crossplatform-link:
+    ~/.config/ranger:
+      path: ranger
     ~/.vimrc:
       path: .vimrc
     ~/.tmux.conf:
