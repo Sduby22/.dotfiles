@@ -4,6 +4,7 @@
 
 filetype plugin indent on
 
+set laststatus=0
 set smartindent
 set autoindent
 set expandtab
