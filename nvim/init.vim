@@ -7,8 +7,8 @@ filetype plugin indent on
 set laststatus=0
 set smartindent
 set autoindent
-set expandtab
-set tabstop=4
+set noexpandtab
+set tabstop=8
 set shiftwidth=0
 set sts=-1
 set smarttab
@@ -65,7 +65,8 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
-Plug 'hrsh7th/nvim-compe'
+Plug 'nvim-lua/completion-nvim'
+"Plug 'hrsh7th/nvim-compe'
 endif
 
 call plug#end()
@@ -99,10 +100,17 @@ if !exists('g:vscode')
   let g:UltiSnipsJumpForwardTrigger="<C-j>"
   let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
-  inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
-  inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-  inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-  inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+  autocmd BufEnter * lua require'completion'.on_attach()
+  let g:completion_enable_snippet = 'UltiSnips'
+
+  " Use <Tab> and <S-Tab> to navigate through popup menu
+  inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "<C-j>"
+  inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "<C-k>"
+
+  "inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
+  "inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+  "inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+  "inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
   lua require('lua-config')
 
   source ~/.config/nvim/firenvim.vim
