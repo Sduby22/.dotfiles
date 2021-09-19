@@ -9,6 +9,8 @@
 - clean: ['~']
 
 - crossplatform-link:
+    ~/.config/wezterm:
+      path: wezterm
     ~/.config/ranger:
       path: ranger
     ~/.vimrc:
