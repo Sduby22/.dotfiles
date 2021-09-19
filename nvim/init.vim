@@ -34,6 +34,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-rooter'
 Plug 'farmergreg/vim-lastplace'
 Plug 'vim-scripts/gitignore'
+
+" detect file indetn
 Plug 'tpope/vim-sleuth'
 
 Plug 'tpope/vim-surround'
@@ -51,11 +53,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'rktjmp/lush.nvim'
-Plug 'npxbr/gruvbox.nvim'
+"Plug 'rktjmp/lush.nvim'
+"Plug 'npxbr/gruvbox.nvim'
 Plug 'RRethy/nvim-base16'
 "Plug 'chriskempson/base16-vim'
-Plug 'Th3Whit3Wolf/one-nvim'
+"Plug 'Th3Whit3Wolf/one-nvim'
 
 "Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'wakatime/vim-wakatime'
@@ -106,7 +108,9 @@ if !exists('g:vscode')
   " Use <Tab> and <S-Tab> to navigate through popup menu
   inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "<C-j>"
   inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "<C-k>"
-
+  let g:completion_confirm_key = ""
+  imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
+                 \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<Plug>delimitMateCR" :  "\<Plug>delimitMateCR"
   "inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
   "inoremap <silent><expr> <C-e>     compe#close('<C-e>')
   "inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
