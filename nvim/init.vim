@@ -78,7 +78,7 @@ let g:go_fmt_autosave = 0
 set path+=**                                                                    
 set wildignore+=**/node_modules/**
 set wildignore+=**/.git/**
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 let mapleader=" "
 nmap Q <Nop> 

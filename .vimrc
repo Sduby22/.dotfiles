@@ -38,8 +38,15 @@ set path+=**
 set wildignore+=**/node_modules/**
 set wildignore+=**/.git/**
 
+set wildmenu
+set wildmode=longest,full
+
 " Set the default copy register to system clipboard
-set clipboard=unnamed
+if has('unnamedplus')
+	set clipboard=unnamedplus
+else
+	set clipboard=unnamed
+endif
 
 " enable mouse control
 set mouse+=a

@@ -77,7 +77,7 @@ unproxy() {
 	export https_proxy=;
 }
 # alias rg=ranger
-alias vim=vim
+#alias vim=vim
 alias v=nvim
 
 myproxy
