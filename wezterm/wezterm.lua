@@ -3,6 +3,7 @@ return {
   font = wezterm.font_with_fallback({
     "Monaco for Powerline",
     "Sarasa Mono SC Nerd",
+    "Apple Color Emoji",
   }),
   font_size = 18,
   line_height=1.2,
@@ -10,16 +11,16 @@ return {
 
   use_ime = true,
 
-  window_decorations = "RESIZE",
+  window_decorations = "NONE",
   window_padding = {
     left = 10,
     right = 5,
     top = 10,
     bottom = 0,
   },
-  --skip_close_confirmation_for_processes_named = {
-  --  "bash", "sh", "zsh", "fish", "tmux"
-  --}, 
+  skip_close_confirmation_for_processes_named = {
+    "bash", "sh", "zsh", "fish", "tmux"
+  }, 
   window_close_confirmation = "NeverPrompt",
   enable_tab_bar = false,
 

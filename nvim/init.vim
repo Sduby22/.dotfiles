@@ -65,6 +65,7 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+"Plug 'gillescastel/latex-snippets'
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'nvim-lua/completion-nvim'
@@ -85,6 +86,13 @@ nmap Q <Nop>
 imap <C-c> <esc>
 set mouse+=a
 set noerrorbells visualbell t_vb=
+
+command W w
+command Q q
+command Wq wq
+command WQ wq
+
+let g:tex_flavor = 'latex'
 
 source ~/.config/nvim/indent.vim
 

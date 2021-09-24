@@ -68,15 +68,6 @@ local function setup_servers()
   end
 end
 
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
-
-
 --require'compe'.setup {
   --enabled = true;
   --autocomplete = true;
@@ -107,5 +98,21 @@ end
     --ultisnips = true;
   --};
 --}
+
+--local pyconfig = require"lspinstall/util".extract_config("pyright")
+--pyconfig.default_config.root_dir = function(fname)
+    --return util.root_pattern(".git", "setup.py",  "setup.cfg", "pyproject.toml", "requirements.txt")(fname) or
+      --util.path.dirname(fname)
+--end
+
+--require'lspinstall/servers'.python = pyconfig
+
+setup_servers()
+
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
 
 

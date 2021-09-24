@@ -61,7 +61,8 @@ bindkey -v
 
 ansi_color=(red green yellow blue cyan magenta)
 bracket_color=${ansi_color[$((1 + $RANDOM % ${#ansi_color[*]}))]}
-export PS1="%{$fg[$bracket_color]%}[%{$reset_color%}%m %(5~|%-1~/.../%3~|%4~)%{$fg[$bracket_color]%}]%{$reset_color%}%(!.#.$) "
+export PS1="%{$fg[$bracket_color]%}%n%{$reset_color%}@%m: %(5~|%-1~/.../%2~|%3~)%(!.#.$) "
+#export PS1="%{$fg[$bracket_color]%}[%{$reset_color%}%m %(5~|%-1~/.../%3~|%4~)%{$fg[$bracket_color]%}]%{$reset_color%}%(!.#.$) "
 
 # alias npm=cnpm
 alias lgit=lazygit
