@@ -66,10 +66,18 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 "Plug 'gillescastel/latex-snippets'
+Plug 'lervag/vimtex', { 'for': 'latex' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
-Plug 'nvim-lua/completion-nvim'
-"Plug 'hrsh7th/nvim-compe'
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'kdheepak/cmp-latex-symbols'
+Plug 'xuhdev/vim-latex-live-preview'
+  let g:livepreview_previewer = 'zathura'
+  let g:livepreview_engine = 'xelatex' 
 endif
 
 call plug#end()
@@ -107,22 +115,9 @@ if !exists('g:vscode')
 	endif
 
   let g:UltiSnipsExpandTrigger="<C-x>"
-  let g:UltiSnipsJumpForwardTrigger="<C-j>"
-  let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-  autocmd BufEnter * lua require'completion'.on_attach()
-  let g:completion_enable_snippet = 'UltiSnips'
-
-  " Use <Tab> and <S-Tab> to navigate through popup menu
-  inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "<C-j>"
-  inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "<C-k>"
-  let g:completion_confirm_key = ""
-  imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
-                 \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<Plug>delimitMateCR" :  "\<Plug>delimitMateCR"
-  "inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
-  "inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-  "inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-  "inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
   lua require('lua-config')
 
   source ~/.config/nvim/firenvim.vim
