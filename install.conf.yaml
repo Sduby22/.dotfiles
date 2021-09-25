@@ -9,6 +9,8 @@
 - clean: ['~']
 
 - crossplatform-link:
+    ~/.latexmkrc:
+      path: latexmkrc
     ~/.config/wezterm:
       path: wezterm
     ~/.config/ranger:
