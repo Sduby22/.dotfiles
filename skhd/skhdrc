@@ -1,6 +1,6 @@
 alt - e : open ~
 alt - c : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
-alt - return : alacritty
+alt - return : kitty -d=~
 f12 : alacritty --config-file ~/.config/alacritty/float.yaml
 
 # Navigation
@@ -8,6 +8,10 @@ alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
+
+# Layout
+alt - t : yabai -m space --layout stack
+alt - s : yabai -m space --layout bsp
 
 # Moving windows
 shift + alt - h : yabai -m window --warp west

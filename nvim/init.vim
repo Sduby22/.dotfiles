@@ -49,6 +49,7 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat','do': ':TSUpdate'}  
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 if !exists('g:vscode')
 " Vscode disabled plugins
