@@ -40,6 +40,10 @@ Plug 'tpope/vim-sleuth'
 
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
+        let delimitMate_expand_cr = 1
+        let delimitMate_expand_space = 1
+        "let delimitMate_expand_inside_quotes = 1
+        let delimitMate_jump_expansion = 1
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
 
@@ -74,7 +78,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-Plug 'kdheepak/cmp-latex-symbols'
+"Plug 'kdheepak/cmp-latex-symbols'
 Plug 'xuhdev/vim-latex-live-preview'
   let g:livepreview_previewer = 'zathura'
   let g:livepreview_engine = 'xelatex' 

@@ -102,7 +102,7 @@ cmp.setup({
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = "latex_symbols" },
+    --{ name = "latex_symbols" },
 
     -- For vsnip user.
     --{ name = 'vsnip' },

@@ -56,3 +56,8 @@ set noerrorbells visualbell t_vb=
 
 " Make Ctrl-C behave the same way as esc
 imap <C-c> <esc>
+
+command Q q
+command W w
+command Wq wq
+command WQ wq
