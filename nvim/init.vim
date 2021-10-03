@@ -80,8 +80,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 "Plug 'kdheepak/cmp-latex-symbols'
-Plug 'xuhdev/vim-latex-live-preview'
-  let g:livepreview_previewer = 'zathura'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+  let g:livepreview_previewer = 'open -a Preview'
   let g:livepreview_engine = 'xelatex' 
 endif
 
@@ -132,6 +132,8 @@ else
 
   lua requite('vscode-config')
 endif
+
+command Vimrc e ~/.config/nvim/init.vim
 
 " Yank highlighting
 augroup highlight_yank

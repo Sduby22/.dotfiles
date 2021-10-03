@@ -69,6 +69,8 @@ alias lgit=lazygit
 alias ls='ls -G'
 alias xcp=pbcopy
 alias cl=clear
+alias fy='fy -S'
+alias fanyi='fanyi -S'
 myproxy() {
 	export http_proxy=http://127.0.0.1:7890;
 	export https_proxy=http://127.0.0.1:7890;
