@@ -97,6 +97,8 @@ set clipboard=unnamedplus
 let mapleader=" "
 nmap Q <Nop> 
 imap <C-c> <esc>
+"let g:ftplugin_sql_omni_key = '<C-B>'
+
 set mouse+=a
 set noerrorbells visualbell t_vb=
 
