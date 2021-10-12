@@ -19,7 +19,7 @@ set pumheight=10
 
 set completeopt=menuone,noselect
 
-syntax on
+syntax off
 
 " Install vim-plug if not exist
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -53,7 +53,11 @@ Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 if !exists('g:vscode')
 " Vscode disabled plugins
-
+if has("macunix")
+  Plug 'ybian/smartim'
+endif
+Plug 'voldikss/vim-floaterm'
+  let g:floaterm_keymap_toggle = '<F1>'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
