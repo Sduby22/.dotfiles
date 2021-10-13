@@ -1,0 +1,43 @@
+snippet lst "lstlisting" b
+\begin{lstlisting}[language=$1, ${2: caption=$3}]
+$4
+\end{lstlisting}
+endsnippet
+
+snippet  inl "inline code" i
+\verb|$1|
+endsnippet
+
+snippet cb "code block" b
+\begin{verbatim}
+$1
+\end{verbatim}
+endsnippet
+
+snippet doc "document" b
+\documentclass[UTF8, a4paper]{${1:ctexart}}
+
+\usepackage{geometry} %设置页边距的宏包
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm} %设置页边距
+\usepackage{setspace}   %行间距
+\setstretch{1.25} % 任意行距
+
+\title{${2:Untitled}}
+\author{$3}
+\date{\today}
+
+\begin{document}
+$4
+\end{document}
+endsnippet
+
+snippet dot2tex "dot2tex" b
+\begin{figure}[htpb]
+	\centering
+	\digraph{g}{
+		$1
+	}
+	\caption{${2:caption}}%
+	\label{fig:$3}
+\end{figure}
+endsnippet
