@@ -56,6 +56,7 @@ if !exists('g:vscode')
 if has("macunix")
   Plug 'ybian/smartim'
 endif
+Plug 'liuchengxu/graphviz.vim', { 'for': 'dot' }
 Plug 'voldikss/vim-floaterm'
   let g:floaterm_keymap_toggle = '<F1>'
 Plug 'tpope/vim-fugitive'
