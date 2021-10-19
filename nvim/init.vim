@@ -77,6 +77,15 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 "Plug 'gillescastel/latex-snippets'
 Plug 'lervag/vimtex', { 'for': 'latex' }
+  let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-xelatex',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'ray-x/lsp_signature.nvim'
@@ -102,6 +111,8 @@ set clipboard=unnamedplus
 let mapleader=" "
 nmap Q <Nop> 
 imap <C-c> <esc>
+map j gj
+map k gk
 "let g:ftplugin_sql_omni_key = '<C-B>'
 
 set mouse+=a

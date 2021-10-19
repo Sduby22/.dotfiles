@@ -34,9 +34,11 @@ endsnippet
 snippet dot2tex "dot2tex" b
 \begin{figure}[htpb]
 	\centering
-	\digraph{g}{
+	\begin{dot2tex}[scale=0.5]
+	digraph G {
 		$1
 	}
+	\end{dot2tex}
 	\caption{${2:caption}}%
 	\label{fig:$3}
 \end{figure}
