@@ -18,7 +18,6 @@ gaps inner 2
 gaps outer 2
 #smart_gaps on
 smart_borders on
-border_radius 5
 
 #hide_edge_borders smart_no_gaps
 # Font for window titles. Will also be used by the bar unless a different font
