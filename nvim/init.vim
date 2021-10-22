@@ -113,7 +113,7 @@ nmap Q <Nop>
 imap <C-c> <esc>
 map j gj
 map k gk
-"let g:ftplugin_sql_omni_key = '<C-B>'
+let g:ftplugin_sql_omni_key = '<C-B>'
 
 set mouse+=a
 set noerrorbells visualbell t_vb=
