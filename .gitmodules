@@ -7,4 +7,4 @@
 	url = https://github.com/aarowill/base16-alacritty.git
 [submodule "dotbot-crossplatform"]
 	path = dotbot-crossplatform
-	url = git@github.com:msdrigg/dotbot-crossplatform.git
+	url = https://github.com/msdrigg/dotbot-crossplatform.git

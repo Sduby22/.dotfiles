@@ -63,8 +63,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-"Plug 'rktjmp/lush.nvim'
-"Plug 'npxbr/gruvbox.nvim'
+Plug 'rktjmp/lush.nvim'
+Plug 'npxbr/gruvbox.nvim'
 Plug 'RRethy/nvim-base16'
 "Plug 'chriskempson/base16-vim'
 "Plug 'Th3Whit3Wolf/one-nvim'
