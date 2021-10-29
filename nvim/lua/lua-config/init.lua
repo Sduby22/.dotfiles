@@ -102,6 +102,7 @@ cmp.setup({
   },
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'cmp_tabnine' },
     --{ name = "latex_symbols" },
 
     -- For vsnip user.
@@ -134,3 +135,7 @@ require "lsp_signature".setup({
 
   },
 })
+
+require'lualine'.setup {
+  options = {theme = 'gruvbox'}
+}

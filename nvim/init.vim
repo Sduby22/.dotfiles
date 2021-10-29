@@ -30,79 +30,94 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Shared plugins
-Plug 'airblade/vim-rooter'
-Plug 'farmergreg/vim-lastplace'
-Plug 'vim-scripts/gitignore'
+	" Shared plugins
+	Plug 'airblade/vim-rooter'
+	Plug 'farmergreg/vim-lastplace'
+	Plug 'vim-scripts/gitignore'
 
-" detect file indetn
-Plug 'tpope/vim-sleuth'
+	" detect file indetn
+	Plug 'tpope/vim-sleuth'
 
-Plug 'tpope/vim-surround'
-Plug 'Raimondi/delimitMate'
-        let delimitMate_expand_cr = 1
-        let delimitMate_expand_space = 1
-        "let delimitMate_expand_inside_quotes = 1
-        let delimitMate_jump_expansion = 1
-Plug 'preservim/nerdcommenter'
-Plug 'junegunn/vim-easy-align'
+	Plug 'tpope/vim-surround'
+	Plug 'Raimondi/delimitMate'
+		let delimitMate_expand_cr = 1
+		let delimitMate_expand_space = 1
+		"let delimitMate_expand_inside_quotes = 1
+		let delimitMate_jump_expansion = 1
+	Plug 'preservim/nerdcommenter'
+	Plug 'junegunn/vim-easy-align'
+	Plug 'mg979/vim-visual-multi'
 
-Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat','do': ':TSUpdate'}  
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+	Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat','do': ':TSUpdate'}  
+	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+	Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 if !exists('g:vscode')
-" Vscode disabled plugins
-if has("macunix")
-  Plug 'ybian/smartim'
-endif
-Plug 'liuchengxu/graphviz.vim', { 'for': 'dot' }
-Plug 'voldikss/vim-floaterm'
-  let g:floaterm_keymap_toggle = '<F1>'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+	" Vscode disabled plugins
+	if has("macunix")
+	  Plug 'ybian/smartim'
+	endif
 
-Plug 'rktjmp/lush.nvim'
-Plug 'npxbr/gruvbox.nvim'
-Plug 'RRethy/nvim-base16'
-"Plug 'chriskempson/base16-vim'
-"Plug 'Th3Whit3Wolf/one-nvim'
+	Plug 'sbdchd/neoformat'
+	augroup fmt
+	  autocmd!
+	  autocmd BufWritePre * undojoin | Neoformat
+	augroup END
 
-"Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'wakatime/vim-wakatime'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+	Plug 'voldikss/vim-floaterm'
+	  let g:floaterm_keymap_toggle = '<F1>'
 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-"Plug 'gillescastel/latex-snippets'
-Plug 'lervag/vimtex', { 'for': 'latex' }
-  let g:vimtex_compiler_latexmk = {
-    \ 'options' : [
-    \   '-xelatex',
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=1',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \}
-Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
-Plug 'ray-x/lsp_signature.nvim'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-"Plug 'kdheepak/cmp-latex-symbols'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-  let g:livepreview_previewer = 'open -a Preview'
-  let g:livepreview_engine = 'xelatex' 
+	Plug 'rktjmp/lush.nvim'
+	Plug 'npxbr/gruvbox.nvim'
+	Plug 'RRethy/nvim-base16'
+	"Plug 'chriskempson/base16-vim'
+	"Plug 'Th3Whit3Wolf/one-nvim'
+	"
+	if !exists('g:started_by_firenvim')
+	    Plug 'nvim-lualine/lualine.nvim'
+	    Plug 'tpope/vim-fugitive'
+	    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	    Plug 'junegunn/fzf.vim'
+	endif
+
+	Plug 'lukas-reineke/indent-blankline.nvim'
+	Plug 'wakatime/vim-wakatime'
+	Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+	Plug 'lervag/vimtex', { 'for': 'latex' }
+	  let g:tex_flavor = 'latex'
+	  let g:vimtex_compiler_latexmk = {
+	    \ 'options' : [
+	    \   '-xelatex',
+	    \   '-verbose',
+	    \   '-file-line-error',
+	    \   '-synctex=1',
+	    \   '-interaction=nonstopmode',
+	    \ ],
+	    \}
+	"Plug 'kdheepak/cmp-latex-symbols'
+	Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+	  let g:livepreview_previewer = 'open -a Preview'
+	  let g:livepreview_engine = 'xelatex' 
+	Plug 'neovim/nvim-lspconfig'
+	Plug 'kabouzeid/nvim-lspinstall'
+	Plug 'ray-x/lsp_signature.nvim'
+	
+	Plug 'hrsh7th/nvim-cmp'
+	Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+	Plug 'hrsh7th/cmp-nvim-lsp'
+	Plug 'hrsh7th/cmp-buffer'
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+	Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+	"Plug 'gillescastel/latex-snippets'
 endif
 
 call plug#end()
 
 let g:go_fmt_autosave = 0
 
+" :find command
 set path+=**                                                                    
 set wildignore+=**/node_modules/**
 set wildignore+=**/.git/**
@@ -122,8 +137,6 @@ command W w
 command Q q
 command Wq wq
 command WQ wq
-
-let g:tex_flavor = 'latex'
 
 source ~/.config/nvim/indent.vim
 
