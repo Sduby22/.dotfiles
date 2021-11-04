@@ -21,6 +21,21 @@ set completeopt=menuone,noselect
 
 syntax off
 
+let mapleader=" "
+nmap Q <Nop> 
+imap <C-c> <esc>
+map j gj
+map k gk
+let g:ftplugin_sql_omni_key = '<C-B>'
+
+set mouse+=a
+set noerrorbells visualbell t_vb=
+
+command W w
+command Q q
+command Wq wq
+command WQ wq
+
 " Install vim-plug if not exist
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -39,11 +54,12 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-sleuth'
 
 	Plug 'tpope/vim-surround'
-	Plug 'Raimondi/delimitMate'
-		let delimitMate_expand_cr = 1
-		let delimitMate_expand_space = 1
-		"let delimitMate_expand_inside_quotes = 1
-		let delimitMate_jump_expansion = 1
+	Plug 'windwp/nvim-autopairs'
+	"Plug 'Raimondi/delimitMate'
+		"let delimitMate_expand_cr = 1
+		"let delimitMate_expand_space = 1
+		""let delimitMate_expand_inside_quotes = 1
+		"let delimitMate_jump_expansion = 1
 	Plug 'preservim/nerdcommenter'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'mg979/vim-visual-multi'
@@ -78,6 +94,9 @@ if !exists('g:vscode')
 	    Plug 'tpope/vim-fugitive'
 	    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	    Plug 'junegunn/fzf.vim'
+	    Plug 'kyazdani42/nvim-web-devicons' " for file icons
+	    Plug 'kyazdani42/nvim-tree.lua'
+	      nmap <leader>e :NvimTreeToggle<CR>
 	endif
 
 	Plug 'lukas-reineke/indent-blankline.nvim'
@@ -123,31 +142,17 @@ set wildignore+=**/node_modules/**
 set wildignore+=**/.git/**
 set clipboard=unnamedplus
 
-let mapleader=" "
-nmap Q <Nop> 
-imap <C-c> <esc>
-map j gj
-map k gk
-let g:ftplugin_sql_omni_key = '<C-B>'
-
-set mouse+=a
-set noerrorbells visualbell t_vb=
-
-command W w
-command Q q
-command Wq wq
-command WQ wq
-
 source ~/.config/nvim/indent.vim
 
 if !exists('g:vscode')
 
 	if filereadable(expand("~/.vimrc_background"))
-	  "let base16colorspace=256          " Remove this line if not necessary
+	  set termguicolors
+	  let base16colorspace=256          " Remove this line if not necessary
 	  source ~/.vimrc_background
 	else
-	  colorscheme gruvbox
 	  set termguicolors
+	  colorscheme gruvbox
 	endif
 
   let g:UltiSnipsExpandTrigger="<C-x>"
@@ -161,7 +166,7 @@ if !exists('g:vscode')
 
 else 
 
-  lua requite('vscode-config')
+  lua require('vscode-config')
 endif
 
 command Vimrc e ~/.config/nvim/init.vim
