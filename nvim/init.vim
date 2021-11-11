@@ -75,10 +75,7 @@ if !exists('g:vscode')
 	endif
 
 	Plug 'sbdchd/neoformat'
-	augroup fmt
-	  autocmd!
-	  autocmd BufWritePre * undojoin | Neoformat
-	augroup END
+	  nmap <leader>f :Neoformat<CR>
 
 	Plug 'voldikss/vim-floaterm'
 	  let g:floaterm_keymap_toggle = '<F1>'
