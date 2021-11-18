@@ -1,8 +1,11 @@
+local telescope = require'telescope'
+local actions = require "telescope.actions"
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", 
   ignore_install = { "latex" },
   highlight = {
-    enable = true,              
+    enable = true,
     additional_vim_regex_highlighting = false,
   }, 
   textobjects = {
@@ -79,13 +82,6 @@ local cmp = require'cmp'
 cmp.setup({
   snippet = {
     expand = function(args)
-      -- For `vsnip` user.
-      --vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
-
-      -- For `luasnip` user.
-      -- require('luasnip').lsp_expand(args.body)
-
-      -- For `ultisnips` user.
        vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
@@ -101,15 +97,6 @@ cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
     { name = 'cmp_tabnine' },
-    --{ name = "latex_symbols" },
-
-    -- For vsnip user.
-    --{ name = 'vsnip' },
-
-    -- For luasnip user.
-    -- { name = 'luasnip' },
-
-    -- For ultisnips user.
      { name = 'ultisnips' },
 
     { name = 'buffer' },
@@ -137,6 +124,7 @@ require "lsp_signature".setup({
 vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
 require("indent_blankline").setup {
     char = "|",
+    filetype_exclude = {'alpha'},
     spacechar_highlight_list = {
         "IndentBlanklineIndent1",
     },
@@ -152,7 +140,51 @@ require'lualine'.setup {
   }
 }
 
-require'nvim-tree'.setup { }
+require'nvim-tree'.setup {
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true
+  },
+}
+require'nvim-lastplace'.setup{}
+require'nvim-autopairs'.setup{}
+require('nvim_comment').setup()
 
-require('nvim-autopairs').setup{}
+require("project_nvim").setup {
+  patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "package.json" },
+}
 
+telescope.load_extension('projects')
+telescope.setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-h>"] = "which_key",
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+      }
+    }
+  },
+}
+
+local alpha = require'alpha'
+local dashboard = require'alpha.themes.dashboard'
+dashboard.section.header.val = {
+   [[                               __                ]],
+   [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+   [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+   [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+   [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+   [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+}
+dashboard.section.buttons.val = {
+   dashboard.button( "e", "?  New file" , ":ene <BAR> startinsert <CR>"),
+   dashboard.button( "p", "?  Projects" , ":Telescope projects<CR>"),
+   dashboard.button( "q", "?  Quit NVIM" , ":qa<CR>"),
+}
+local handle = io.popen('fortune')
+local fortune = handle:read("*a")
+handle:close()
+dashboard.section.footer.val = fortune
+alpha.setup(dashboard.opts)

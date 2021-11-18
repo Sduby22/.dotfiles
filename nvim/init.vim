@@ -4,11 +4,12 @@
 
 filetype plugin indent on
 
+set hidden
 set laststatus=0
 set smartindent
 set autoindent
-set noexpandtab
-set tabstop=8
+set expandtab
+set tabstop=4
 set shiftwidth=0
 set sts=-1
 set smarttab
@@ -46,13 +47,11 @@ endif
 call plug#begin('~/.vim/plugged')
 
 	" Shared plugins
-	Plug 'airblade/vim-rooter'
-	Plug 'farmergreg/vim-lastplace'
-	Plug 'vim-scripts/gitignore'
+	Plug 'ahmedkhalf/project.nvim'
+	Plug 'ethanholz/nvim-lastplace'
 
 	" detect file indetn
 	Plug 'tpope/vim-sleuth'
-
 	Plug 'tpope/vim-surround'
 	Plug 'windwp/nvim-autopairs'
 	"Plug 'Raimondi/delimitMate'
@@ -60,7 +59,8 @@ call plug#begin('~/.vim/plugged')
 		"let delimitMate_expand_space = 1
 		""let delimitMate_expand_inside_quotes = 1
 		"let delimitMate_jump_expansion = 1
-	Plug 'preservim/nerdcommenter'
+	Plug 'terrortylor/nvim-comment'
+	"Plug 'preservim/nerdcommenter'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'mg979/vim-visual-multi'
 
@@ -77,8 +77,9 @@ if !exists('g:vscode')
 	Plug 'sbdchd/neoformat'
 	  nmap <leader>f :Neoformat<CR>
 
-	Plug 'voldikss/vim-floaterm'
-	  let g:floaterm_keymap_toggle = '<F1>'
+	Plug 'akinsho/toggleterm.nvim'
+	"Plug 'voldikss/vim-floaterm'
+	  "let g:floaterm_keymap_toggle = '<F1>'
 
 	Plug 'rktjmp/lush.nvim'
 	Plug 'npxbr/gruvbox.nvim'
@@ -86,15 +87,19 @@ if !exists('g:vscode')
 	"Plug 'chriskempson/base16-vim'
 	"Plug 'Th3Whit3Wolf/one-nvim'
 	"
-	if !exists('g:started_by_firenvim')
-	    Plug 'nvim-lualine/lualine.nvim'
-	    Plug 'tpope/vim-fugitive'
-	    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	    Plug 'junegunn/fzf.vim'
-	    Plug 'kyazdani42/nvim-web-devicons' " for file icons
-	    Plug 'kyazdani42/nvim-tree.lua'
-	      nmap <leader>e :NvimTreeToggle<CR>
-	endif
+	"if !exists('g:started_by_firenvim')
+	Plug 'nvim-lualine/lualine.nvim'
+	Plug 'tpope/vim-fugitive'
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'goolord/alpha-nvim'
+	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'nvim-telescope/telescope-fzf-native.nvim'
+	" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	" Plug 'junegunn/fzf.vim'
+	Plug 'kyazdani42/nvim-web-devicons' " for file icons
+	Plug 'kyazdani42/nvim-tree.lua'
+	  nmap <leader>e :NvimTreeToggle<CR>
+	"endif
 
 	Plug 'lukas-reineke/indent-blankline.nvim'
 	Plug 'wakatime/vim-wakatime'
@@ -112,9 +117,9 @@ if !exists('g:vscode')
 	    \ ],
 	    \}
 	"Plug 'kdheepak/cmp-latex-symbols'
-	Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-	  let g:livepreview_previewer = 'open -a Preview'
-	  let g:livepreview_engine = 'xelatex' 
+	"Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+	  "let g:livepreview_previewer = 'open -a Preview'
+	  "let g:livepreview_engine = 'xelatex' 
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'kabouzeid/nvim-lspinstall'
 	Plug 'ray-x/lsp_signature.nvim'
@@ -173,3 +178,8 @@ augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=300 }
 augroup END
+
+nnoremap <leader>ff :Telescope find_files<cr>
+nnoremap <leader>fr :Telescope live_grep<cr>
+nnoremap <leader>fb :Telescope buffers<cr>
+nnoremap <leader>fh :Telescope help_tags<cr>
