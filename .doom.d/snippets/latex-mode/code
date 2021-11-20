@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: inline code
+# key: inl
+# condition: t
+# --
+\verb|$1|

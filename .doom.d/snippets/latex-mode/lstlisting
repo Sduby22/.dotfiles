@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: lstlistings
+# key: lst
+# condition: t
+# --
+\begin{lstlisting}[language=$1, ${2: caption=$3}]
+$4
+\end{lstlisting}
