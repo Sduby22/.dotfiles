@@ -9,6 +9,8 @@
 - clean: ['~']
 
 - crossplatform-link:
+    ~/.doom.d:
+      path: .doom.d
     ~/.latexmkrc:
       path: latexmkrc
     ~/.config/wezterm:
