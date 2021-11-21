@@ -24,7 +24,7 @@ syntax off
 
 let mapleader=" "
 nmap Q <Nop> 
-imap <C-c> <esc>
+imap jk <esc>
 map j gj
 map k gk
 let g:ftplugin_sql_omni_key = '<C-B>'
