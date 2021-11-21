@@ -54,8 +54,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
-(define-key evil-insert-state-map (kbd "C-c") 'evil-normal-state)
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 (define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
