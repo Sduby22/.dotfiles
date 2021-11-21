@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: document
+# key: doc
+# condition: t
+# --
+\documentclass[UTF8, a4paper]{${1:ctexart}}
+
+\usepackage{geometry} %ËÆæÁΩÆÈ°µËæπË∑ùÁöÑÂÆèÂåÖ
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm} %ËÆæÁΩÆÈ°µËæπË∑ù
+\usepackage{setspace}   %Ë°åÈó¥Ë∑ù
+\setstretch{1.25} % ‰ªªÊÑèË°åË∑ù
+
+\title{${2:Untitled}}
+\author{$3}
+\date{\today}
+
+\begin{document}
+$4
+\end{document}

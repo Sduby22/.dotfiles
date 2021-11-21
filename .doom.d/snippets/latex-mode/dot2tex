@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: dot2tex
+# key: dot2tex
+# --
+\begin{figure}[htpb]
+	\centering
+	\begin{dot2tex}
+	digraph G {
+		$1
+	}
+	\end{dot2tex}
+	\caption{${2:caption}}%
+	\label{fig:$3}
+\end{figure}
