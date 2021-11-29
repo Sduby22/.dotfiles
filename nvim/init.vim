@@ -4,6 +4,8 @@
 
 filetype plugin indent on
 
+set exrc
+set secure
 set hidden
 set laststatus=0
 set smartindent
@@ -25,6 +27,7 @@ syntax off
 let mapleader=" "
 nmap Q <Nop> 
 imap <C-c> <esc>
+imap jk <esc>
 map j gj
 map k gk
 let g:ftplugin_sql_omni_key = '<C-B>'
@@ -49,6 +52,7 @@ call plug#begin('~/.vim/plugged')
 	" Shared plugins
 	Plug 'ahmedkhalf/project.nvim'
 	Plug 'ethanholz/nvim-lastplace'
+	Plug 'editorconfig/editorconfig-vim'
 
 	" detect file indetn
 	Plug 'tpope/vim-sleuth'
