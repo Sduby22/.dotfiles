@@ -28,6 +28,7 @@ let mapleader=" "
 nmap Q <Nop> 
 imap <C-c> <esc>
 imap jk <esc>
+vmap s S
 map j gj
 map k gk
 let g:ftplugin_sql_omni_key = '<C-B>'
@@ -103,6 +104,11 @@ if !exists('g:vscode')
 	Plug 'kyazdani42/nvim-web-devicons' " for file icons
 	Plug 'kyazdani42/nvim-tree.lua'
 	  nmap <leader>e :NvimTreeToggle<CR>
+
+	Plug 'francoiscabrol/ranger.vim'
+	  let g:ranger_map_keys = 0
+	  nmap <leader>o- :Ranger<CR>
+	Plug 'rbgrouleff/bclose.vim'
 	"endif
 
 	Plug 'lukas-reineke/indent-blankline.nvim'
@@ -188,3 +194,7 @@ nnoremap <leader>fr :Telescope live_grep<cr>
 nnoremap <leader>fb :Telescope buffers<cr>
 nnoremap <leader>fh :Telescope help_tags<cr>
 nnoremap <leader>ft :Telescope tags<cr>
+nnoremap <leader>fp :Vimrc<cr>
+nnoremap <leader>ot :ToggleTerm<cr>
+
+nnoremap <leader>' :ToggleTerm<cr>

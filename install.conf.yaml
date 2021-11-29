@@ -9,6 +9,8 @@
 - clean: ['~']
 
 - crossplatform-link:
+    ~/.spacemacs:
+      path: .spacemacs
     ~/.doom.d:
       path: .doom.d
     ~/.latexmkrc:
