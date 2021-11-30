@@ -133,7 +133,7 @@ if !exists('g:vscode')
 	  "let g:livepreview_previewer = 'open -a Preview'
 	  "let g:livepreview_engine = 'xelatex' 
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'kabouzeid/nvim-lspinstall'
+	Plug 'williamboman/nvim-lsp-installer'
 	Plug 'ray-x/lsp_signature.nvim'
 	
 	Plug 'hrsh7th/nvim-cmp'

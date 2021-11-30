@@ -34,8 +34,17 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+local lsp_installer = require("nvim-lsp-installer")
 
-
+lsp_installer.settings({
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
 
 local nvim_lsp = require('lspconfig')
 
@@ -62,19 +71,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[e', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']e', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 end
-
-local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-    nvim_lsp[server].setup{
-      on_attach = on_attach,
-    }
-  end
-end
-
-
-
 
 -- Setup nvim-cmp.
 local cmp = require'cmp'
@@ -103,25 +99,8 @@ cmp.setup({
   }
 })
 
-
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
-
-require "lsp_signature".setup({
-  bind = true, -- This is mandatory, otherwise border config won't get registered.
-  handler_opts = {
-    border = "single",
-    doc_lines = 0,
-
-  },
-})
-
 vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
+
 require("indent_blankline").setup {
     char = "|",
     filetype_exclude = {'alpha'},
