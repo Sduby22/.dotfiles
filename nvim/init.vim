@@ -86,9 +86,11 @@ if !exists('g:vscode')
 	"Plug 'voldikss/vim-floaterm'
 	  "let g:floaterm_keymap_toggle = '<F1>'
 
+	" Plug 'rktjmp/lush.nvim'
+	" Plug 'npxbr/gruvbox.nvim'
 	Plug 'rktjmp/lush.nvim'
-	Plug 'npxbr/gruvbox.nvim'
-	Plug 'RRethy/nvim-base16'
+	Plug 'ellisonleao/gruvbox.nvim'
+	" Plug 'RRethy/nvim-base16'
 	"Plug 'chriskempson/base16-vim'
 	"Plug 'Th3Whit3Wolf/one-nvim'
 	"
@@ -158,15 +160,16 @@ source ~/.config/nvim/indent.vim
 
 if !exists('g:vscode')
 
-	if filereadable(expand("~/.vimrc_background"))
-	  set termguicolors
-	  let base16colorspace=256          " Remove this line if not necessary
-	  source ~/.vimrc_background
-	else
-	  set termguicolors
-	  colorscheme gruvbox
-	endif
+	" if filereadable(expand("~/.vimrc_background"))
+	"   set termguicolors
+	"   let base16colorspace=256          " Remove this line if not necessary
+	"   source ~/.vimrc_background
+	" else
+	"   set termguicolors
+	"   colorscheme gruvbox
+	" endif
 
+  colorscheme gruvbox
   let g:UltiSnipsExpandTrigger="<C-x>"
   let g:UltiSnipsJumpForwardTrigger="<tab>"
   let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -190,11 +193,16 @@ augroup highlight_yank
 augroup END
 
 nnoremap <leader>ff :Telescope find_files<cr>
-nnoremap <leader>fr :Telescope live_grep<cr>
-nnoremap <leader>fb :Telescope buffers<cr>
+nnoremap <leader>pf :Telescope find_files<cr>
+nnoremap <leader>/ :Telescope live_grep<cr>
+nnoremap <leader>. :Telescope buffers<cr>
 nnoremap <leader>fh :Telescope help_tags<cr>
 nnoremap <leader>ft :Telescope tags<cr>
+nnoremap <leader>pp :Telescope projects<cr>
 nnoremap <leader>fp :Vimrc<cr>
+
 nnoremap <leader>ot :ToggleTerm<cr>
 
 nnoremap <leader>' :ToggleTerm<cr>
+
+source ~/.config/nvim/neovide.vim
