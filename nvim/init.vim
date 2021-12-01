@@ -96,7 +96,7 @@ if !exists('g:vscode')
 	"
 	"if !exists('g:started_by_firenvim')
 	Plug 'nvim-lualine/lualine.nvim'
-	Plug 'tpope/vim-fugitive'
+	Plug 'TimUntersberger/neogit'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'goolord/alpha-nvim'
 	Plug 'nvim-telescope/telescope.nvim'
@@ -195,14 +195,16 @@ augroup END
 nnoremap <leader>ff :Telescope find_files<cr>
 nnoremap <leader>pf :Telescope find_files<cr>
 nnoremap <leader>/ :Telescope live_grep<cr>
-nnoremap <leader>. :Telescope buffers<cr>
+nnoremap <leader><leader> :Telescope buffers<cr>
 nnoremap <leader>fh :Telescope help_tags<cr>
 nnoremap <leader>ft :Telescope tags<cr>
 nnoremap <leader>pp :Telescope projects<cr>
 nnoremap <leader>fp :Vimrc<cr>
+nmap <leader>g :Neogit<cr>
 
 nnoremap <leader>ot :ToggleTerm<cr>
-
 nnoremap <leader>' :ToggleTerm<cr>
+
+nmap <leader><tab>n :tabnew
 
 source ~/.config/nvim/neovide.vim
