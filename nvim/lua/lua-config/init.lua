@@ -85,6 +85,7 @@ lsp_installer.on_server_ready(function(server)
 end)
 
 local nvim_lsp = require('lspconfig')
+nvim_lsp.clangd.setup{}
 
 -- Setup nvim-cmp.
 local cmp = require'cmp'
@@ -202,7 +203,7 @@ function _lazygit_toggle()
   lazygit:toggle()
 end
 
--- vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 
 local neogit = require('neogit')
 neogit.setup {}

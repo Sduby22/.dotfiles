@@ -4,6 +4,7 @@
 
 filetype plugin indent on
 
+set timeoutlen=1000
 set exrc
 set secure
 set hidden
@@ -27,7 +28,7 @@ syntax off
 let mapleader=" "
 nmap Q <Nop> 
 imap <C-c> <esc>
-imap jk <esc>
+" imap jk <esc>
 vmap s S
 map j gj
 map k gk
@@ -53,6 +54,9 @@ call plug#begin('~/.vim/plugged')
 	" Shared plugins
 	Plug 'ahmedkhalf/project.nvim'
 	Plug 'ethanholz/nvim-lastplace'
+	Plug 'jdhao/better-escape.vim'
+	  let g:better_escape_shortcut = ['jk', 'kj']
+	  let g:better_escape_interval = 150
 	Plug 'editorconfig/editorconfig-vim'
 
 	" detect file indetn
@@ -169,6 +173,7 @@ if !exists('g:vscode')
 	"   colorscheme gruvbox
 	" endif
 
+  set termguicolors
   colorscheme gruvbox
   let g:UltiSnipsExpandTrigger="<C-x>"
   let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -200,11 +205,12 @@ nnoremap <leader>fh :Telescope help_tags<cr>
 nnoremap <leader>ft :Telescope tags<cr>
 nnoremap <leader>pp :Telescope projects<cr>
 nnoremap <leader>fp :Vimrc<cr>
-nmap <leader>g :Neogit<cr>
+" nmap <leader>g :Neogit<cr>
 
 nnoremap <leader>ot :ToggleTerm<cr>
 nnoremap <leader>' :ToggleTerm<cr>
 
 nmap <leader><tab>n :tabnew
 
+tmap <leader>ot <c-\><c-n>:ToggleTerm<cr>
 source ~/.config/nvim/neovide.vim
