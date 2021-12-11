@@ -104,7 +104,7 @@ if !exists('g:vscode')
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'goolord/alpha-nvim'
 	Plug 'nvim-telescope/telescope.nvim'
-	Plug 'nvim-telescope/telescope-fzf-native.nvim'
+	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	" Plug 'junegunn/fzf.vim'
 	Plug 'kyazdani42/nvim-web-devicons' " for file icons
