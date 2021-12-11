@@ -43,3 +43,12 @@ snippet dot2tex "dot2tex" b
 	\label{fig:$3}
 \end{figure}
 endsnippet
+
+snippet fig "figure" b
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=$1\linewidth]{Figures/$2.png}
+    \caption{$3}%
+    \label{fig:$2}
+\end{figure}
+endsnippet
