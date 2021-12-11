@@ -53,6 +53,11 @@
     ~/.xmodmaprc:
       path: Xmodmap
       platform: linux
+    ~/.Xresources:
+      path: Xresources
+      platform: linux
+    ~/.config/lazygit:
+      path: lazygit
 
 - create:
     - ~/.vim/undo-history
