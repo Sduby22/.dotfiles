@@ -29,7 +29,7 @@
 
 Xft.dpi: 96
 !抗锯齿
-Xft.antialias: false
+Xft.antialias: true
 Xft.rgba: rgb
 !Xft.hinting: true
 !Xft.hintstyle: hintslight
@@ -48,7 +48,7 @@ URxvt.keysym.Control-Meta-c: builtin-string:
 URxvt.keysym.Control-Meta-v: builtin-string:
 
 #define fonts xft:envypn:pixelsize=15,\
-                xft:cozette:pixelsize=9,\
+                xft:cozette:pixelsize=10,\
                 xft:WenQuanYi WenQuanYi Bitmap Song:size=9
 URxvt.scrollBar: false
 URxvt.font:fonts
