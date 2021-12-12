@@ -140,15 +140,17 @@ if !exists('g:vscode')
 	Plug 'williamboman/nvim-lsp-installer'
 	Plug 'ray-x/lsp_signature.nvim'
 	
+	Plug 'dcampos/nvim-snippy'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-path'
+	Plug 'dcampos/cmp-snippy'
 	Plug 'hrsh7th/cmp-cmdline'
-	Plug 'SirVer/ultisnips'
+	" Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
-	Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+	" Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 	"Plug 'gillescastel/latex-snippets'
 endif
 
@@ -177,9 +179,6 @@ if !exists('g:vscode')
 
   set termguicolors
   colorscheme gruvbox
-  let g:UltiSnipsExpandTrigger="<C-x>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
   lua require('lua-config')
 
@@ -212,7 +211,32 @@ nnoremap <leader>fp :Vimrc<cr>
 nnoremap <leader>ot :ToggleTerm<cr>
 nnoremap <leader>' :ToggleTerm<cr>
 
-nmap <leader><tab>n :tabnew
+
+nmap <leader><tab>1 1gt
+nmap <leader><tab>2 2gt
+nmap <leader><tab>3 3gt
+nmap <leader><tab>4 4gt
+nmap <leader><tab>5 5gt
+nmap <leader><tab>6 6gt
+nmap <leader><tab>7 7gt
+nmap <leader><tab>8 8gt
+nmap <leader><tab>9 9gt
+nmap <leader><tab>n :tabnew<cr>
 
 tmap <leader>ot <c-\><c-n>:ToggleTerm<cr>
 source ~/.config/nvim/neovide.vim
+
+let g:firenvim_config = { 
+    \ 'globalSettings': {
+        \ 'alt': 'all',
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'neovim',
+            \ 'content': 'text',
+            \ 'priority': 0,
+            \ 'selector': 'textarea',
+            \ 'takeover': 'never',
+        \ },
+    \ }
+\ }

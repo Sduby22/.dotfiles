@@ -91,9 +91,26 @@ nvim_lsp.clangd.setup {}
 
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
+local snippy = require("snippy")
+snippy.setup({
+    mappings = {
+        is = {
+            ["<Tab>"] = "expand_or_advance",
+            ["<S-Tab>"] = "previous",
+        },
+        nx = {
+            ["<leader>x"] = "cut_text",
+        },
+    },
+})
 
 cmp.setup({
-    snippet = {expand = function(args) vim.fn["UltiSnips#Anon"](args.body) end},
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        snippy.expand_snippet(args.body) -- For `snippy` users.
+      end,
+    },
     mapping = {
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
@@ -104,9 +121,8 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm()
     },
     sources = {
-        {name = 'ultisnips'}, {name = 'nvim_lsp'}, {name = 'cmp_tabnine'},
-
-        {name = 'buffer'}
+        {name = 'snippy'}, {name = 'nvim_lsp'}, {name = 'cmp_tabnine'},
+        {name = 'buffer'}, {name = 'path'}, {name = 'cmdline'}
     }
 })
 
