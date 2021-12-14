@@ -5,6 +5,7 @@
 filetype plugin indent on
 
 set timeoutlen=1000
+set autoread
 set exrc
 set secure
 set hidden
@@ -54,9 +55,7 @@ call plug#begin('~/.vim/plugged')
 	" Shared plugins
 	Plug 'ahmedkhalf/project.nvim'
 	Plug 'ethanholz/nvim-lastplace'
-	Plug 'jdhao/better-escape.vim'
-	  let g:better_escape_shortcut = ['jk', 'kj']
-	  let g:better_escape_interval = 150
+	Plug 'max397574/better-escape.nvim'
 	Plug 'editorconfig/editorconfig-vim'
 
 	" detect file indetn
@@ -223,6 +222,9 @@ nmap <leader><tab>8 8gt
 nmap <leader><tab>9 9gt
 nmap <leader><tab>n :tabnew<cr>
 
+nmap <leader>v :vs<cr>
+nmap <leader>b :split<cr>
+
 tmap <leader>ot <c-\><c-n>:ToggleTerm<cr>
 source ~/.config/nvim/neovide.vim
 
@@ -240,3 +242,5 @@ let g:firenvim_config = {
         \ },
     \ }
 \ }
+
+au FocusGained,BufEnter * :checktime
