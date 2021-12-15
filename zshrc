@@ -8,6 +8,7 @@ if [[ "$(uname -s)" = "Darwin" ]]; then
       ;;
     "arm64" )
       # Mac with Apple Silicon
+      alias xcp=pbcopy
       alias brew='/opt/homebrew/bin/brew' # ARM Homebrew
       alias ibrew='arch -x86_64 /usr/local/bin/brew' # X86 Homebrew
       source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -21,6 +22,7 @@ else
   source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
+  alias xcp=xclip -selection clipboard
 fi
 
 if [[ -n $SSH_CONNECTION ]]; then
@@ -96,3 +98,9 @@ alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/base16-alacritty/c
 #alias clang='/usr/bin/clang'
 
 #export PATH=$PATH:~/.config/alacritty/color_scripts
+#
+export PYENV_ROOR="$HOME/.pyenv"
+export PATH=$PYENV_ROOT/shims:$PATH
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
