@@ -94,22 +94,17 @@ local cmp = require 'cmp'
 local snippy = require("snippy")
 snippy.setup({
     mappings = {
-        is = {
-            ["<Tab>"] = "expand_or_advance",
-            ["<S-Tab>"] = "previous",
-        },
-        nx = {
-            ["<leader>x"] = "cut_text",
-        },
-    },
+        is = {["<Tab>"] = "expand_or_advance", ["<S-Tab>"] = "previous"},
+        nx = {["<leader>x"] = "cut_text"}
+    }
 })
 
 cmp.setup({
     snippet = {
-      -- REQUIRED - you must specify a snippet engine
-      expand = function(args)
-        snippy.expand_snippet(args.body) -- For `snippy` users.
-      end,
+        -- REQUIRED - you must specify a snippet engine
+        expand = function(args)
+            snippy.expand_snippet(args.body) -- For `snippy` users.
+        end
     },
     mapping = {
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
@@ -160,33 +155,21 @@ require'nvim-tree'.setup {
 local Rule = require('nvim-autopairs.rule')
 local npairs = require('nvim-autopairs')
 
-npairs.setup{}
+npairs.setup {}
 npairs.add_rules {
-  Rule(' ', ' ')
-    :with_pair(function (opts)
-      local pair = opts.line:sub(opts.col - 1, opts.col)
-      return vim.tbl_contains({ '()', '[]', '{}' }, pair)
-    end),
-  Rule('( ', ' )')
-      :with_pair(function() return false end)
-      :with_move(function(opts)
-          return opts.prev_char:match('.%)') ~= nil
-      end)
-      :use_key(')'),
-  Rule('{ ', ' }')
-      :with_pair(function() return false end)
-      :with_move(function(opts)
-          return opts.prev_char:match('.%}') ~= nil
-      end)
-      :use_key('}'),
-  Rule('[ ', ' ]')
-      :with_pair(function() return false end)
-      :with_move(function(opts)
-          return opts.prev_char:match('.%]') ~= nil
-      end)
-      :use_key(']')
+    Rule(' ', ' '):with_pair(function(opts)
+        local pair = opts.line:sub(opts.col - 1, opts.col)
+        return vim.tbl_contains({'()', '[]', '{}'}, pair)
+    end), Rule('( ', ' )'):with_pair(function() return false end):with_move(
+        function(opts) return opts.prev_char:match('.%)') ~= nil end):use_key(
+        ')'),
+    Rule('{ ', ' }'):with_pair(function() return false end):with_move(
+        function(opts) return opts.prev_char:match('.%}') ~= nil end):use_key(
+        '}'), Rule('[ ', ' ]'):with_pair(function() return false end):with_move(
+        function(opts) return opts.prev_char:match('.%]') ~= nil end):use_key(
+        ']')
 }
-npairs.add_rule(Rule("'''","'''","python"))
+npairs.add_rule(Rule("'''", "'''", "python"))
 
 require'nvim-lastplace'.setup {}
 require('nvim_comment').setup()
@@ -261,3 +244,14 @@ vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>",
 
 local neogit = require('neogit')
 neogit.setup {}
+
+require("better_escape").setup {
+    mapping = {"jk", "kj"}, -- a table with mappings to use
+    timeout = 150, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+    clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+    keys = "<Esc>" -- keys used for escaping, if it is a function will use the result everytime
+    -- example
+    -- keys = function()
+    --   return vim.fn.col '.' - 2 >= 1 and '<esc>l' or '<esc>'
+    -- end,
+}
