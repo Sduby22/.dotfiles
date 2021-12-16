@@ -82,6 +82,8 @@ if !exists('g:vscode')
 	  Plug 'ybian/smartim'
 	endif
 
+	Plug 'ianding1/leetcode.vim'
+	  let g:leetcode_browser = 'chrome'
 	Plug 'sbdchd/neoformat'
 	  nmap <leader>f :Neoformat<CR>
 
