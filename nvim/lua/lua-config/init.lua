@@ -242,9 +242,6 @@ function _lazygit_toggle() lazygit:toggle() end
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>",
                         {noremap = true, silent = true})
 
-local neogit = require('neogit')
-neogit.setup {}
-
 require("better_escape").setup {
     mapping = {"jk", "kj"}, -- a table with mappings to use
     timeout = 150, -- the time in which the keys must be hit in ms. Use option timeoutlen by default

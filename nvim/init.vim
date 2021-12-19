@@ -101,7 +101,7 @@ if !exists('g:vscode')
 	"
 	"if !exists('g:started_by_firenvim')
 	Plug 'nvim-lualine/lualine.nvim'
-	Plug 'TimUntersberger/neogit'
+	" Plug 'TimUntersberger/neogit'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'goolord/alpha-nvim'
 	Plug 'nvim-telescope/telescope.nvim'
