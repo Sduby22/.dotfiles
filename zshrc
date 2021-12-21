@@ -22,7 +22,7 @@ else
   source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
-  alias xcp=xclip -selection clipboard
+  alias xcp='xclip -selection clipboard'
 fi
 
 if [[ -n $SSH_CONNECTION ]]; then
@@ -69,7 +69,6 @@ export PS1="%{$fg[$bracket_color]%}%n%{$reset_color%}@%m: %(5~|%-1~/.../%2~|%3~)
 # alias npm=cnpm
 alias lgit=lazygit
 alias ls='ls -G'
-alias xcp=pbcopy
 alias cl=clear
 alias fy='fy -S'
 alias fanyi='fanyi -S'

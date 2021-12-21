@@ -74,8 +74,8 @@ lsp_installer.settings({
     }
 })
 
+local opts = {on_attach = on_attach}
 lsp_installer.on_server_ready(function(server)
-    local opts = {on_attach = on_attach}
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end
@@ -87,7 +87,7 @@ lsp_installer.on_server_ready(function(server)
 end)
 
 local nvim_lsp = require('lspconfig')
-nvim_lsp.clangd.setup {}
+nvim_lsp.clangd.setup(opts)
 
 -- Setup nvim-cmp.
 local cmp = require 'cmp'

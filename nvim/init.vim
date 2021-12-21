@@ -31,6 +31,7 @@ nmap Q <Nop>
 imap <C-c> <esc>
 " imap jk <esc>
 vmap s S
+sunmap s
 map j gj
 map k gk
 let g:ftplugin_sql_omni_key = '<C-B>'
