@@ -74,8 +74,8 @@ lsp_installer.settings({
     }
 })
 
+local opts = {on_attach = on_attach}
 lsp_installer.on_server_ready(function(server)
-    local opts = {on_attach = on_attach}
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end
@@ -87,8 +87,9 @@ lsp_installer.on_server_ready(function(server)
 end)
 
 local nvim_lsp = require('lspconfig')
-nvim_lsp.clangd.setup {}
 nvim_lsp.volar.setup{}
+nvim_lsp.clangd.setup(opts)
+
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
 local snippy = require("snippy")
@@ -241,9 +242,6 @@ function _lazygit_toggle() lazygit:toggle() end
 
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>",
                         {noremap = true, silent = true})
-
-local neogit = require('neogit')
-neogit.setup {}
 
 require("better_escape").setup {
     mapping = {"jk", "kj"}, -- a table with mappings to use

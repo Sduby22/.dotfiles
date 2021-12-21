@@ -31,6 +31,7 @@ nmap Q <Nop>
 imap <C-c> <esc>
 " imap jk <esc>
 vmap s S
+sunmap s
 map j gj
 map k gk
 let g:ftplugin_sql_omni_key = '<C-B>'
@@ -101,7 +102,7 @@ if !exists('g:vscode')
 	"
 	"if !exists('g:started_by_firenvim')
 	Plug 'nvim-lualine/lualine.nvim'
-	Plug 'TimUntersberger/neogit'
+	" Plug 'TimUntersberger/neogit'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'goolord/alpha-nvim'
 	Plug 'nvim-telescope/telescope.nvim'
