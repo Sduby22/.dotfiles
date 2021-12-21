@@ -88,7 +88,7 @@ end)
 
 local nvim_lsp = require('lspconfig')
 nvim_lsp.clangd.setup {}
-
+nvim_lsp.volar.setup{}
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
 local snippy = require("snippy")
@@ -255,3 +255,4 @@ require("better_escape").setup {
     --   return vim.fn.col '.' - 2 >= 1 and '<esc>l' or '<esc>'
     -- end,
 }
+

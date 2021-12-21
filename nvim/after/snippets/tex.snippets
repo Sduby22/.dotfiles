@@ -29,20 +29,22 @@ snippet doc "document" b
 
 snippet dot2tex "dot2tex" b
     \\begin{figure}[htpb]
-	    \\centering
-	    \\begin{dot2tex}[scale=0.5]
-	    digraph G {
-		    $1
-	    }
-	    \\end{dot2tex}
-	    \\caption{${2:caption}}%
-	    \\label{fig:$3}
+            \\centering
+            \\begin{dot2tex}[scale=0.5]
+            digraph G {
+                    $1
+            }
+            \\end{dot2tex}
+            \\caption{${2:caption}}%
+            \\label{fig:$3}
     \\end{figure}
 
 snippet fig "figure" b
     \\begin{figure}[htpb]
-	\\centering
-	\\includegraphics[width=$1\\linewidth]{Figures/$2.png}
-	\\caption{$3}%
-	\\label{fig:$2}
+        \\centering
+        \\includegraphics[width=$1\\linewidth]{Figures/$2.png}
+        \\caption{$3}%
+        \\label{fig:$2}
     \\end{figure}
+
+    
