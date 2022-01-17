@@ -98,8 +98,7 @@ alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/base16-alacritty/c
 
 #export PATH=$PATH:~/.config/alacritty/color_scripts
 #
-export PYENV_ROOR="$HOME/.pyenv"
-export PATH=$PYENV_ROOT/shims:$PATH
+#
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
+alias ls='ls --color=auto'
