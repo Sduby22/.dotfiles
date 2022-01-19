@@ -176,7 +176,8 @@ require'nvim-lastplace'.setup {}
 require('nvim_comment').setup()
 
 require("project_nvim").setup {
-    patterns = {".git", "_darcs", ".hg", ".bzr", ".svn", "package.json"}
+    patterns = {".git", "_darcs", ".hg", ".bzr", ".svn", "package.json"},
+    manual_mode = true,
 }
 
 telescope.setup {

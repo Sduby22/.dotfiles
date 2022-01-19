@@ -81,8 +81,10 @@ if !exists('g:vscode')
 	" Vscode disabled plugins
 	if has("macunix")
 	  Plug 'ybian/smartim'
+	else
+	  Plug 'lilydjwg/fcitx.vim'
 	endif
-
+	
 	Plug 'ianding1/leetcode.vim'
 	  let g:leetcode_browser = 'chrome'
 	Plug 'sbdchd/neoformat'
@@ -210,9 +212,8 @@ nnoremap <leader>pp :Telescope projects<cr>
 nnoremap <leader>fp :Vimrc<cr>
 " nmap <leader>g :Neogit<cr>
 
-nnoremap <leader>ot :ToggleTerm<cr>
-nnoremap <leader>' :ToggleTerm<cr>
-
+nnoremap <c-t> :ToggleTerm<cr>
+tmap <c-t> <c-\><c-n>:ToggleTerm<cr>
 
 nmap <leader><tab>1 1gt
 nmap <leader><tab>2 2gt
@@ -228,7 +229,6 @@ nmap <leader><tab>n :tabnew<cr>
 nmap <leader>v :vs<cr>
 nmap <leader>b :split<cr>
 
-tmap <leader>ot <c-\><c-n>:ToggleTerm<cr>
 source ~/.config/nvim/neovide.vim
 
 let g:firenvim_config = { 

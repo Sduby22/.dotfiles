@@ -65,6 +65,13 @@ bindsym $alt+space exec --no-startup-id rofi -show drun
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+#
+# move workspace to monitor
+
+bindsym $mod+$alt+h move workspace to output left
+bindsym $mod+$alt+j move workspace to output down
+bindsym $mod+$alt+k move workspace to output up
+bindsym $mod+$alt+l move workspace to output right
 
 # change focus
 bindsym $mod+h focus left
