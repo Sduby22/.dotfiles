@@ -56,9 +56,9 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
                    opts)
-    buf_set_keymap('n', '[e', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',
+    buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>',
                    opts)
-    buf_set_keymap('n', ']e', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',
+    buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>',
                    opts)
 end
 
