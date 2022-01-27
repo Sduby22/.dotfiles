@@ -73,8 +73,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/vim-easy-align'
 	Plug 'mg979/vim-visual-multi'
 
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
-	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+	" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+	" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 	Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 if !exists('g:vscode')
