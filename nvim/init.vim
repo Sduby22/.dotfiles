@@ -123,17 +123,17 @@ if !exists('g:vscode')
 	Plug 'wakatime/vim-wakatime'
 	Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
-	Plug 'lervag/vimtex', { 'for': 'latex' }
-	  let g:tex_flavor = 'latex'
-	  let g:vimtex_compiler_latexmk = {
-	    \ 'options' : [
-	    \   '-xelatex',
-	    \   '-verbose',
-	    \   '-file-line-error',
-	    \   '-synctex=1',
-	    \   '-interaction=nonstopmode',
-	    \ ],
-	    \}
+	" Plug 'lervag/vimtex', { 'for': 'latex' }
+	  let g:tex_flavor = 'tex'
+	"   let g:vimtex_compiler_latexmk = {
+	"     \ 'options' : [
+	"     \   '-xelatex',
+	"     \   '-verbose',
+	"     \   '-file-line-error',
+	"     \   '-synctex=1',
+	"     \   '-interaction=nonstopmode',
+	"     \ ],
+	"     \}
 	"Plug 'kdheepak/cmp-latex-symbols'
 	"Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 	  "let g:livepreview_previewer = 'open -a Preview'

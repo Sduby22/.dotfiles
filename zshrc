@@ -8,6 +8,8 @@ if [[ "$(uname -s)" = "Darwin" ]]; then
       ;;
     "arm64" )
       # Mac with Apple Silicon
+      export LC_ALL=en_US.UTF-8  
+      export LANG=en_US.UTF-8
       alias xcp=pbcopy
       alias brew='/opt/homebrew/bin/brew' # ARM Homebrew
       alias ibrew='arch -x86_64 /usr/local/bin/brew' # X86 Homebrew
