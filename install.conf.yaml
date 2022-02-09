@@ -20,7 +20,7 @@
     ~/.config/ranger:
       path: ranger
     ~/.vimrc:
-      path: .vimrc
+      path: nvim/pure.vim
     ~/.tmux.conf:
       path: tmux.conf
     ~/.config/nvim:
