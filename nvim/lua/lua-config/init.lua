@@ -1,35 +1,35 @@
 local telescope = require 'telescope'
 local actions = require "telescope.actions"
 
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
-    ignore_install = {"latex"},
-    highlight = {enable = true, additional_vim_regex_highlighting = false},
-    textobjects = {
-        select = {
-            enable = true,
-
-            -- Automatically jump forward to textobj, similar to targets.vim 
-            lookahead = true,
-
-            keymaps = {
-                -- You can use the capture groups defined in textobjects.scm
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-                ["ac"] = "@class.outer",
-                ["ic"] = "@class.inner",
-
-                -- Or you can define your own textobjects like this
-                ["iF"] = {
-                    python = "(function_definition) @function",
-                    cpp = "(function_definition) @function",
-                    c = "(function_definition) @function",
-                    java = "(method_declaration) @function"
-                }
-            }
-        }
-    }
-}
+-- require'nvim-treesitter.configs'.setup {
+--     ensure_installed = "maintained",
+--     ignore_install = {"latex"},
+--     highlight = {enable = true, additional_vim_regex_highlighting = false},
+--     textobjects = {
+--         select = {
+--             enable = true,
+-- 
+--             -- Automatically jump forward to textobj, similar to targets.vim 
+--             lookahead = true,
+-- 
+--             keymaps = {
+--                 -- You can use the capture groups defined in textobjects.scm
+--                 ["af"] = "@function.outer",
+--                 ["if"] = "@function.inner",
+--                 ["ac"] = "@class.outer",
+--                 ["ic"] = "@class.inner",
+-- 
+--                 -- Or you can define your own textobjects like this
+--                 ["iF"] = {
+--                     python = "(function_definition) @function",
+--                     cpp = "(function_definition) @function",
+--                     c = "(function_definition) @function",
+--                     java = "(method_declaration) @function"
+--                 }
+--             }
+--         }
+--     }
+-- }
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -56,9 +56,9 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
                    opts)
-    buf_set_keymap('n', '[e', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',
+    buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>',
                    opts)
-    buf_set_keymap('n', ']e', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',
+    buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>',
                    opts)
 end
 
@@ -176,7 +176,8 @@ require'nvim-lastplace'.setup {}
 require('nvim_comment').setup()
 
 require("project_nvim").setup {
-    patterns = {".git", "_darcs", ".hg", ".bzr", ".svn", "package.json"}
+    patterns = {".git", "_darcs", ".hg", ".bzr", ".svn", "package.json"},
+    manual_mode = true,
 }
 
 telescope.setup {
