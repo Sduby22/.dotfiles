@@ -1,6 +1,7 @@
 filetype plugin indent on
 
 set nocompatible
+set backspace=indent,eol,start
 set timeoutlen=1000
 set autoread
 set exrc
