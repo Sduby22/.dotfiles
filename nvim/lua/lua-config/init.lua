@@ -140,14 +140,6 @@ require("indent_blankline").setup {
     show_current_context = true
 }
 
-require'lualine'.setup {
-    options = {
-        theme = 'gruvbox'
-        -- section_separators = { left = '', right = ''},
-        -- component_separators = { left = '', right = ''},
-    }
-}
-
 require'nvim-tree'.setup {
     update_cwd = true,
     update_focused_file = {enable = true, update_cwd = true}
@@ -255,3 +247,12 @@ require("better_escape").setup {
     -- end,
 }
 
+if vim.g.sdubygui == 1 then
+    require'lualine'.setup {
+        options = {
+            theme = 'gruvbox'
+            -- section_separators = { left = '', right = ''},
+            -- component_separators = { left = '', right = ''},
+        }
+    }
+end
