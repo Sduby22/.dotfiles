@@ -9,6 +9,12 @@
 - clean: ['~']
 
 - crossplatform-link:
+    ~/.config/sxkhd:
+      path: sxhkd
+      platform: linux
+    ~/.config/bspwm:
+      path: bspwm
+      platform: linux
     ~/.spacemacs:
       path: .spacemacs
     ~/.doom.d:
@@ -50,8 +56,8 @@
     ~/.config/systemd/user/aria2.service:
       path: aria2_rpc/aria2.service
       platform: linux
-    ~/.xmodmaprc:
-      path: Xmodmap
+    ~/keyboard.sh:
+      path: keyboard.sh
       platform: linux
     ~/.Xresources:
       path: Xresources
