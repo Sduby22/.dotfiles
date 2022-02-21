@@ -105,7 +105,7 @@ alias cl=clear
 alias fy='fy -S'
 alias fanyi='fanyi -S'
 myproxy() {
-	export ALL_PROXY=http://192.168.15.1:7890;
+	export ALL_PROXY=http://127.0.0.1:7890;
 }
 unproxy() {
 	export ALL_PROXY=;
