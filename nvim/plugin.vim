@@ -126,6 +126,8 @@ if !exists('g:vscode')
       set termguicolors
       colorscheme gruvbox
       source ~/.config/nvim/firenvim.vim
+  else
+      colorscheme dim
   endif
   lua require('lua-config')
 else 
