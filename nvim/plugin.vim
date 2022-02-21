@@ -71,7 +71,7 @@ if !exists('g:vscode')
 	    nnoremap <c-t> :ToggleTerm<cr>
 	    tmap <c-t> <c-\><c-n>:ToggleTerm<cr>
 	Plug 'nvim-lua/plenary.nvim'
-	Plug 'goolord/alpha-nvim'
+	" Plug 'goolord/alpha-nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
