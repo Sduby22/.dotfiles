@@ -62,6 +62,8 @@ if !exists('g:vscode')
 		    \ }
 		\ }
 	endif
+
+	Plug 'jeffkreeftmeijer/vim-dim'
 	Plug 'sbdchd/neoformat'
 	  nmap <leader>f :Neoformat<CR>
 
