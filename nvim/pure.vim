@@ -17,7 +17,7 @@ set sts=-1
 set smarttab
 set smartcase ignorecase
 set autoindent
-"set nu rnu
+set nu rnu
 set pumheight=10
 set completeopt=menuone,noselect
 set mouse+=a

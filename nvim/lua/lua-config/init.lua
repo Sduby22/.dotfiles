@@ -1,35 +1,27 @@
 local telescope = require 'telescope'
 local actions = require "telescope.actions"
 
--- require'nvim-treesitter.configs'.setup {
---     ensure_installed = "maintained",
---     ignore_install = {"latex"},
---     highlight = {enable = true, additional_vim_regex_highlighting = false},
---     textobjects = {
---         select = {
---             enable = true,
--- 
---             -- Automatically jump forward to textobj, similar to targets.vim 
---             lookahead = true,
--- 
---             keymaps = {
---                 -- You can use the capture groups defined in textobjects.scm
---                 ["af"] = "@function.outer",
---                 ["if"] = "@function.inner",
---                 ["ac"] = "@class.outer",
---                 ["ic"] = "@class.inner",
--- 
---                 -- Or you can define your own textobjects like this
---                 ["iF"] = {
---                     python = "(function_definition) @function",
---                     cpp = "(function_definition) @function",
---                     c = "(function_definition) @function",
---                     java = "(method_declaration) @function"
---                 }
---             }
---         }
---     }
--- }
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained",
+    ignore_install = {"latex"},
+    highlight = {enable = true, additional_vim_regex_highlighting = false},
+    textobjects = {
+        select = {
+            enable = true,
+
+            -- Automatically jump forward to textobj, similar to targets.vim 
+            lookahead = true,
+
+            keymaps = {
+                -- You can use the capture groups defined in textobjects.scm
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
+            }
+        }
+    }
+}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -60,6 +52,7 @@ local on_attach = function(client, bufnr)
                    opts)
     buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>',
                    opts)
+    vim.opt.signcolumn = 'yes'
 end
 
 local lsp_installer = require("nvim-lsp-installer")
@@ -129,16 +122,6 @@ cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
 cmp.setup.cmdline(':', {
     sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})
 })
-
-vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
-
-require("indent_blankline").setup {
-    char = "|",
-    filetype_exclude = {'alpha'},
-    spacechar_highlight_list = {"IndentBlanklineIndent1"},
-    show_trailing_blankline_indent = false,
-    show_current_context = true
-}
 
 require'nvim-tree'.setup {
     update_cwd = true,

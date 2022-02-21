@@ -26,8 +26,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/vim-easy-align'
 	Plug 'mg979/vim-visual-multi'
 
-	" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
-	" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 	Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 if !exists('g:vscode')
@@ -45,7 +43,6 @@ if !exists('g:vscode')
 	    Plug 'ellisonleao/gruvbox.nvim'
 	    Plug 'nvim-lualine/lualine.nvim'
 	    Plug 'kyazdani42/nvim-web-devicons' " for file icons
-	    Plug 'wakatime/vim-wakatime'
 	    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 		let g:firenvim_config = { 
 		    \ 'globalSettings': {
@@ -63,6 +60,9 @@ if !exists('g:vscode')
 		\ }
 	endif
 
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+	Plug 'wakatime/vim-wakatime'
 	Plug 'jeffkreeftmeijer/vim-dim'
 	Plug 'sbdchd/neoformat'
 	  nmap <leader>f :Neoformat<CR>
@@ -85,10 +85,9 @@ if !exists('g:vscode')
 	Plug 'rbgrouleff/bclose.vim'
 	"endif
 
-	Plug 'lukas-reineke/indent-blankline.nvim'
-
+	" Plug 'lukas-reineke/indent-blankline.nvim'
+	let g:tex_flavor = 'tex'
 	" Plug 'lervag/vimtex', { 'for': 'latex' }
-	  let g:tex_flavor = 'tex'
 	"   let g:vimtex_compiler_latexmk = {
 	"     \ 'options' : [
 	"     \   '-xelatex',
@@ -104,11 +103,10 @@ if !exists('g:vscode')
 	  "let g:livepreview_engine = 'xelatex' 
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'williamboman/nvim-lsp-installer'
-	
+	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'dcampos/nvim-snippy'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
-	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-path'
 	Plug 'dcampos/cmp-snippy'
@@ -134,6 +132,7 @@ else
   lua require('vscode-config')
 endif
 
+highlight SignColumn guibg=None ctermbg=None
 nnoremap <leader>ff :Telescope find_files<cr>
 nnoremap <leader>pf :Telescope find_files<cr>
 nnoremap <leader>/ :Telescope live_grep<cr>
