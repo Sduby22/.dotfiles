@@ -9,7 +9,10 @@
 - clean: ['~']
 
 - crossplatform-link:
-    ~/.config/sxkhd:
+    ~/.config/xfce4:
+      path: xfce4
+      platform: linux
+    ~/.config/sxhkd:
       path: sxhkd
       platform: linux
     ~/.config/bspwm:
