@@ -9,6 +9,9 @@
 - clean: ['~']
 
 - crossplatform-link:
+    ~/.config/systemd/emacs.service:
+      path: systemd/emacs.service
+      platform: linux
     ~/.config/xfce4:
       path: xfce4
       platform: linux

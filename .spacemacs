@@ -75,6 +75,8 @@ This function should only modify configuration layer settings."
      javascript
      (latex :variables latex-enable-auto-fill nil)
      typescript
+     yaml
+
      (osx :variables osx-command-as       'hyper
                         osx-option-as        'meta
                         osx-control-as       'control
@@ -191,7 +193,13 @@ It should only modify the values of Spacemacs settings."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'vim
+   ;; dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style '(vim :variables
+                                    vim-style-visual-feedback nil
+                                    vim-style-remap-Y-to-y$ t
+                                    vim-style-retain-visual-state-on-shift t
+                                    vim-style-visual-line-move-text nil
+                                    vim-style-ex-substitute-global nil)
 
    ;; If non-nil show the version string in the Spacemacs buffer. It will
    ;; appear as (spacemacs version)@(emacs version)
@@ -261,7 +269,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(all-the-icons :separator arrow :separator-scale 1.5)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -270,8 +278,8 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Jetbrains Mono"
-                               :size 17
+   dotspacemacs-default-font '("JetbrainsMono Nerd Font"
+                               :size 15.0
                                :weight normal
                                :width normal)
 
@@ -561,11 +569,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
     '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
       ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
       ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
-(setq url-proxy-services
-'(("no_proxy" . "^\\(localhost\\|10.*\\)")
-("http" . "127.0.0.1:7890") 
-("https" . "127.0.0.1:7890")
-))
 )
 
 

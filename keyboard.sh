@@ -1,7 +1,7 @@
 Caps_to_Ctrl() {
     xmodmap - <<-EOF
 clear lock
-clear control 
+clear control
 add control = Control_L Control_R
 keycode 66 = Control_R
 EOF

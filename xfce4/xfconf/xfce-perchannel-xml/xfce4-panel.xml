@@ -82,6 +82,9 @@
         <property name="show-qr-code" type="bool" value="false"/>
         <property name="add-primary-clipboard" type="bool" value="true"/>
       </property>
+      <property name="tweaks" type="empty">
+        <property name="never-confirm-history-clear" type="bool" value="false"/>
+      </property>
     </property>
   </property>
 </channel>

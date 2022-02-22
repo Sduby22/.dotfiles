@@ -73,7 +73,9 @@ super + {p,b,comma,period}
 
 # focus the next/previous window in the current desktop
 alt + Tab
-	bspc node -f last
+    sh ~/.config/bspwm/scripts/alttab.sh
+#alt + Tab
+#	bspc node -f last
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
