@@ -595,13 +595,14 @@ before packages are loaded."
   (setq-default evil-escape-key-sequence "jk") 
   (evil-define-key 'normal 'global "]e" 'spacemacs/next-error)
   (evil-define-key 'normal 'global "[e" 'spacemacs/previous-error)
+  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
   (evil-goggles-mode)
 
   ;; Leetcode
   (setq leetcode-prefer-language "python3")
   (setq leetcode-save-solutions t)
   (setq leetcode-directory "~/Documents/leetcode")
-
 )
 
 
