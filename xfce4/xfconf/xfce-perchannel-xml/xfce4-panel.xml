@@ -14,11 +14,11 @@
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
         <value type="int" value="4"/>
-        <value type="int" value="3"/>
         <value type="int" value="2"/>
         <value type="int" value="5"/>
-        <value type="int" value="7"/>
+        <value type="int" value="15"/>
         <value type="int" value="6"/>
+        <value type="int" value="7"/>
         <value type="int" value="11"/>
         <value type="int" value="12"/>
         <value type="int" value="13"/>
@@ -40,12 +40,9 @@
     <property name="plugin-2" type="string" value="tasklist">
       <property name="grouping" type="uint" value="1"/>
     </property>
-    <property name="plugin-3" type="string" value="separator">
-      <property name="expand" type="bool" value="true"/>
-      <property name="style" type="uint" value="0"/>
-    </property>
     <property name="plugin-4" type="string" value="pager">
       <property name="rows" type="uint" value="1"/>
+      <property name="miniature-view" type="bool" value="true"/>
     </property>
     <property name="plugin-5" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
@@ -61,17 +58,21 @@
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="Nutstore"/>
+        <value type="string" value="netease-cloud-music"/>
         <value type="string" value="steam"/>
         <value type="string" value="Fcitx"/>
         <value type="string" value="nm-applet"/>
       </property>
     </property>
-    <property name="plugin-9" type="string" value="power-manager-plugin"/>
-    <property name="plugin-10" type="string" value="notification-plugin"/>
     <property name="plugin-11" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-12" type="string" value="clock"/>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="digital-format" type="string" value="%m月%d日 周%a %H:%M"/>
+      <property name="mode" type="uint" value="2"/>
+      <property name="tooltip-format" type="string" value="%A %d %B %Y"/>
+    </property>
     <property name="plugin-13" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
@@ -85,6 +86,10 @@
       <property name="tweaks" type="empty">
         <property name="never-confirm-history-clear" type="bool" value="false"/>
       </property>
+    </property>
+    <property name="plugin-15" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
     </property>
   </property>
 </channel>

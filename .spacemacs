@@ -38,14 +38,14 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     myleetcode
+     auto-completion
      ;; better-defaults
      emacs-lisp
      git
      helm
      templates
-     (lsp :variables
-          lsp-ui-doc-enable	 nil)
+     (lsp :variables lsp-ui-doc-enable	 nil)
      markdown
      multiple-cursors
      org
@@ -69,9 +69,10 @@ This function should only modify configuration layer settings."
      pdf
 
      ;; lang
-     (c-c++ :variables c-c++-backend 'lsp-clangd)
-     cmake
-     (python :variables python-backend 'lsp python-lsp-server 'pyright)
+     (c-c++ :variables c-c++-backend 'lsp-clangd c-c++-adopt-subprojects t)
+     (cmake :variables cmake-backend 'lsp cmake-enable-cmake-ide-support t)
+     (python :variables python-backend 'lsp python-lsp-server 'pyright
+             python-formatter 'yapf)
      javascript
      (latex :variables latex-enable-auto-fill nil)
      typescript
@@ -96,7 +97,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(evil-goggles)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -437,7 +438,9 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers '(:relative t
+                               :enabled-for-modes prog-mode
+                               :size-limit-kb 1000)
 
    ;; Code folding method. Possible values are `evil', `origami' and `vimish'.
    ;; (default 'evil)
@@ -569,6 +572,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
     '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
       ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
       ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+(setq url-proxy-services
+   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+     ("http" . "127.0.0.1:7890")
+     ("https" . "127.0.0.1:7890")))
 )
 
 
@@ -588,6 +595,12 @@ before packages are loaded."
   (setq-default evil-escape-key-sequence "jk") 
   (evil-define-key 'normal 'global "]e" 'spacemacs/next-error)
   (evil-define-key 'normal 'global "[e" 'spacemacs/previous-error)
+  (evil-goggles-mode)
+
+  ;; Leetcode
+  (setq leetcode-prefer-language "python3")
+  (setq leetcode-save-solutions t)
+  (setq leetcode-directory "~/Documents/leetcode")
 
 )
 
