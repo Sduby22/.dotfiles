@@ -92,6 +92,10 @@ else
   export EDITOR='vim'
 fi
 
+if [[ $TERM = "xterm-kitty" ]]; then
+  alias ssh="kitty +kitten ssh"
+fi
+
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
