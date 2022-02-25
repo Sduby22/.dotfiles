@@ -53,6 +53,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>',
                    opts)
     vim.opt.signcolumn = 'yes'
+    vim.api.nvim_command('highlight SignColumn guibg=None ctermbg=None')
 end
 
 local lsp_installer = require("nvim-lsp-installer")
