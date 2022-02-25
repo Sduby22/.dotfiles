@@ -132,7 +132,6 @@ else
   lua require('vscode-config')
 endif
 
-highlight SignColumn guibg=None ctermbg=None
 nnoremap <leader>ff :Telescope find_files<cr>
 nnoremap <leader>pf :Telescope find_files<cr>
 nnoremap <leader>/ :Telescope live_grep<cr>
