@@ -102,6 +102,8 @@ if !exists('g:vscode')
 	  "let g:livepreview_previewer = 'open -a Preview'
 	  "let g:livepreview_engine = 'xelatex' 
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim6.0' }
+	Plug 'ray-x/lsp_signature.nvim'
 	Plug 'williamboman/nvim-lsp-installer'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'dcampos/nvim-snippy'
@@ -127,6 +129,8 @@ if !exists('g:vscode')
   else
       colorscheme dim
   endif
+  highlight VertSplit ctermbg=None guibg=None
+  highlight NormalFloat ctermbg=None guibg=None
   lua require('lua-config')
 else 
   lua require('vscode-config')
