@@ -1,3 +1,6 @@
+-- require 'lua-config.Lspsaga'
+require 'lua-config.Lsp_signature'
+
 local telescope = require 'telescope'
 local actions = require "telescope.actions"
 
@@ -42,16 +45,27 @@ local on_attach = function(client, bufnr)
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
-                   opts)
-    buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>',
-                   opts)
-    buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>',
-                   opts)
+    -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    -- buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    -- buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
+    --                opts)
+    -- buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev()<CR>',
+    --                opts)
+    -- buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next()<CR>',
+    --                opts)
+
+    buf_set_keymap("n", "<leader>rn", "<cmd>Lspsaga rename<cr>", opts)
+    buf_set_keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
+    buf_set_keymap("n", "K",  "<cmd>Lspsaga hover_doc<cr>", opts)
+    buf_set_keymap("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
+    buf_set_keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
+    buf_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
+    buf_set_keymap("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", opts)
+    buf_set_keymap("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", opts)
+
+
     vim.opt.signcolumn = 'yes'
     vim.api.nvim_command('highlight SignColumn guibg=None ctermbg=None')
 end
