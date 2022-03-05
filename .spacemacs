@@ -39,6 +39,7 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      myleetcode
+     wakatime
      auto-completion
      dtrt-indent
      ;; better-defaults
@@ -61,14 +62,15 @@ This function should only modify configuration layer settings."
      nav-flash
      colors
      (ranger :variables
-              ranger-override-dired 'ranger/deer
-              ranger-show-preview t)
-     
+             ranger-override-dired 'ranger/deer
+             ranger-show-preview t)
+
      xclipboard
      spacemacs
      pdf
 
      ;; lang
+     (go :variables go-backend 'lsp)
      (c-c++ :variables c-c++-backend 'lsp-clangd c-c++-adopt-subprojects t)
      (cmake :variables cmake-backend 'lsp cmake-enable-cmake-ide-support t)
      (python :variables python-backend 'lsp python-lsp-server 'pyright
@@ -77,6 +79,7 @@ This function should only modify configuration layer settings."
      (latex :variables latex-enable-auto-fill nil)
      typescript
      yaml
+     json
 
      (osx :variables osx-command-as       'hyper
                         osx-option-as        'meta
