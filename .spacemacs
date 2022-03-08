@@ -68,11 +68,13 @@ This function should only modify configuration layer settings."
      xclipboard
      spacemacs
      pdf
+     ;; (unicode-fonts :variables unicode-fonts-enable-ligatures t)
+     unicode-fonts
 
      ;; lang
      (go :variables go-backend 'lsp)
      (c-c++ :variables c-c++-backend 'lsp-clangd c-c++-adopt-subprojects t)
-     (cmake :variables cmake-backend 'lsp cmake-enable-cmake-ide-support t)
+     (cmake :variables cmake-backend 'lsp)
      (python :variables python-backend 'lsp python-lsp-server 'pyright
              python-formatter 'yapf)
      javascript

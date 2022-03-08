@@ -61,3 +61,5 @@ sleep 5 && sh ~/.dotfiles/keyboard.sh
 
 #fcitx 
 fcitx -d &
+wmname LG3D
+
