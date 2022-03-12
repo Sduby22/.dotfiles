@@ -64,6 +64,8 @@ else
     set clipboard=unnamed
 endif
 
+imap <S-CR> <esc>o
+
 nmap <leader><tab>1 1gt
 nmap <leader><tab>2 2gt
 nmap <leader><tab>3 3gt
