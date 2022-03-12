@@ -81,6 +81,7 @@ if [[ "$(uname -s)" = "Darwin" ]]; then
       alias xcp=pbcopy
       alias brew='/opt/homebrew/bin/brew' # ARM Homebrew
       alias ibrew='arch -x86_64 /usr/local/bin/brew' # X86 Homebrew
+      export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 else
   # Arch & Manjaro
   alias xcp='xclip -selection clipboard'

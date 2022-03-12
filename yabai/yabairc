@@ -71,10 +71,11 @@ yabai -m rule --add app="Finder" manage=off
 yabai -m rule --add app="Nutstore" manage=off
 yabai -m rule --add app="GIMP" manage=off
 yabai -m rule --add app="腾讯会议" manage=off
+yabai -m rule --add app="Steam" manage=off
 
 ignore="(系统偏好设置)"
 yabai -m rule --add title="${ignore}" manage=off
 
-yabai -m rule --add app=".*(NeteaseMusic|Spotify).*" space=3
-yabai -m rule --add app=".*(Chrome|Firefox|Microsoft Edge).*" space=2
-yabai -m rule --add app=".*(Visual Studio|Term).*" space=1
+#yabai -m rule --add app=".*(NeteaseMusic|Spotify).*" space=3
+#yabai -m rule --add app=".*(Chrome|Firefox|Microsoft Edge).*" space=2
+#yabai -m rule --add app=".*(Visual Studio|Term).*" space=1
