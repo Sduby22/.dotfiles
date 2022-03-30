@@ -1,8 +1,9 @@
 alt - e : open ~
 alt - c : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
 # alt - return : iterm2  
-#alt - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
-alt - return : /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
+# alt - return : /Applications/WezTerm.app/Contents/MacOS/wezterm start --always-new-process
+# alt - return : /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
+alt - return: alacritty
 f12 : alacritty --config-file ~/.config/alacritty/float.yaml
 
 ## Navigation

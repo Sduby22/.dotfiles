@@ -43,21 +43,6 @@ if !exists('g:vscode')
 	    Plug 'ellisonleao/gruvbox.nvim'
 	    Plug 'nvim-lualine/lualine.nvim'
 	    Plug 'kyazdani42/nvim-web-devicons' " for file icons
-	    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-		let g:firenvim_config = { 
-		    \ 'globalSettings': {
-			\ 'alt': 'all',
-		    \  },
-		    \ 'localSettings': {
-			\ '.*': {
-			    \ 'cmdline': 'neovim',
-			    \ 'content': 'text',
-			    \ 'priority': 0,
-			    \ 'selector': 'textarea',
-			    \ 'takeover': 'never',
-			\ },
-		    \ }
-		\ }
 	endif
 
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -125,7 +110,6 @@ if !exists('g:vscode')
   if g:sdubygui == 1
       set termguicolors
       colorscheme gruvbox
-      source ~/.config/nvim/firenvim.vim
   else
       colorscheme dim
   endif
