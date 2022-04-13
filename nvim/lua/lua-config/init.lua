@@ -62,8 +62,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
     buf_set_keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
     buf_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
-    buf_set_keymap("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", opts)
-    buf_set_keymap("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", opts)
+    buf_set_keymap("n", "<C-b>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", opts)
+    buf_set_keymap("n", "<C-f>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", opts)
 
 
     vim.opt.signcolumn = 'yes'
