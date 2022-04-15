@@ -48,6 +48,9 @@
       platform: darwin
     ~/.config/aria2_rpc:
       path: aria2_rpc
+    ~/.config/fish/config.fish:
+      path: fish/config.fish
+      force: true
     ~/.zshrc:
       path: zshrc
     ~/.config/i3:
