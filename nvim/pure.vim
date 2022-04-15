@@ -48,6 +48,8 @@ if has('nvim')
 	autocmd!
 	au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=300 }
     augroup END
+else 
+    colorscheme default
 endif
 
 source ~/.config/nvim/indent.vim
