@@ -67,9 +67,13 @@ alias fy='fy -S'
 alias fanyi='fanyi -S'
 myproxy() {
   export all_proxy=http://127.0.0.1:7890;
+  export http_proxy=http://127.0.0.1:7890;
+  export https_proxy=http://127.0.0.1:7890;
 }
 unproxy() {
   export all_proxy=;
+  export http_proxy=;
+  export https_proxy=;
 }
 
 alias v=nvim
