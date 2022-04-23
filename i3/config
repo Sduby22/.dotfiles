@@ -12,7 +12,7 @@
 set $mod Mod4
 set $alt Mod1
 
-default_border pixel 2
+default_border pixel 3
 
 gaps inner 2
 gaps outer 2
@@ -166,7 +166,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec ~/.config/rofi/powermenu.sh
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -225,6 +226,7 @@ for_window [class="plasmashell" window_type="notification"] border none, move ri
 no_focus [class="plasmashell" window_type="notification"]
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 for_window [title="桌面 — Plasma"] kill; floating enable; border none
+for_window [class="wemeetapp"] floating enable; border none
 for_window [class="Alacritty"] border pixel 2
 
 exec --no-startup-id fcitx5 -d
