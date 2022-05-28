@@ -1,15 +1,12 @@
 local wezterm = require 'wezterm';
 return {
   font = wezterm.font_with_fallback({
-    "JetBrainsMono Nerd Font",
+    "Terminus (TTF)",
     "Sarasa Mono SC Nerd",
     "Apple Color Emoji",
   }),
-  font_size = 18,
-  line_height=1.2,
+  font_size = 16,
   -- harfbuzz_features = {"liga=0"},
-
-  -- use_ime = true,
 
   window_decorations = "RESIZE",
   window_padding = {
