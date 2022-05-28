@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'ahmedkhalf/project.nvim'
 	Plug 'ethanholz/nvim-lastplace'
 	Plug 'max397574/better-escape.nvim'
-	Plug 'editorconfig/editorconfig-vim'
+	Plug 'gpanders/editorconfig.nvim'
 
 	" detect file indetn
 	Plug 'tpope/vim-sleuth'
@@ -45,6 +45,7 @@ if !exists('g:vscode')
 	    Plug 'kyazdani42/nvim-web-devicons' " for file icons
 	endif
 
+	Plug 'tpope/vim-fugitive'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 	Plug 'wakatime/vim-wakatime'

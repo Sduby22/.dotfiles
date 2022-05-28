@@ -5,7 +5,7 @@ local telescope = require 'telescope'
 local actions = require "telescope.actions"
 
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
+    ensure_installed = "all",
     ignore_install = {"latex"},
     highlight = {enable = true, additional_vim_regex_highlighting = false},
     textobjects = {
