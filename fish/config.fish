@@ -43,4 +43,9 @@ if status is-interactive
 
     alias rmds='find . | egrep "DS|dSYM" | xargs rm'
     alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/base16-alacritty/colors'
+
+else if status is-login
+
+source ~/.profile
+
 end
