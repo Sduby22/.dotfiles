@@ -1,10 +1,8 @@
 local wezterm = require 'wezterm';
 local config = require 'config';
-return {
+
+local ret = {
   default_prog = {"fish"},
-  font = wezterm.font_with_fallback(config.fonts),
-  font_size = config.font_size,
-  -- harfbuzz_features = {"liga=0"},
 
   window_decorations = "RESIZE",
   window_padding = {
@@ -15,7 +13,7 @@ return {
   },
   skip_close_confirmation_for_processes_named = {
     "bash", "sh", "zsh", "fish", "tmux"
-  }, 
+  },
   window_close_confirmation = "NeverPrompt",
   enable_tab_bar = false,
 
@@ -29,3 +27,9 @@ return {
 
   warn_about_missing_glyphs = false
 }
+
+for k, v in pairs(config) do
+    ret[k] = v
+end
+
+return ret

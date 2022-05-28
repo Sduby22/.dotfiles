@@ -1,7 +1,19 @@
+local wezterm = require 'wezterm';
+
+local myfonts = wezterm.font_with_fallback({
+  { family = "Terminus", style = "Normal" },
+  { family = "WenQuanYi Zen Hei Sharp", style = "Normal" },
+})
+
+
 return {
-  fonts = {
-    "Terminus (TTF)",
-    "WenQuanYi Zen Hei Sharp",
-  },
-  font_size = 16,
+  font = myfonts,
+  font_size = 12,
+
+  font_rules = {
+    {
+      italic = true,
+      font = myfonts
+    }
+  }
 }
