@@ -51,6 +51,9 @@
     ~/.config/fish/config.fish:
       path: fish/config.fish
       force: true
+    ~/.config/omf:
+      path: omf
+      force: true
     ~/.zshrc:
       path: zshrc
     ~/.config/i3:

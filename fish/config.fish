@@ -37,6 +37,7 @@ if status is-interactive
     end
 
     alias v=nvim
+    alias j=z
     myproxy
 
 
