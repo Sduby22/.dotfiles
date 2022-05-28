@@ -57,7 +57,7 @@ command Vimrc e ~/.config/nvim/init.vim
 nnoremap <leader>fp :Vimrc<cr>
 
 " :find command
-set path+=**                                                                    
+set path+=**
 set wildignore+=**/node_modules/**
 set wildignore+=**/.git/**
 if has('unnamedplus')

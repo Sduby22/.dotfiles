@@ -47,12 +47,27 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.keysym.Control-Meta-c: builtin-string:
 URxvt.keysym.Control-Meta-v: builtin-string:
 
-#define fonts xft:terminus:pixelsize=16,\
-                xft:cozette:pixelsize=14,\
-                xft:WenQuanYi WenQuanYi Bitmap Song:size=11
+#define fonts xft:terminus:pixelsize=16:Regular,\
+                xft:cozette:pixelsize=14:Regular,\
+                xft:WenQuanYi WenQuanYi Bitmap Song:size=11:Regular
+
+#define ifonts xft:terminus:pixelsize=16:Italic,\
+                xft:cozette:pixelsize=14:Italic,\
+                xft:WenQuanYi WenQuanYi Bitmap Song:size=11:Italic
+
+#define bfonts xft:terminus:pixelsize=16:Bold,\
+                xft:cozette:pixelsize=14:Bold,\
+                xft:WenQuanYi WenQuanYi Bitmap Song:size=11:Bold
+
+#define ibfonts xft:terminus:pixelsize=16:Bold:Italic,\
+                xft:cozette:pixelsize=14:Bold:Italic,\
+                xft:WenQuanYi WenQuanYi Bitmap Song:size=11:Bold:Italic
 
 !#define fonts xft:Sarasa Mono SC:size=10
 URxvt.scrollBar: false
 URxvt.font:fonts
-URxvt.boldFont:fonts
+URxvt.boldFont:bfonts
+URxvt.italicFont:ifonts
+URxvt.boldItalicFont:ibfonts
 URxvt.letterSpace: 0
+URxvt.lineSpace: 2

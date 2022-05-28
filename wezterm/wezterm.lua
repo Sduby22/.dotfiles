@@ -28,5 +28,7 @@ return {
       mods="ALT",
       action="StartWindowDrag"
     },
-  }
+  },
+
+  warn_about_missing_glyphs = false
 }

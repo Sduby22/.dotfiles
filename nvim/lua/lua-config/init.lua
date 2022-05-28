@@ -163,7 +163,6 @@ npairs.add_rules {
 npairs.add_rule(Rule("'''", "'''", "python"))
 
 require'nvim-lastplace'.setup {}
-require('nvim_comment').setup()
 
 require("project_nvim").setup {
     patterns = {".git", "_darcs", ".hg", ".bzr", ".svn", "package.json"},
@@ -234,23 +233,50 @@ function _lazygit_toggle() lazygit:toggle() end
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>",
                         {noremap = true, silent = true})
 
-require("better_escape").setup {
-    mapping = {"jk", "kj"}, -- a table with mappings to use
-    timeout = 150, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
-    clear_empty_lines = false, -- clear line after escaping if there is only whitespace
-    keys = "<Esc>" -- keys used for escaping, if it is a function will use the result everytime
-    -- example
-    -- keys = function()
-    --   return vim.fn.col '.' - 2 >= 1 and '<esc>l' or '<esc>'
-    -- end,
-}
+-- require("better_escape").setup {
+--     mapping = {"jk", "kj"}, -- a table with mappings to use
+--     timeout = 150, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+--     clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+--     keys = "<Esc>" -- keys used for escaping, if it is a function will use the result everytime
+--     -- example
+--     -- keys = function()
+--     --   return vim.fn.col '.' - 2 >= 1 and '<esc>l' or '<esc>'
+--     -- end,
+-- }
 
 if vim.g.sdubygui == 1 then
-    require'lualine'.setup {
-        options = {
-            theme = 'gruvbox'
-            -- section_separators = { left = '', right = ''},
-            -- component_separators = { left = '', right = ''},
-        }
-    }
+    require('mini.statusline').setup()
+    local starter = require('mini.starter')
+    starter.setup({
+      evaluate_single = true,
+      items = {
+        starter.sections.builtin_actions(),
+        starter.sections.recent_files(10, false),
+        -- Use this if you set up 'mini.sessions'
+        starter.sections.sessions(5, true),
+        starter.sections.telescope(),
+      },
+      content_hooks = {
+        starter.gen_hook.adding_bullet(),
+        starter.gen_hook.indexing('all', { 'Builtin actions' }),
+        starter.gen_hook.padding(3, 2),
+      },
+    })
 end
+
+require('mini.cursorword').setup()
+require('mini.indentscope').setup {
+    draw = {
+        animation = require('mini.indentscope').gen_animation('none')
+    }
+}
+-- require('mini.surround').setup()
+require('mini.comment').setup()
+require('mini.trailspace').setup()
+require('mini.sessions').setup()
+
+
+require('gitsigns').setup()
+vim.api.nvim_command('highlight GitSignsAdd guibg=None ctermbg=None')
+vim.api.nvim_command('highlight GitSignsChange guibg=None ctermbg=None')
+vim.api.nvim_command('highlight GitSignsDelete guibg=None ctermbg=None')
