@@ -74,7 +74,8 @@ This function should only modify configuration layer settings."
 
      ;; lang
      (go :variables go-backend 'lsp)
-     (c-c++ :variables c-c++-backend 'lsp-clangd c-c++-adopt-subprojects t)
+     (c-c++ :variables c-c++-backend 'lsp-clangd c-c++-adopt-subprojects t
+            c-c++-enable-clang-format-on-save t)
      (cmake :variables cmake-backend 'lsp)
      (python :variables python-backend 'lsp python-lsp-server 'pyright
              python-formatter 'yapf)
@@ -103,7 +104,8 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(evil-goggles)
+   dotspacemacs-additional-packages '(evil-goggles
+                                      bison-mode)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
