@@ -6,10 +6,10 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-	" Shared plugins
+	" Shared plugin
 	Plug 'ahmedkhalf/project.nvim'
 	Plug 'ethanholz/nvim-lastplace'
-	Plug 'max397574/better-escape.nvim'
+	" Plug 'max397574/better-escape.nvim'
 	Plug 'gpanders/editorconfig.nvim'
 
 	" detect file indetn
@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
 		"let delimitMate_expand_space = 1
 		""let delimitMate_expand_inside_quotes = 1
 		"let delimitMate_jump_expansion = 1
-	Plug 'terrortylor/nvim-comment'
+	" Plug 'terrortylor/nvim-comment'
 	"Plug 'preservim/nerdcommenter'
 	Plug 'junegunn/vim-easy-align'
 	Plug 'mg979/vim-visual-multi'
@@ -41,10 +41,11 @@ if !exists('g:vscode')
 	      let g:leetcode_browser = 'chrome'
 	    Plug 'rktjmp/lush.nvim'
 	    Plug 'ellisonleao/gruvbox.nvim'
-	    Plug 'nvim-lualine/lualine.nvim'
 	    Plug 'kyazdani42/nvim-web-devicons' " for file icons
 	endif
 
+	Plug 'lewis6991/gitsigns.nvim'
+	Plug 'echasnovski/mini.nvim'
 	Plug 'tpope/vim-fugitive'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -57,11 +58,8 @@ if !exists('g:vscode')
 	    nnoremap <c-t> :ToggleTerm<cr>
 	    tmap <c-t> <c-\><c-n>:ToggleTerm<cr>
 	Plug 'nvim-lua/plenary.nvim'
-	" Plug 'goolord/alpha-nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-	" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	" Plug 'junegunn/fzf.vim'
 	Plug 'kyazdani42/nvim-tree.lua'
 	  nmap <leader>e :NvimTreeToggle<CR>
 
@@ -69,9 +67,7 @@ if !exists('g:vscode')
 	  let g:ranger_map_keys = 0
 	  nmap <leader>o- :Ranger<CR>
 	Plug 'rbgrouleff/bclose.vim'
-	"endif
-
-	" Plug 'lukas-reineke/indent-blankline.nvim'
+	  let g:bclose_no_plugin_maps = 1
 	let g:tex_flavor = 'tex'
 	" Plug 'lervag/vimtex', { 'for': 'latex' }
 	"   let g:vimtex_compiler_latexmk = {
