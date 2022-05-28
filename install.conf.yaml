@@ -94,3 +94,4 @@
     description: base16 shell 
   - command: cd ./alacritty/color_scripts/ && python3 _genscripts.py
     description: generate color scripts 
+  - command: git config --global core.excludesfile ~/.gitignore
