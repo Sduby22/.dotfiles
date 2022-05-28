@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm';
 return {
+  default_prog = {"fish"},
   font = wezterm.font_with_fallback({
     "Terminus (TTF)",
     "Sarasa Mono SC Nerd",
