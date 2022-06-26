@@ -6,7 +6,7 @@ local actions = require "telescope.actions"
 
 require'nvim-treesitter.configs'.setup {
     ensure_installed = "all",
-    ignore_install = {"latex"},
+    ignore_install = {"latex", "phpdoc"},
     highlight = {enable = true, additional_vim_regex_highlighting = false},
     textobjects = {
         select = {
@@ -22,7 +22,12 @@ require'nvim-treesitter.configs'.setup {
                 ["ac"] = "@class.outer",
                 ["ic"] = "@class.inner",
             }
+
         }
+    },
+    indent = {
+        enable = true,
+        disable = { "python" }
     }
 }
 
@@ -122,7 +127,7 @@ cmp.setup({
         ['<C-j>'] = cmp.mapping.select_next_item(),
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm()
+        ['<CR>'] = cmp.mapping.confirm({ select = true })
     },
     sources = {
         {name = 'snippy'}, {name = 'nvim_lsp'}, {name = 'cmp_tabnine'},
@@ -130,12 +135,29 @@ cmp.setup({
     }
 })
 
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
+
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
+cmp.setup.cmdline('/', {
+mapping = cmp.mapping.preset.cmdline(),
+sources = {
+  { name = 'buffer' }
+}
+})
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})
+mapping = cmp.mapping.preset.cmdline(),
+sources = cmp.config.sources({
+  { name = 'path' }
+}, {
+  { name = 'cmdline' }
+})
 })
 
 require'nvim-tree'.setup {
@@ -146,7 +168,15 @@ require'nvim-tree'.setup {
 local Rule = require('nvim-autopairs.rule')
 local npairs = require('nvim-autopairs')
 
-npairs.setup {}
+npairs.setup({
+    check_ts = true,
+    ts_config = {
+        lua = {'string'},-- it will not add a pair on that treesitter node
+        javascript = {'template_string'},
+        java = false,-- don't check treesitter on java
+    }
+})
+
 npairs.add_rules {
     Rule(' ', ' '):with_pair(function(opts)
         local pair = opts.line:sub(opts.col - 1, opts.col)
