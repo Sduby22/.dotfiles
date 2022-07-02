@@ -7,9 +7,10 @@ endif
 call plug#begin('~/.vim/plugged')
 
 	" Shared plugin
+	Plug 'lewis6991/impatient.nvim'
 	Plug 'ahmedkhalf/project.nvim'
 	Plug 'ethanholz/nvim-lastplace'
-	" Plug 'max397574/better-escape.nvim'
+	Plug 'max397574/better-escape.nvim'
 	Plug 'gpanders/editorconfig.nvim'
 
 	" detect file indetn
@@ -52,7 +53,7 @@ if !exists('g:vscode')
 	Plug 'wakatime/vim-wakatime'
 	Plug 'jeffkreeftmeijer/vim-dim'
 	Plug 'sbdchd/neoformat'
-	  nmap <leader>f :Neoformat<CR>
+	  nmap <leader>f :lua MiniTrailspace.trim()<CR>:Neoformat<CR>
 
 	Plug 'akinsho/toggleterm.nvim'
 	    nnoremap <c-t> :ToggleTerm<cr>
@@ -82,7 +83,7 @@ if !exists('g:vscode')
 	"Plug 'kdheepak/cmp-latex-symbols'
 	"Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 	  "let g:livepreview_previewer = 'open -a Preview'
-	  "let g:livepreview_engine = 'xelatex' 
+	  "let g:livepreview_engine = 'xelatex'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim6.0' }
 	Plug 'ray-x/lsp_signature.nvim'
@@ -113,11 +114,12 @@ if !exists('g:vscode')
   highlight VertSplit ctermbg=None guibg=None
   highlight NormalFloat ctermbg=None guibg=None
   lua require('lua-config')
-else 
+else
   lua require('vscode-config')
 endif
 
 nnoremap <leader>ff :Telescope find_files<cr>
+nnoremap <leader>. :Telescope find_files<cr>
 nnoremap <leader>pf :Telescope find_files<cr>
 nnoremap <leader>/ :Telescope live_grep<cr>
 nnoremap <leader><leader> :Telescope buffers<cr>

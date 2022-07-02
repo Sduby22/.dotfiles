@@ -1,3 +1,15 @@
+_G.__luacache_config = {
+  chunks = {
+    enable = true,
+    path = vim.fn.stdpath('cache')..'/luacache_chunks',
+  },
+  modpaths = {
+    enable = true,
+    path = vim.fn.stdpath('cache')..'/luacache_modpaths',
+  }
+}
+require('impatient')
+
 -- require 'lua-config.Lspsaga'
 require 'lua-config.Lsp_signature'
 
@@ -12,7 +24,7 @@ require'nvim-treesitter.configs'.setup {
         select = {
             enable = true,
 
-            -- Automatically jump forward to textobj, similar to targets.vim 
+            -- Automatically jump forward to textobj, similar to targets.vim
             lookahead = true,
 
             keymaps = {
@@ -263,16 +275,16 @@ function _lazygit_toggle() lazygit:toggle() end
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>",
                         {noremap = true, silent = true})
 
--- require("better_escape").setup {
---     mapping = {"jk", "kj"}, -- a table with mappings to use
---     timeout = 150, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
---     clear_empty_lines = false, -- clear line after escaping if there is only whitespace
---     keys = "<Esc>" -- keys used for escaping, if it is a function will use the result everytime
---     -- example
---     -- keys = function()
---     --   return vim.fn.col '.' - 2 >= 1 and '<esc>l' or '<esc>'
---     -- end,
--- }
+require("better_escape").setup {
+    mapping = {"jk", "kj"}, -- a table with mappings to use
+    timeout = 150, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+    clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+    keys = "<Esc>" -- keys used for escaping, if it is a function will use the result everytime
+    -- example
+    -- keys = function()
+    --   return vim.fn.col '.' - 2 >= 1 and '<esc>l' or '<esc>'
+    -- end,
+}
 
 if vim.g.sdubygui == 1 then
     require('mini.statusline').setup()

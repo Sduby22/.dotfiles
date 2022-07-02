@@ -48,13 +48,11 @@ if has('nvim')
 	autocmd!
 	au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=300 }
     augroup END
-else 
+else
     colorscheme default
 endif
 
 source ~/.config/nvim/indent.vim
-command Vimrc e ~/.config/nvim/init.vim
-nnoremap <leader>fp :Vimrc<cr>
 
 " :find command
 set path+=**
@@ -79,7 +77,6 @@ nmap <leader><tab>8 8gt
 nmap <leader><tab>9 9gt
 nmap <leader><tab>n :tabnew<cr>
 
-nmap <leader>v :vs<cr>
-nmap <leader>b :split<cr>
+nmap <leader>w <C-w>
 
 au FocusGained,BufEnter * :checktime
