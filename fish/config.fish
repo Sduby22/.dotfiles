@@ -22,6 +22,11 @@ if status is-interactive
     alias cl=clear
     alias fy='fy -S'
     alias fanyi='fanyi -S'
+    alias v=nvim
+    alias em="emacsclient -c"
+    alias j=z
+    alias rmds='find . | egrep "DS|dSYM" | xargs rm'
+    alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/base16-alacritty/colors'
 
     function myproxy
         export ALL_PROXY=http://127.0.0.1:7890;
@@ -35,13 +40,8 @@ if status is-interactive
         mkdir -p $argv && cd $argv; 
     end
 
-    alias v=nvim
-    alias j=z
+    export NVM_NODEJS_ORG_MIRROR="https://npmmirror.com/mirrors/node"
     myproxy
-
-
-    alias rmds='find . | egrep "DS|dSYM" | xargs rm'
-    alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/base16-alacritty/colors'
 end
 
 if status is-login

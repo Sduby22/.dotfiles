@@ -59,3 +59,6 @@
 (define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
 (setq lsp-pyright-python-executable-cmd "python3")
+(global-wakatime-mode)
+;; to debug with DAP-MODE
+(setq dap-auto-configure-mode t)
