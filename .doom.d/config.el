@@ -62,3 +62,10 @@
 (global-wakatime-mode)
 ;; to debug with DAP-MODE
 (setq dap-auto-configure-mode t)
+
+;; Org-mode config
+(after! org
+  (setq org-directory "~/org/")
+  (setq org-agenda-files '("~/org/agenda.org"))
+  (setq org-log-done 'time)
+)
