@@ -8,6 +8,7 @@
  '(mac-auto-operator-composition-mode t)
  '(mac-right-option-modifier 'none)
  '(menu-bar-mode nil))
+ '(auth-source-save-behavior nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

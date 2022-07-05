@@ -54,6 +54,7 @@ floating_modifier $mod
 bindsym $mod+Return exec wezterm
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+e exec thunar
+bindsym $alt+Shift+a exec flameshot gui
 
 # kill focused window
 bindsym $alt+q kill

@@ -59,3 +59,13 @@
 (define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
 (setq lsp-pyright-python-executable-cmd "python3")
+(global-wakatime-mode)
+;; to debug with DAP-MODE
+(setq dap-auto-configure-mode t)
+
+;; Org-mode config
+(after! org
+  (setq org-directory "~/org/")
+  (setq org-agenda-files '("~/org/agenda.org"))
+  (setq org-log-done 'time)
+)
