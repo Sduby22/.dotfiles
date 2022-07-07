@@ -25,8 +25,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
-(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 18))
+(setq doom-theme 'doom-one)
+(setq doom-font (font-spec :family "Terminus (TTF)" :size 18))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -68,4 +68,5 @@
   (setq org-directory "~/org/")
   (setq org-agenda-files '("~/org/agenda.org"))
   (setq org-log-done 'time)
+  (setq org-hugo-base-dir "~/Documents/blog/")
 )

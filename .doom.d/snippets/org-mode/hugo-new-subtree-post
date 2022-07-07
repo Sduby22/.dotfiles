@@ -3,7 +3,7 @@
 # uuid: hugo-new-subtree-post
 # expand-env: ((yas-indent-line nil))
 # --
-* $1
+* TODO $1
 :PROPERTIES:
 :EXPORT_FILE_NAME: $1
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :summary ${2:Summary}
