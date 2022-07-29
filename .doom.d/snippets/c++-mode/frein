@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: frein
+# uuid: frein
+# key: frein
+# condition: t
+# --
+freopen("${1:in.txt}", "r", stdin);

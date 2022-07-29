@@ -87,9 +87,9 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command('highlight SignColumn guibg=None ctermbg=None')
 end
 
-local lsp_installer = require("nvim-lsp-installer")
+local mason = require("mason")
 
-lsp_installer.settings({
+mason.setup({
     ui = {
         icons = {
             server_installed = "✓",
@@ -99,21 +99,14 @@ lsp_installer.settings({
     }
 })
 
-local opts = {on_attach = on_attach}
-lsp_installer.on_server_ready(function(server)
-    -- (optional) Customize the options passed to the server
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
-
-    -- This setup() function is exactly the same as lspconfig's setup function.
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    server:setup(opts)
-end)
-
-local nvim_lsp = require('lspconfig')
-nvim_lsp.volar.setup{}
-nvim_lsp.clangd.setup(opts)
+lspconfig = require('lspconfig')
+mason_lsp = require("mason-lspconfig")
+mason_lsp.setup()
+mason_lsp.setup_handlers {
+    function (server_name)
+        lspconfig[server_name].setup {on_attach = on_attach}
+    end,
+}
 
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
