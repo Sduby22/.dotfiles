@@ -70,3 +70,6 @@
   (setq org-log-done 'time)
   (setq org-hugo-base-dir "~/Documents/blog/")
 )
+
+(fcitx-aggressive-setup)
+(fcitx-evil-turn-on)
