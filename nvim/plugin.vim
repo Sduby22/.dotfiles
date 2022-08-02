@@ -87,7 +87,8 @@ if !exists('g:vscode')
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim6.0' }
 	Plug 'ray-x/lsp_signature.nvim'
-	Plug 'williamboman/nvim-lsp-installer'
+	Plug 'williamboman/mason.nvim'
+	Plug 'williamboman/mason-lspconfig.nvim'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'dcampos/nvim-snippy'
 	Plug 'hrsh7th/nvim-cmp'
