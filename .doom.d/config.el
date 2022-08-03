@@ -73,3 +73,9 @@
 
 (fcitx-aggressive-setup)
 (fcitx-evil-turn-on)
+(require 'dap-cpptools)
+
+;; (setq url-proxy-services
+;;    '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+;;      ("http" . "127.0.0.1:7890")
+;;      ("Https" . "127.0.0.1:7890")))
