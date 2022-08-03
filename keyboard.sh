@@ -4,6 +4,7 @@ clear lock
 clear control
 add control = Control_L Control_R
 keycode 66 = Control_R
+keycode 108 = Escape NoSymbol Escape
 EOF
 }
 
