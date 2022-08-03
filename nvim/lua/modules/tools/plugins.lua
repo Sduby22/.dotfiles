@@ -29,3 +29,5 @@ plugin({
   config=conf.nvim_autopairs,
   after='nvim-cmp'
 })
+
+plugin({ 'alohaia/fcitx.nvim', config = function () require 'fcitx' { } end })
