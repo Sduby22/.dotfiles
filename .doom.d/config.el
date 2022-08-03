@@ -75,7 +75,17 @@
 (fcitx-evil-turn-on)
 (require 'dap-cpptools)
 
-;; (setq url-proxy-services
-;;    '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-;;      ("http" . "127.0.0.1:7890")
-;;      ("Https" . "127.0.0.1:7890")))
+(setq url-proxy-services
+   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+     ("http" . "127.0.0.1:7890")
+     ("Https" . "127.0.0.1:7890")))
+
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (("C-TAB" . 'copilot-accept-completion-by-word)
+         ("C-<tab>" . 'copilot-accept-completion-by-word)
+         :map copilot-completion-map
+         ("<tab>" . 'copilot-accept-completion)
+         ("TAB" . 'copilot-accept-completion)))
+
+(setq copilot-node-executable "/home/sduby/.nvm/versions/node/v17.9.1/bin/node")
