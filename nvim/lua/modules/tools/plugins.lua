@@ -5,8 +5,8 @@
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.tools.config')
 
---plugin({'gpanders/editorconfig.nvim', event='BufReadPre'})
---plugin({'lewis6991/gitsigns.nvim', event='BufReadPre', config=conf.gitsigns})
+plugin({'gpanders/editorconfig.nvim'})
+plugin({'lewis6991/gitsigns.nvim', event='BufReadPre', config=conf.gitsigns})
 plugin({'wakatime/vim-wakatime', event='InsertEnter'})
 plugin({'numToStr/Comment.nvim', event='InsertEnter', config=conf.comment})
 
@@ -22,7 +22,7 @@ plugin({
   },
 })
 
-plugin({ 'mg979/vim-visual-multi', event='InsertEnter' })
+plugin({ 'mg979/vim-visual-multi', event='BufReadPre' })
 plugin({ 'tpope/vim-surround', event='InsertEnter' })
 plugin({ 
   'windwp/nvim-autopairs', 
@@ -30,4 +30,4 @@ plugin({
   after='nvim-cmp'
 })
 
-plugin({ 'alohaia/fcitx.nvim', config = function () require 'fcitx' { } end })
+plugin({ 'Sduby22/fcitx.nvim', config=function() require('fcitx').setup() end })
