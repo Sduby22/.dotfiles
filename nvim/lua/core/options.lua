@@ -116,3 +116,27 @@ if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.python_host_prog = '/usr/bin/python'
   vim.g.python3_host_prog = '/usr/local/bin/python3'
 end
+
+local vimcur = vim.opt.guicursor
+local termcur= "a:hor1-blinkon0"
+
+vim.api.nvim_create_autocmd({"VimEnter", "VimResume"}, {
+  pattern = {"*"},
+  callback = function()
+    vim.opt.guicursor=vimcur
+  end
+})
+
+vim.api.nvim_create_autocmd({"VimLeave", "VimSuspend"}, {
+  pattern = {"*"},
+  callback = function()
+    vim.opt.guicursor=termcur
+  end
+})
+
+vim.api.nvim_create_autocmd({"TextYankPost"}, {
+  pattern = {"*"},
+  callback = function()
+    vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=false}
+  end
+})

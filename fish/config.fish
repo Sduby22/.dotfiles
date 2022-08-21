@@ -8,12 +8,6 @@ if status is-interactive
         alias xcp='xclip -selection clipboard'
     end
 
-    if [ "$SSH_CONNECTION" = "" ];
-        export EDITOR='vi'
-    else
-        export EDITOR='vim'
-    end
-
     if [ $TERM = "xterm-kitty" ];
         alias ssh="kitty +kitten ssh"
     end
