@@ -26,7 +26,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
-(setq doom-font (font-spec :family "Terminus (TTF)" :size 18))
+(setq doom-font (font-spec :family "Fira Code" :size 16))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -60,6 +60,7 @@
 (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
 (setq lsp-pyright-python-executable-cmd "python3")
 (global-wakatime-mode)
+(global-tree-sitter-mode)
 ;; to debug with DAP-MODE
 (setq dap-auto-configure-mode t)
 
@@ -87,8 +88,10 @@
          ("TAB" . 'copilot-accept-completion)))
 ;; (setq copilot-node-executable "/home/sduby/.nvm/versions/node/v17.9.1/bin/node")
 
-(setq fcitx-remote-command "fcitx5-remote")
+;; (setq fcitx-remote-command "fcitx5-remote")
 (fcitx-aggressive-setup)
 
 (add-hook 'org-mode-hook #'org-modern-mode)
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+(setq org-hide-emphasis-markers t)
+(add-hook 'org-mode-hook 'org-appear-mode)
