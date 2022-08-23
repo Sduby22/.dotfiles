@@ -71,8 +71,6 @@
   (setq org-hugo-base-dir "~/Documents/blog/")
 )
 
-(fcitx-aggressive-setup)
-(fcitx-evil-turn-on)
 (require 'dap-cpptools)
 
 (setq url-proxy-services
@@ -87,5 +85,10 @@
          :map copilot-completion-map
          ("<tab>" . 'copilot-accept-completion)
          ("TAB" . 'copilot-accept-completion)))
+;; (setq copilot-node-executable "/home/sduby/.nvm/versions/node/v17.9.1/bin/node")
 
-(setq copilot-node-executable "/home/sduby/.nvm/versions/node/v17.9.1/bin/node")
+(setq fcitx-remote-command "fcitx5-remote")
+(fcitx-aggressive-setup)
+
+(add-hook 'org-mode-hook #'org-modern-mode)
+(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
