@@ -61,8 +61,9 @@
 (setq lsp-pyright-python-executable-cmd "python3")
 (global-wakatime-mode)
 (global-tree-sitter-mode)
-;; to debug with DAP-MODE
-(setq dap-auto-configure-mode t)
+;; ;; to debug with DAP-MODE
+;; (setq dap-auto-configure-mode t)
+;; (require 'dap-cpptools)
 
 ;; Org-mode config
 (after! org
@@ -80,7 +81,7 @@
      ("Https" . "127.0.0.1:7890")))
 
 (use-package! copilot
-  :hook (prog-mode . copilot-mode)
+  ;; :hook (prog-mode . copilot-mode)
   :bind (("C-TAB" . 'copilot-accept-completion-by-word)
          ("C-<tab>" . 'copilot-accept-completion-by-word)
          :map copilot-completion-map
@@ -95,3 +96,6 @@
 (add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
 (setq org-hide-emphasis-markers t)
 (add-hook 'org-mode-hook 'org-appear-mode)
+(setq lsp-rust-analyzer-cargo-watch-command "clippy")
+
+(setq company-auto-select-first-candidate nil)
