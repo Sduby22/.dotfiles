@@ -49,9 +49,12 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! fcitx)
+(package! evil-fcitx
+  :recipe (:host github :repo "ngzh/evil-fcitx.el" :files ("*.el")))
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+(package! leetcode
+  :recipe (:host github :repo "kaiwk/leetcode.el" :files ("*.el")))
 
 (package! org-modern)
 (package! org-appear)

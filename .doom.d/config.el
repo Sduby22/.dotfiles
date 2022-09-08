@@ -97,3 +97,8 @@
 
 (setq company-auto-select-first-candidate nil)
 (require 'evil-fcitx)
+
+
+(setq leetcode-prefer-language "rust")
+(setq leetcode-save-solutions t)
+(setq leetcode-directory "~/.leetcode")
