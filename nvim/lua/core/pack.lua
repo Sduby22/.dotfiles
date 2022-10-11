@@ -8,6 +8,7 @@ local data_dir = string.format('%s/site/', vim.fn.stdpath('data'))
 local modules_dir = vim_path .. '/lua/modules'
 local packer_compiled = data_dir .. 'lua/packer_compiled.lua'
 local packer = nil
+local vscode = vim.g.vscode ~= nil
 
 local Packer = {}
 Packer.__index = Packer
@@ -76,7 +77,17 @@ function plugins.ensure_plugins()
   Packer:init_ensure_plugins()
 end
 
-function plugins.register_plugin(repo)
+function plugins.register_plugin(repo, mode)
+  mode = mode or 'nvim'
+
+  if mode == 'nvim' and vscode then
+    return
+  end
+
+  if mode == 'vscode' and not vscode then
+    return
+  end
+
   table.insert(Packer.repos, repo)
 end
 

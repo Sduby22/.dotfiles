@@ -8,7 +8,7 @@ local conf = require('modules.tools.config')
 plugin({'gpanders/editorconfig.nvim'})
 plugin({'lewis6991/gitsigns.nvim', event='BufReadPre', config=conf.gitsigns})
 plugin({'wakatime/vim-wakatime', event='InsertEnter'})
-plugin({'numToStr/Comment.nvim', event='InsertEnter', config=conf.comment})
+plugin({'numToStr/Comment.nvim', event='InsertEnter', config=conf.comment}, 'both')
 
 plugin({
   'nvim-telescope/telescope.nvim',
@@ -22,8 +22,8 @@ plugin({
   },
 })
 
-plugin({ 'mg979/vim-visual-multi', event='BufReadPre' })
-plugin({ 'tpope/vim-surround', event='InsertEnter' })
+plugin({ 'mg979/vim-visual-multi' }, 'both')
+plugin({ 'tpope/vim-surround', event='InsertEnter' }, 'both')
 plugin({ 
   'windwp/nvim-autopairs', 
   config=conf.nvim_autopairs,

@@ -20,6 +20,7 @@ nmap({
   { '<Leader>e', cmd('NvimTreeToggle'), opts(noremap, silent) },
   -- Telescope
   { '<Leader><leader>', cmd('Telescope find_files'), opts(noremap, silent) },
+
   { '<Leader>ff', cmd('Telescope find_files'), opts(noremap, silent) },
   { '<Leader>fr', cmd('Telescope oldfiles'), opts(noremap, silent) },
   { '<Leader>.', cmd('Telescope find_files'), opts(noremap, silent) },
@@ -30,3 +31,11 @@ nmap({
   { '<Leader>pp', cmd('Telescope projects'), opts(noremap, silent) },
   { '<Leader>fh', cmd('Telescope help_tags'), opts(noremap, silent) },
 })
+
+nmap({
+  { '<Leader><leader>', cmd("call VSCodeCall('workbench.action.quickOpen')"), opts(noremap, silent) },
+  { '<Leader>ff', cmd("call VSCodeCall('workbench.action.quickOpen')"), opts(noremap, silent) },
+  { '<Leader>pf', cmd("call VSCodeCall('workbench.action.quickOpen')"), opts(noremap, silent) },
+  { '<Leader>.', cmd("call VSCodeCall('workbench.action.quickOpen')"), opts(noremap, silent) },
+  { '<Leader>/', cmd("call VSCodeCall('workbench.view.search')"), opts(noremap, silent) },
+}, 'vscode')

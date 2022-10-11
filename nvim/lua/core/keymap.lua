@@ -4,6 +4,7 @@
 
 local keymap = {}
 local opts = {}
+local vscode = vim.g.vscode ~= nil
 
 function opts:new(instance)
   instance = instance
@@ -94,7 +95,17 @@ local keymap_set = function(mode, tbl)
 end
 
 local function map(mod)
-  return function(tbl)
+  return function(tbl, mode)
+    mode = mode or 'nvim'
+
+    if mode == 'nvim' and vscode then
+      return
+    end
+
+    if mode == 'vscode' and not vscode then
+      return
+    end
+
     vim.validate({
       tbl = { tbl, 'table' },
     })

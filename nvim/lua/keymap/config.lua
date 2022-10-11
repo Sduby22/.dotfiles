@@ -23,14 +23,14 @@ nmap({
   { '<C-x>k', cmd('bdelete'), opts(noremap, silent) },
   -- save
   { '<C-s>', cmd('write'), opts(noremap) },
-  -- yank
-  { 'Y', 'y$', opts(noremap) },
   -- buffer jump
   { '<leader>bn', cmd('bn'), opts(noremap) },
   { '<leader>bp', cmd('bp'), opts(noremap) },
   { '<leader>bk', cmd('bd'), opts(noremap) },
   -- remove trailing white space
   { '<Leader>t', cmd('TrimTrailingWhitespace'), opts(noremap) },
+  -- yank
+  { 'Y', 'y$', opts(noremap) },
   -- window
   { '<leader>w', '<C-w>', opts(noremap) },
 })
@@ -39,6 +39,7 @@ imap({
   -- insert mode
   { '<C-h>', '<Bs>', opts(noremap) },
   { '<C-e>', '<End>', opts(noremap) },
+  { '<C-s>', '<esc>:w<cr>', opts(noremap) },
 })
 
 -- commandline remap
