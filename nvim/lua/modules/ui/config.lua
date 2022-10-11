@@ -11,8 +11,9 @@ function config.lspsaga()
   })
 end
 
-function config.zephyr()
-  vim.cmd('colorscheme zephyr')
+function config.material()
+  vim.g.material_style = "oceanic"
+  vim.cmd('colorscheme material')
 end
 
 function config.galaxyline()
@@ -23,10 +24,10 @@ function config.dashboard()
   local home = os.getenv('HOME')
   local db = require('dashboard')
   db.session_directory = home .. '/.cache/nvim/session'
-  db.preview_command = 'cat | lolcat -F 0.3'
+  db.preview_command = 'cat'
   db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
-  db.preview_file_height = 12
-  db.preview_file_width = 80
+  db.preview_file_height = 18
+  db.preview_file_width = 187
   db.custom_center = {
     {
       icon = '  ',

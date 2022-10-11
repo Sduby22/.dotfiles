@@ -1,6 +1,6 @@
 package foreign-env
-package nvm
-package pyenv
+package https://github.com/edc/bass
+package https://github.com/fabioantunes/fish-nvm
 package z
 theme bobthefish
 theme default

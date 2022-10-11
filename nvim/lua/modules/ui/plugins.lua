@@ -5,7 +5,7 @@
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
-plugin({ 'glepnir/zephyr-nvim', config = conf.zephyr })
+plugin({ 'marko-cerovac/material.nvim', config = conf.material })
 
 plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard })
 

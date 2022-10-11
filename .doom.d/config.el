@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one-light)
+(setq doom-theme 'doom-material)
 (setq doom-font (font-spec :family "Fira Code" :size 14))
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -69,12 +69,12 @@
   (setq org-agenda-files '("~/org/agenda.org"))
   (setq org-log-done 'time)
   (setq org-hugo-base-dir "~/Documents/blog/")
-)
+  )
 
 (setq url-proxy-services
-   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-     ("http" . "127.0.0.1:7890")
-     ("https" . "127.0.0.1:7890")))
+      '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+        ("http" . "127.0.0.1:7890")
+        ("https" . "127.0.0.1:7890")))
 
 (global-wakatime-mode)
 (global-tree-sitter-mode)
