@@ -29,11 +29,14 @@ nmap({
   { '<leader>bk', cmd('bd'), opts(noremap) },
   -- remove trailing white space
   { '<Leader>t', cmd('TrimTrailingWhitespace'), opts(noremap) },
-  -- yank
-  { 'Y', 'y$', opts(noremap) },
   -- window
   { '<leader>w', '<C-w>', opts(noremap) },
 })
+
+nmap({
+  -- yank
+  { 'Y', 'y$', opts(noremap) },
+}, 'both')
 
 imap({
   -- insert mode

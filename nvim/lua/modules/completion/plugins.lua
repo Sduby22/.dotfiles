@@ -15,7 +15,6 @@ plugin({
 
 plugin({
   'hrsh7th/nvim-cmp',
-  event = 'VimEnter',
   config = conf.nvim_cmp,
   requires = {
     { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
@@ -27,15 +26,18 @@ plugin({
     { 'dcampos/nvim-snippy', config = conf.snippy },
     { 'dcampos/cmp-snippy', after = {'nvim-cmp','nvim-snippy'} },
     { 'honza/vim-snippets', after = 'cmp-snippy' },
-
     { 'zbirenbaum/copilot-cmp', after = {'copilot.lua', 'nvim-cmp'}, module = "copilot_cmp" },
   },
 })
 
+plugin({ 
+  'windwp/nvim-autopairs', 
+  config=conf.nvim_autopairs,
+  after={'nvim-cmp'},
+})
 
 plugin({
   "zbirenbaum/copilot.lua",
-  event = {"VimEnter"},
   config = function()
     vim.defer_fn(function()
       require("copilot").setup()

@@ -48,14 +48,14 @@ function config.nvim_cmp()
     sources = {
       {name = 'snippy'}, {name = 'nvim_lsp'}, {name = 'cmdline'},
       {name = 'buffer'}, {name = 'path'}, {name = 'nvim_lsp_signature_help'},
-      {name = 'nvim_lsp_document_symbol'}, {name = 'hrsh7th/cmp-cmdline'},
+      {name = 'nvim_lsp_document_symbol'}, {name = 'cmp-cmdline'},
       {name = 'copilot'},
     },
     -- preselect = cmp.PreselectMode.Item,
     formatting = {
       format = function (entry, vim_item)
         if entry.source.name == "copilot" then
-          vim_item.kind = "[] Copilot"
+          vim_item.kind = "[ ] Copilot"
           vim_item.kind_hl_group = "CmpItemKindCopilot"
         end
         return vim_item
@@ -115,6 +115,35 @@ function config.lua_snip()
   require('luasnip.loaders.from_vscode').lazy_load({
     paths = { './snippets/' },
   })
+end
+
+function config.nvim_autopairs()
+  local Rule = require('nvim-autopairs.rule')
+  local npairs = require('nvim-autopairs')
+
+  npairs.setup({
+    check_ts = true,
+    ts_config = {
+      lua = {'string'},-- it will not add a pair on that treesitter node
+      javascript = {'template_string'},
+      java = false,-- don't check treesitter on java
+    }
+  })
+
+  npairs.add_rules {
+    Rule(' ', ' '):with_pair(function(opts)
+      local pair = opts.line:sub(opts.col - 1, opts.col)
+      return vim.tbl_contains({'()', '[]', '{}'}, pair)
+    end), Rule('( ', ' )'):with_pair(function() return false end):with_move(
+    function(opts) return opts.prev_char:match('.%)') ~= nil end):use_key(
+    ')'),
+    Rule('{ ', ' }'):with_pair(function() return false end):with_move(
+    function(opts) return opts.prev_char:match('.%}') ~= nil end):use_key(
+    '}'), Rule('[ ', ' ]'):with_pair(function() return false end):with_move(
+    function(opts) return opts.prev_char:match('.%]') ~= nil end):use_key(
+    ']')
+  }
+  npairs.add_rule(Rule("'''", "'''", "python"))
 end
 
 return config

@@ -24,10 +24,5 @@ plugin({
 
 plugin({ 'mg979/vim-visual-multi' }, 'both')
 plugin({ 'tpope/vim-surround', event='InsertEnter' }, 'both')
-plugin({ 
-  'windwp/nvim-autopairs', 
-  config=conf.nvim_autopairs,
-  after='nvim-cmp'
-})
 
 plugin({ 'Sduby22/fcitx.nvim', config=function() require('fcitx').setup() end })
