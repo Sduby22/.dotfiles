@@ -140,3 +140,22 @@ vim.api.nvim_create_autocmd({"TextYankPost"}, {
     vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=false}
   end
 })
+
+-- if vim.g.vscode == 1 then
+--   vim.api.nvim_create_autocmd({"ModeChanged"}, {
+--     pattern = {"*"},
+--     callback = function()
+--       local m = vim.fn.mode()
+--       if m == 'i' then
+--         vim.cmd("call VSCodeNotify('nvim-theme.insert')")
+--       end
+--       if m == 'n' then
+--         vim.cmd("call VSCodeNotify('nvim-theme.normal')")
+--       end
+--       if m == 'v' or m == 'V' or m == '^V' or m=='c' then
+--         vim.cmd("call VSCodeNotify('nvim-theme.visual')")
+--       end
+--     end
+--   })
+--
+-- end

@@ -27,7 +27,7 @@ function config.dashboard()
   db.preview_command = 'cat'
   db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
   db.preview_file_height = 18
-  db.preview_file_width = 187
+  db.preview_file_width = 103
   db.custom_center = {
     {
       icon = '  ',

@@ -33,6 +33,7 @@ nmap({
 })
 
 nmap({
+  { 'gt', cmd("call VSCodeCall('editor.action.goToTypeDefinition')"), opts(noremap, silent) },
   { '<Leader><leader>', cmd("call VSCodeCall('workbench.action.quickOpen')"), opts(noremap, silent) },
   { '<Leader>ff', cmd("call VSCodeCall('workbench.action.quickOpen')"), opts(noremap, silent) },
   { '<Leader>pf', cmd("call VSCodeCall('workbench.action.quickOpen')"), opts(noremap, silent) },
@@ -40,6 +41,8 @@ nmap({
   { '<Leader>/', cmd("call VSCodeCall('workbench.view.search')"), opts(noremap, silent) },
 
   { '<Leader>ca', cmd("call VSCodeCall('editor.action.quickFix')"), opts(noremap, silent) },
+  { '<Leader>cr', cmd("call VSCodeCall('editor.action.rename')"), opts(noremap, silent) },
+  { '<Leader>cf', cmd("call VSCodeCall('formattingToggle.toggleFormat')"), opts(noremap, silent) },
   { '<Leader>cs', cmd("call VSCodeCall('editor.action.sourceAction')"), opts(noremap, silent) },
   { ']e', cmd("call VSCodeCall('editor.action.marker.nextInFiles')"), opts(noremap, silent) },
   { '[e', cmd("call VSCodeCall('editor.action.marker.prevInFiles')"), opts(noremap, silent) },
