@@ -46,7 +46,10 @@ nmap({
   { '<Leader>cs', cmd("call VSCodeCall('editor.action.sourceAction')"), opts(noremap, silent) },
   { ']e', cmd("call VSCodeCall('editor.action.marker.nextInFiles')"), opts(noremap, silent) },
   { '[e', cmd("call VSCodeCall('editor.action.marker.prevInFiles')"), opts(noremap, silent) },
-  { '<leader>z', cmd("call VSCodeCall('workbench.action.toggleZenMode')"), opts(noremap, silent) },
+
+  { '<leader>z', cmd("call VSCodeCall('workbench.action.toggleSidebarVisibility')"), opts(noremap, silent) },
+  { '<leader>e', cmd("call VSCodeCall('workbench.view.explorer')"), opts(noremap, silent) },
+  { '<leader>g', cmd("call VSCodeCall('workbench.view.scm')"), opts(noremap, silent) },
 
   { '<leader>wo', cmd("call VSCodeNotify('workbench.action.joinAllGroups')"), opts(noremap, silent) },
   { '<leader>wj', cmd("call VSCodeNotify('workbench.action.focusBelowGroup')"), opts(noremap, silent) },

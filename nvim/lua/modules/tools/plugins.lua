@@ -23,6 +23,7 @@ plugin({
 })
 
 plugin({ 'mg979/vim-visual-multi' }, 'both')
-plugin({ 'tpope/vim-surround', event='InsertEnter' }, 'both')
+plugin({ 'tpope/vim-surround' }, 'both')
+plugin({ 'justinmk/vim-sneak' }, 'both')
 
 plugin({ 'Sduby22/fcitx.nvim', config=function() require('fcitx').setup() end })

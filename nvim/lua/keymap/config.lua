@@ -4,7 +4,7 @@
 -- recommend some vim mode key defines in this file
 
 local keymap = require('core.keymap')
-local nmap, imap, cmap, xmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap
+local nmap, imap, cmap, xmap, omap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.omap
 local silent, noremap = keymap.silent, keymap.noremap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
@@ -36,6 +36,19 @@ nmap({
 nmap({
   -- yank
   { 'Y', 'y$', opts(noremap) },
+  { 'Y', 'y$', opts(noremap) },
+}, 'both')
+
+omap({
+  { 's', cmd("<Plug>Sneak_s"), opts(noremap) },
+  { 'S', cmd("<Plug>Sneak_S"), opts(noremap) },
+}, 'both')
+
+xmap({
+  { '<C-0>', cmd("<Plug>Sneak_s"), opts(noremap) },
+  { '<C-0>', cmd("<Plug>Sneak_S"), opts(noremap) },
+  -- surround
+  { 's', 'S' },
 }, 'both')
 
 imap({
