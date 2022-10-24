@@ -71,6 +71,13 @@
   (setq org-hugo-base-dir "~/Documents/blog/")
   )
 
+(defun open-in-wezterm () (interactive)
+       (let ((workdir (if (projectile-project-root)
+                          (projectile-project-root)
+                        default-directory)))
+         (start-process-shell-command "wezterm" nil
+                                      (concat "wezterm start --cwd " workdir))))
+
 (setq url-proxy-services
       '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
         ("http" . "127.0.0.1:7890")
