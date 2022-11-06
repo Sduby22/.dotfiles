@@ -71,6 +71,11 @@
   (setq org-hugo-base-dir "~/Documents/blog/")
   )
 
+(map! :leader
+      :n
+      :desc "open in wezterm"
+      "o t" #'open-in-wezterm)
+
 (defun open-in-wezterm () (interactive)
        (let ((workdir (if (projectile-project-root)
                           (projectile-project-root)
