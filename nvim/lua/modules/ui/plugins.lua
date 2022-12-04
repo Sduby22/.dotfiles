@@ -5,7 +5,9 @@
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
-plugin({ 'marko-cerovac/material.nvim', config = conf.material })
+plugin({ 'shaunsingh/nord.nvim', config = function() 
+  vim.cmd('colorscheme nord')
+end })
 
 plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard })
 

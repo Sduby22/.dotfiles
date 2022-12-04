@@ -33,8 +33,10 @@
       path: ranger
     ~/.vimrc:
       path: nvim/pure.vim
-    ~/.tmux.conf:
-      path: tmux.conf
+    ~/.tmux.conf.local:
+      path: ./oh-my-tmux.conf.local
+    # ~/.tmux.conf:
+    #   path: tmux.conf
     ~/.config/nvim:
       path: nvim
     ~/.config/skhd:

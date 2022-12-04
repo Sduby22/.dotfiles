@@ -11,6 +11,11 @@ function config.lspsaga()
   })
 end
 
+function config.zephyer()
+  vim.g.material_style = "oceanic"
+  vim.cmd('colorscheme material')
+end
+
 function config.material()
   vim.g.material_style = "oceanic"
   vim.cmd('colorscheme material')

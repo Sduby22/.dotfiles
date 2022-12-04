@@ -37,6 +37,7 @@ nmap({
   { '<Leader><leader>', cmd("call VSCodeCall('workbench.action.quickOpen')"), opts(noremap, silent) },
   { '<Leader>ff', cmd("call VSCodeCall('workbench.action.quickOpen')"), opts(noremap, silent) },
   { '<Leader>pf', cmd("call VSCodeCall('workbench.action.quickOpen')"), opts(noremap, silent) },
+  { '<Leader>pp', cmd("call VSCodeCall('workbench.action.openRecent')"), opts(noremap, silent) },
   { '<Leader>.', cmd("call VSCodeCall('workbench.action.quickOpen')"), opts(noremap, silent) },
   { '<Leader>/', cmd("call VSCodeCall('workbench.view.search')"), opts(noremap, silent) },
 
