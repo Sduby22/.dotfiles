@@ -26,7 +26,7 @@ plugin({
     { 'dcampos/nvim-snippy', config = conf.snippy },
     { 'dcampos/cmp-snippy', after = {'nvim-cmp','nvim-snippy'} },
     { 'honza/vim-snippets', after = 'cmp-snippy' },
-    { 'zbirenbaum/copilot-cmp', after = {'copilot.lua', 'nvim-cmp'}, module = "copilot_cmp" },
+    -- { 'zbirenbaum/copilot-cmp', after = {'copilot.lua', 'nvim-cmp'}, module = "copilot_cmp" },
   },
 })
 
@@ -36,11 +36,11 @@ plugin({
   after={'nvim-cmp'},
 })
 
-plugin({
-  "zbirenbaum/copilot.lua",
-  config = function()
-    vim.defer_fn(function()
-      require("copilot").setup()
-    end, 100)
-  end,
-})
+-- plugin({
+--   "zbirenbaum/copilot.lua",
+--   config = function()
+--     vim.defer_fn(function()
+--       require("copilot").setup()
+--     end, 100)
+--   end,
+-- })
