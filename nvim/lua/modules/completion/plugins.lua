@@ -26,7 +26,6 @@ plugin({
     { 'dcampos/nvim-snippy', config = conf.snippy },
     { 'dcampos/cmp-snippy', after = {'nvim-cmp','nvim-snippy'} },
     { 'honza/vim-snippets', after = 'cmp-snippy' },
-    -- { 'zbirenbaum/copilot-cmp', after = {'copilot.lua', 'nvim-cmp'}, module = "copilot_cmp" },
   },
 })
 
@@ -34,6 +33,10 @@ plugin({
   'windwp/nvim-autopairs', 
   config=conf.nvim_autopairs,
   after={'nvim-cmp'},
+})
+
+plugin({
+  'github/copilot.vim'
 })
 
 -- plugin({

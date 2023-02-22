@@ -1,5 +1,7 @@
 alt - e : open ~
-alt - c : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+# alt - c : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+alt - c : open -a "Firefox Developer Edition"
+alt - d : open -a "Eudb_en"
 # alt - return : iterm2  
 # alt - return : /Applications/WezTerm.app/Contents/MacOS/wezterm start --always-new-process
 # alt - return : /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal

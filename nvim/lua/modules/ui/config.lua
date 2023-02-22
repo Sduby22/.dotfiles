@@ -6,7 +6,7 @@ local config = {}
 
 function config.lspsaga()
   local saga = require 'lspsaga'
-  saga.init_lsp_saga({
+  saga.setup({
     move_in_saga = { prev = '<C-k>',next = '<C-j>'},
   })
 end

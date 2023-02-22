@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-material)
+;; (setq doom-theme 'doom-material)
 (setq doom-font (font-spec :family "Fira Code" :size 14))
 
 ;; If you use `org' and don't want your org files in the default location below,
@@ -74,7 +74,14 @@
 (map! :leader
       :n
       :desc "open in wezterm"
-      "o t" #'open-in-wezterm)
+      "o T" #'open-in-wezterm)
+
+(map! :leader
+      :n
+      :desc "enable auto format"
+      "c f" #'format-all-mode)
+
+(global-set-key (kbd "C-t") #'+vterm/toggle)
 
 (defun open-in-wezterm () (interactive)
        (let ((workdir (if (projectile-project-root)
@@ -82,6 +89,12 @@
                         default-directory)))
          (start-process-shell-command "wezterm" nil
                                       (concat "wezterm start --cwd " workdir))))
+
+(set-formatter!
+        'cargo-fmt
+        '("rustfmt" "--edition" "2021")
+        :modes '(rustic-mode)
+)
 
 (setq url-proxy-services
       '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
@@ -111,6 +124,18 @@
 (require 'evil-fcitx)
 
 
+;; Leetcode Plugin
 (setq leetcode-prefer-language "rust")
 (setq leetcode-save-solutions t)
 (setq leetcode-directory "~/.leetcode")
+
+(defun my/apply-theme (appearance)
+  "Load theme, taking current system APPEARANCE into consideration."
+  (mapc #'disable-theme custom-enabled-themes)
+  (pcase appearance
+    ('light (load-theme 'doom-acario-light t))
+    ('dark (load-theme 'doom-dark+ t))))
+
+(my/apply-theme ns-system-appearance)
+(add-hook 'ns-system-appearance-change-functions #'my/apply-theme)
+(setq frame-resize-pixelwise t)
