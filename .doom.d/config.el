@@ -28,10 +28,6 @@
 ;; (setq doom-theme 'doom-material)
 (setq doom-font (font-spec :family "Fira Code" :size 14))
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -70,57 +66,70 @@
   (setq org-log-done 'time)
   (setq org-hugo-base-dir "~/Documents/blog/")
   )
+;; Org mode
+(add-hook 'org-mode-hook #'org-modern-mode)
+(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
+(setq org-hide-emphasis-markers t)
+(add-hook 'org-mode-hook 'org-appear-mode)
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/org/")
 
-(map! :leader
-      :n
-      :desc "open in wezterm"
-      "o T" #'open-in-wezterm)
 
 (map! :leader
       :n
       :desc "enable auto format"
       "c f" #'format-all-mode)
 
-(global-set-key (kbd "C-t") #'+vterm/toggle)
-
+;; Wezterm
 (defun open-in-wezterm () (interactive)
        (let ((workdir (if (projectile-project-root)
                           (projectile-project-root)
                         default-directory)))
          (start-process-shell-command "wezterm" nil
                                       (concat "wezterm start --cwd " workdir))))
+(global-set-key (kbd "C-t") #'+vterm/toggle)
+(map! :leader
+      :n
+      :desc "open in wezterm"
+      "o T" #'open-in-wezterm)
 
+
+;; Rust
 (set-formatter!
         'cargo-fmt
         '("rustfmt" "--edition" "2021")
         :modes '(rustic-mode)
 )
+(setq lsp-rust-analyzer-cargo-watch-command "clippy")
 
+
+;; Proxy
 (setq url-proxy-services
       '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
         ("http" . "127.0.0.1:7890")
         ("https" . "127.0.0.1:7890")))
 
+;; Wakatime
 (global-wakatime-mode)
+
+;; Tree-sitter
 (global-tree-sitter-mode)
-;; (fcitx-aggressive-setup)
-;; ;; (setq fcitx-remote-command "fcitx5-remote")
+(tree-sitter-hl-mode)
+
+;; Github copilot
 (use-package! copilot
-  ;; :hook (prog-mode . copilot-mode)
+  :hook (prog-mode . copilot-mode)
   :bind (("C-TAB" . 'copilot-accept-completion-by-word)
          ("C-<tab>" . 'copilot-accept-completion-by-word)
          :map copilot-completion-map
          ("<tab>" . 'copilot-accept-completion)
          ("TAB" . 'copilot-accept-completion)))
-;; (setq copilot-node-executable "/home/sduby/.nvm/versions/node/v17.9.1/bin/node")
 
-(add-hook 'org-mode-hook #'org-modern-mode)
-(add-hook 'org-agenda-finalize-hook #'org-modern-agenda)
-(setq org-hide-emphasis-markers t)
-(add-hook 'org-mode-hook 'org-appear-mode)
-(setq lsp-rust-analyzer-cargo-watch-command "clippy")
-
+;; Auto complete tuning
 (setq company-auto-select-first-candidate nil)
+
+;; fcitx
 (require 'evil-fcitx)
 
 
@@ -129,6 +138,7 @@
 (setq leetcode-save-solutions t)
 (setq leetcode-directory "~/.leetcode")
 
+;; Auto switch dark/light themes
 (defun my/apply-theme (appearance)
   "Load theme, taking current system APPEARANCE into consideration."
   (mapc #'disable-theme custom-enabled-themes)
@@ -139,3 +149,5 @@
 (my/apply-theme ns-system-appearance)
 (add-hook 'ns-system-appearance-change-functions #'my/apply-theme)
 (setq frame-resize-pixelwise t)
+
+(set-file-template! ".*\.h(pp)?" :trigger "__new_header.hpp" :mode 'c++-mode)
