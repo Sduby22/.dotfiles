@@ -26,7 +26,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-material)
-(setq doom-font (font-spec :family "Fira Code" :size 14))
+(setq doom-font (font-spec :family "Iosevka" :size 14))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -143,8 +143,8 @@
   "Load theme, taking current system APPEARANCE into consideration."
   (mapc #'disable-theme custom-enabled-themes)
   (pcase appearance
-    ('light (load-theme 'doom-acario-light t))
-    ('dark (load-theme 'doom-dark+ t))))
+    ('light (load-theme 'doom-nord-light t))
+    ('dark (load-theme 'doom-tomorrow-night t))))
 
 (my/apply-theme ns-system-appearance)
 (add-hook 'ns-system-appearance-change-functions #'my/apply-theme)
