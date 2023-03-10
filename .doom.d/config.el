@@ -26,7 +26,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-material)
-(setq doom-font (font-spec :family "Iosevka" :size 14))
+(setq doom-font (font-spec :family "Iosevka" :size 15))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -94,6 +94,14 @@
       :desc "open in wezterm"
       "o T" #'open-in-wezterm)
 
+;; cpp
+  (c-add-style "work"
+               '((c-offsets-alist
+                  (access-label . -))))
+
+;; Setting this as the default style:
+(setq c-default-style "work")
+
 
 ;; Rust
 (set-formatter!
@@ -115,7 +123,7 @@
 
 ;; Tree-sitter
 (global-tree-sitter-mode)
-(tree-sitter-hl-mode)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
 ;; Github copilot
 (use-package! copilot
