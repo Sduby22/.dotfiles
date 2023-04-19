@@ -26,7 +26,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-material)
-(setq doom-font (font-spec :family "Iosevka" :size 15))
+(setq doom-font (font-spec :family "Iosevka" :size 16))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -80,6 +80,11 @@
       :n
       :desc "enable auto format"
       "c f" #'format-all-mode)
+(setq +format-on-save-enabled-modes
+      '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
+            sql-mode         ; sqlformat is currently broken
+            tex-mode         ; latexindent is broken
+            latex-mode))
 
 ;; Wezterm
 (defun open-in-wezterm () (interactive)
