@@ -116,13 +116,6 @@
 )
 (setq lsp-rust-analyzer-cargo-watch-command "clippy")
 
-
-;; Proxy
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-        ("http" . "127.0.0.1:7890")
-        ("https" . "127.0.0.1:7890")))
-
 ;; Wakatime
 (global-wakatime-mode)
 
@@ -130,37 +123,8 @@
 (global-tree-sitter-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
-;; Github copilot
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (("C-TAB" . 'copilot-accept-completion-by-word)
-         ("C-<tab>" . 'copilot-accept-completion-by-word)
-         :map copilot-completion-map
-         ("<tab>" . 'copilot-accept-completion)
-         ("TAB" . 'copilot-accept-completion)))
-
 ;; Auto complete tuning
 (setq company-auto-select-first-candidate nil)
 
-;; fcitx
-(require 'evil-fcitx)
-
-
-;; Leetcode Plugin
-(setq leetcode-prefer-language "rust")
-(setq leetcode-save-solutions t)
-(setq leetcode-directory "~/.leetcode")
-
-;; Auto switch dark/light themes
-(defun my/apply-theme (appearance)
-  "Load theme, taking current system APPEARANCE into consideration."
-  (mapc #'disable-theme custom-enabled-themes)
-  (pcase appearance
-    ('light (load-theme 'doom-nord-light t))
-    ('dark (load-theme 'doom-tomorrow-night t))))
-
-(my/apply-theme ns-system-appearance)
-(add-hook 'ns-system-appearance-change-functions #'my/apply-theme)
 (setq frame-resize-pixelwise t)
-
 (set-file-template! ".*\.h(pp)?" :trigger "__new_header.hpp" :mode 'c++-mode)
