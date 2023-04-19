@@ -86,19 +86,6 @@
             tex-mode         ; latexindent is broken
             latex-mode))
 
-;; Wezterm
-(defun open-in-wezterm () (interactive)
-       (let ((workdir (if (projectile-project-root)
-                          (projectile-project-root)
-                        default-directory)))
-         (start-process-shell-command "wezterm" nil
-                                      (concat "wezterm start --cwd " workdir))))
-(global-set-key (kbd "C-t") #'+vterm/toggle)
-(map! :leader
-      :n
-      :desc "open in wezterm"
-      "o T" #'open-in-wezterm)
-
 ;; cpp
   (c-add-style "work"
                '((c-offsets-alist
