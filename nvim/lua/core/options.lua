@@ -3,7 +3,6 @@
 -- License: MIT
 local cache_dir = os.getenv('HOME') .. '/.cache/nvim/'
 
-vim.opt.termguicolors = true
 vim.opt.mouse = 'nv'
 vim.opt.errorbells = true
 vim.opt.visualbell = true
@@ -96,7 +95,7 @@ vim.opt.linebreak = true
 vim.opt.number = true
 vim.opt.colorcolumn = '80'
 vim.opt.foldenable = true
-vim.opt.signcolumn = 'yes'
+-- vim.opt.signcolumn = 'yes'
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = 'niv'
 

@@ -52,7 +52,7 @@ else
     colorscheme default
 endif
 
-source ~/.config/nvim/indent.vim
+source ~/.dotfiles/.old_nvim/indent.vim
 
 " :find command
 set path+=**

@@ -3,6 +3,8 @@
 -- License: MIT
 
 local config = {}
+local use_color = true
+vim.opt.termguicolors = false
 
 function config.lspsaga()
   local saga = require 'lspsaga'
@@ -13,12 +15,16 @@ end
 
 function config.zephyer()
   vim.g.material_style = "oceanic"
-  vim.cmd('colorscheme material')
+  load_colorscheme('material')
 end
 
 function config.material()
   vim.g.material_style = "oceanic"
-  vim.cmd('colorscheme material')
+  load_colorscheme('material')
+end
+
+function config.nord()
+  load_colorscheme('nord')
 end
 
 function config.galaxyline()
@@ -65,6 +71,14 @@ function config.nvim_tree()
     hijack_cursor = true,
     hijack_netrw = true,
   })
+end
+
+function config.load_colorscheme(color)
+  print(color)
+  if (use_color) then
+    vim.opt.termguicolors = true
+    vim.cmd('colorscheme ' .. color)
+  end
 end
 
 return config
