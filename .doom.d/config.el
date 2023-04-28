@@ -119,7 +119,7 @@
 
 ;; Github copilot
 (use-package! copilot
-  :hook (prog-mode . copilot-mode)
+  ;; :hook (prog-mode . copilot-mode)
   :bind (("C-TAB" . 'copilot-accept-completion-by-word)
          ("C-<tab>" . 'copilot-accept-completion-by-word)
          :map copilot-completion-map
@@ -151,3 +151,8 @@
 (setq frame-resize-pixelwise t)
 
 (set-file-template! ".*\.h(pp)?" :trigger "__new_header.hpp" :mode 'c++-mode)
+(setq +lsp-company-backends '(company-capf company-yasnippet company-dabbrev company-dabbrev-code))
+(setq company-backends '(company-capf company-yasnippet company-dabbrev company-dabbrev-code))
+(defun eshell/mkcd(folder)
+  (eshell/mkdir "-p" folder)
+  (eshell/cd folder))
