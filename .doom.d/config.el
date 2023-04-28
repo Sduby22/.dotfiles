@@ -115,7 +115,7 @@
 
 ;; Tree-sitter
 (global-tree-sitter-mode)
-(tree-sitter-hl-mode)
+(add-hook! 'tree-sitter-mode-hook tree-sitter-hl-mode)
 
 ;; Github copilot
 (use-package! copilot
