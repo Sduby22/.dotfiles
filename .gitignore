@@ -7,3 +7,5 @@ subscription_link
 alacritty/color_scripts/base16*
 
 lazygit/state.yml
+Rime/build/
+.DS_Store

@@ -32,7 +32,7 @@
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
-       vertico           ; the search engine of the future
+       (vertico +childframe +icons)           ; the search engine of the future
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -50,10 +50,10 @@
        ;; neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       ;;tabs              ; a tab bar for Emacs
+       tabs              ; a tab bar for Emacs
        treemacs          ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
-       vc-gutter         ; vcs diff in the fringe
+       (vc-gutter +diff-hl)         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        ;;window-select     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
@@ -98,7 +98,7 @@
        ;;docker
        editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
-       (eval +overlay)     ; run code, run (also, repls)
+       ;; (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
        lsp               ; M-x vscode

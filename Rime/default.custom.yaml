@@ -4,6 +4,7 @@ customization:
   rime_version: 1.5.3
 
 patch:
+  menu/page_size: 7
   schema_list:
     - schema: flypy # 添加小鹤音形
     - schema: double_pinyin_flypy
@@ -28,7 +29,7 @@ patch:
 
   ascii_composer/good_old_caps_lock: true
   ascii_composer/switch_key:
-    # Caps_Lock: commit_code
+    Caps Lock: noop
     Shift_L: noop
     Shift_R: noop
     # Control_L: commit_code
