@@ -30,7 +30,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -151,8 +151,14 @@
 (setq frame-resize-pixelwise t)
 
 (set-file-template! ".*\.h(pp)?" :trigger "__new_header.hpp" :mode 'c++-mode)
-(setq +lsp-company-backends '(company-capf company-yasnippet company-dabbrev company-dabbrev-code))
-(setq company-backends '(company-capf company-yasnippet company-dabbrev company-dabbrev-code))
+(setq +lsp-company-backends '(:seperate company-capf company-yasnippet company-dabbrev company-dabbrev-code))
+(setq company-backends '(:seperate company-capf company-yasnippet company-dabbrev company-dabbrev-code))
 (defun eshell/mkcd(folder)
   (eshell/mkdir "-p" folder)
   (eshell/cd folder))
+(add-hook 'before-save-hook 'time-stamp)
+(setq time-stamp-pattern "15/.*LastModified:\\\\?[ \t]+%:y-%02m-%02d %02H:%02M:%02S %u\\\\?$")
+
+
+(map! :g "s-d" 'evil-multiedit-match-symbol-and-next)
+(map! :g "s-D" 'evil-multiedit-match-symbol-and-prev)
