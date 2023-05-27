@@ -25,8 +25,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;; (setq doom-theme 'doom-material)
-(setq doom-font (font-spec :family "Fira Code" :size 14))
+(setq doom-theme 'doom-solarized-light)
+(setq doom-font (font-spec :family "Iosevka" :size 17))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -95,6 +95,15 @@
       "o T" #'open-in-wezterm)
 
 
+;; cpp
+  (c-add-style "work"
+               '((c-offsets-alist
+                  (access-label . -))))
+
+;; Setting this as the default style:
+(setq c-default-style "work")
+
+
 ;; Rust
 (set-formatter!
         'cargo-fmt
@@ -114,8 +123,8 @@
 (global-wakatime-mode)
 
 ;; Tree-sitter
-(global-tree-sitter-mode)
-(add-hook! 'tree-sitter-mode-hook tree-sitter-hl-mode)
+;; (global-tree-sitter-mode)
+;; (add-hook! 'tree-sitter-mode-hook tree-sitter-hl-mode)
 
 ;; Github copilot
 (use-package! copilot
@@ -143,7 +152,7 @@
   "Load theme, taking current system APPEARANCE into consideration."
   (mapc #'disable-theme custom-enabled-themes)
   (pcase appearance
-    ('light (load-theme 'doom-acario-light t))
+    ('light (load-theme 'doom-solarized-light t))
     ('dark (load-theme 'doom-dark+ t))))
 
 (my/apply-theme ns-system-appearance)
@@ -151,14 +160,28 @@
 (setq frame-resize-pixelwise t)
 
 (set-file-template! ".*\.h(pp)?" :trigger "__new_header.hpp" :mode 'c++-mode)
-(setq +lsp-company-backends '(:seperate company-capf company-yasnippet company-dabbrev company-dabbrev-code))
-(setq company-backends '(:seperate company-capf company-yasnippet company-dabbrev company-dabbrev-code))
+;; (setq +lsp-company-backends '(company-capf :with company-yasnippet))
+(set-company-backend! 'prog-mode '(company-capf :with company-yasnippet company-dabbrev company-dabbrev-code))
+;; (setq company-backends '(:seperate company-capf company-yasnippet company-dabbrev company-dabbrev-code))
+
 (defun eshell/mkcd(folder)
   (eshell/mkdir "-p" folder)
   (eshell/cd folder))
+(defun eshell/myproxy()
+  (eshell/export "HTTP_PROXY=http://localhost:7890")
+  (eshell/export "HTTPS_PROXY=http://localhost:7890")
+  (eshell/export "ALL_PROXY=http://localhost:7890")
+)
+(defun eshell/unproxy()
+  (eshell/export "HTTP_PROXY=")
+  (eshell/export "HTTPS_PROXY=")
+  (eshell/export "ALL_PROXY=")
+)
+
 (add-hook 'before-save-hook 'time-stamp)
-(setq time-stamp-pattern "15/.*LastModified:\\\\?[ \t]+%:y-%02m-%02d %02H:%02M:%02S %u\\\\?$")
+(setq time-stamp-pattern (concat "15/.*LastModified:\\\\?[ \t]+%:y-%02m-%02d %02H:%02M:%02S\\\\?$"))
 
 
+(add-hook 'prog-mode-hook 'ggtags-mode)
 (map! :g "s-d" 'evil-multiedit-match-symbol-and-next)
 (map! :g "s-D" 'evil-multiedit-match-symbol-and-prev)

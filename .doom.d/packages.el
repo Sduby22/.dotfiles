@@ -8,6 +8,10 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 (package! wakatime-mode)
+(package! ggtags)
+(package! docstr)
+;; (package! ts-docstr :recipe (:type git :host github :repo "emacs-vs/ts-docstr"
+;;                        :files (:defaults "langs/*.el")))
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

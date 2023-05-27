@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: file header
+# key: file
+# uuid: file header
+# --
+
+@File: `(file-name-nondirectory buffer-file-name)`
+@Description: $1
+@Author: `user-full-name` <`user-mail-address`>
+@Date: `(format-time-string "%Y-%m-%d %H:%M:%S")`
+@LastModified:
+@Copyright: `(format-time-string "%Y")` Alibaba Inc. All rights reserved.
