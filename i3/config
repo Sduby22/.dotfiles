@@ -51,8 +51,10 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+c exec google-chrome-stable
+bindsym $mod+Return exec kitty
+#bindsym $mod+c exec google-chrome-stable
+bindsym $mod+c exec firefox-developer-edition
+bindsym $mod+d exec eudic
 bindsym $mod+e exec thunar
 bindsym $alt+Shift+a exec flameshot gui
 
@@ -243,6 +245,7 @@ exec xfce4-panel -d
 exec --no-startup-id nitrogen --restore
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec ~/.screenlayout/monitor.sh
-exec sh -c 'sleep 3;. ~/.dotfiles/keyboard.sh'
+# Use kmonad instead
+# exec sh -c 'sleep 3;. ~/.dotfiles/keyboard.sh'
 exec wmname LG3D
 exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/  
