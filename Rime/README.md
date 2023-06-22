@@ -1,43 +1,186 @@
-# rime-xhup
-Rime 小鹤双拼音形输入方案，需要使用最新版的 librime（1.3.2+）。
+# 雾凇拼音
 
-## 特性
+![demo](./others/demo.webp)
 
-- 三种输入方式：
+功能齐全，词库体验良好，长期更新修订。
 
-  - xhup 小鹤音形
+<br>
 
-    四键直接上屏，类似小鹤双拼飞扬版
+[RIME | 中州韵输入法引擎](https://rime.im/) 是一个跨平台的输入法算法框架，这里是 Rime 的一个配置仓库。
 
-  - xhup\_express 小鹤音形·连打
+用户需要[下载各平台对应的 Rime 发行版](https://rime.im/download/)，并将此配置应用到配置目录。
 
-    类似朙月拼音，使用 `'` 或 `;` 分词，空格上屏
+详细介绍：[Rime 配置：雾凇拼音](https://dvel.me/posts/rime-ice/)
 
-  - xhup\_fluency 小鹤音形·语句流
+[常见问题](https://github.com/iDvel/rime-ice/issues/133)
 
-    语句流输入方式，使用 `'`、`;` 或空格分词，空格或回车上屏
+[更新日志](./others/CHANGELOG.md)
 
-- 简入繁出
+<br>
 
-- 类似朙月拼音的特殊符号输入
+## 基本套路
 
-- 使用 `oi` 进行反查
+- 简体 | 全拼 | 双拼
+- 主要功能
+    -   [melt_eng](https://github.com/tumuyan/rime-melt) 英文输入
+    -   [优化英文输入体验](https://dvel.me/posts/make-rime-en-better/)
+    -   [两分输入法](http://cheonhyeong.com/Simplified/download.html) 拼字
+    -   简繁切换
+    -   日期、时间、星期
+    -   自整理的 Emoji
+    -   [以词定字](https://github.com/BlindingDark/rime-lua-select-character)
+    -   [长词优先](https://github.com/tumuyan/rime-melt/blob/master/lua/melt.lua)
+    -   [Unicode](https://github.com/shewer/librime-lua-script/blob/main/lua/component/unicode.lua)
+    -   [数字、人民币大写](https://wb98.gitee.io/)
+    -   所有标点符号直接上屏，/ 模式改为 v 模式，/ 直接上屏
+    -   增加了许多拼音纠错
+- 简体字表、词库
+    -   [《通用规范汉字表》](https://github.com/iDvel/The-Table-of-General-Standard-Chinese-Characters)
+    -   [华宇野风系统词库](http://bbs.pinyin.thunisoft.com/forum.php?mod=viewthread&tid=30049)
+    -   [清华大学开源词库](https://github.com/thunlp/THUOCL)
+    -   [《现代汉语常用词表》](https://gist.github.com/indiejoseph/eae09c673460aa0b56db)
+    -   [《现代汉语词典》](https://forum.freemdict.com/t/topic/12102)
+    -   [《同义词词林》](https://forum.freemdict.com/t/topic/1211)
+    -   [《新华成语大词典》](https://forum.freemdict.com/t/topic/11407)
+    -   [腾讯词向量](https://ai.tencent.com/ailab/nlp/en/download.html)
+- 词库修订
+    - 校对大量异形词、错别字、错误注音
 
-- 「小鹤音形·连打」和「小鹤音形·语句流」支持造词、调频
+<br>
 
-## 文件说明
+## 长期维护词库
 
-`xhup.schema.yaml`：「小鹤音形」输入方案
+因为没有找到一份比较好的词库，干脆自己维护一个。综合了几个不错的词库，精心调教了很多。
 
-`xhup_express.schema.yaml`：「小鹤音形·连打」输入方案
+主要维护的词库：
 
-`xhup_fluency.schema.yaml`：「小鹤音形·语句流」输入方案
+- `8105` 字表。
+- `base` 基础词库。
+- `ext` 扩展词库，小词库。
+- `tencent` 扩展词库，大词库。
+- Emoji
 
-## 使用方法
+维护内容主要是异形词、错别字的校对，错误注音的修正，缺失的常用词汇的增添，词频的调整。
 
-1. 将 yaml 文件拷贝至 Rime 配置目录内。
-2. 从[小鹤双拼官方](http://flypy.ys168.com/)下载「小鹤音形Rime平台for Linux」，并将其中的 bin 文件拷贝至 Rime 的 build 目录内。
+欢迎在词库方面提 issue，我会及时更新修正。
 
-## 许可证
+<br>
 
-所有文件均发布到公共领域。
+## 使用说明
+
+建议备份原先配置，清空配置目录。
+
+⚠️ 单独使用词库注意事项，`rime_ice.dict.yaml` 下面包含了大写字母，这和配置有些许绑定，可以直接删除，详细说明：[#356](https://github.com/iDvel/rime-ice/issues/356)
+
+### 手动安装
+
+将仓库所有文件复制粘贴进去就好了。
+
+更新词库，手动覆盖 `cn_dicts` `en_dcits` `opencc` 三个文件夹。
+
+### 东风破 [plum](https://github.com/rime/plum)
+
+所有配方（`others/recipes/*.recipe.yaml`）只是简单地更新覆盖文件，适合更新词库时使用。后四个配方只是更新词库文件，并不更新 `rime_ice.dict.yaml` 和 `melt_eng.dict.yaml`，因为用户可能会挂载其他词库。如果更新后部署时报错，可能是增、删、改了文件名，需要检查上面两个文件和词库的对应关系。
+
+安装或更新：全部文件
+
+```
+bash rime-install iDvel/rime-ice:others/recipes/full
+```
+
+安装或更新：所有词库文件（包含下面三个）
+
+```
+bash rime-install iDvel/rime-ice:others/recipes/all_dicts
+```
+
+安装或更新：拼音词库文件
+
+```
+bash rime-install iDvel/rime-ice:others/recipes/cn_dicts
+```
+
+安装或更新：英文词库文件
+
+```
+bash rime-install iDvel/rime-ice:others/recipes/en_dicts
+```
+
+安装或更新：opencc(emoji)
+
+```
+bash rime-install iDvel/rime-ice:others/recipes/opencc
+```
+
+### 仓输入法 [Hamster](https://github.com/imfuxiao/Hamster)
+
+参考 [如何导入"雾淞拼音输入方案"](https://github.com/imfuxiao/Hamster/wiki/%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%22%E9%9B%BE%E6%B7%9E%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%96%B9%E6%A1%88%22)
+
+### 自动部署脚本
+
+[Mark24Code/rime-auto-deploy](https://github.com/Mark24Code/rime-auto-deploy) 一个自动部署脚本，集成了雾凇拼音，帮助无痛快速安装、部署 Rime 输入法（中州韵、小狼毫，鼠须管）以及部署配置。
+
+### Arch Linux
+
+使用 AUR helper 安装 [rime-ice-git](https://aur.archlinux.org/packages/rime-ice-git) 包即可。
+
+```bash
+# paru 默认会每次重新评估 pkgver，所以有新的提交时 paru 会自动更新，
+# yay 默认未开启此功能，可以通过此命令开启
+# yay -Y --devel --save
+
+paru -S rime-ice-git
+# yay -S rime-ice-git
+```
+
+推荐使用[补丁](https://github.com/rime/home/wiki/Configuration#補靪)的方式启用。
+
+参考下面的配置示例，修改对应输入法框架用户目录（见下）中的 `default.custom.yaml` 文件
+
+- iBus 为 `$HOME/.config/ibus/rime/`
+- Fcitx5 为 `$HOME/.local/share/fcitx5/rime/`
+
+<details>
+<summary>default.custom.yaml</summary>
+
+```yaml
+patch:
+  # 仅使用「雾凇拼音」的默认配置，配置此行即可
+  __include: rime_ice_suggestion:/
+  # 以下根据自己所需自行定义，仅做参考。
+  # 针对对应处方的定制条目，请使用 <recipe>.custom.yaml 中配置，例如 rime_ice.custom.yaml
+  __patch:
+    key_binder/+:
+      select_first_character: "bracketleft" # 即 [
+      select_last_character: "bracketright" # 即 ]
+```
+
+</details>
+
+<br>
+
+## 感谢 ❤️
+
+感谢上述提到的词库、方案及功能参考。
+
+感谢 [@Huandeep](https://github.com/Huandeep) 整理的多个词库。
+
+感谢 [@Mirtle](https://github.com/mirtlecn) 完善的多个功能。
+
+感谢所有贡献者。
+
+搜狗转 Rime：[lewangdev/scel2txt](https://github.com/lewangdev/scel2txt)
+
+大量参考[校对标准论坛](http://www.jiaodui.com/bbs/)。
+
+Thanks to JetBrains for the OSS development license.
+
+[![JetBrains](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)](https://jb.gg/OpenSourceSupport)
+
+<br>
+
+## 赞助 ☕
+
+如果觉得项目不错，可以请 Dvel 吃个煎饼馃子。
+
+<img src="./others/sponsor.webp" alt="请 Dvel 吃个煎饼馃子" width=600 />
