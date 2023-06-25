@@ -2,6 +2,5 @@
 tags
 compile_commands.json
 compile_flags.txt
-.clang-format
 .cache
 .vscode
