@@ -111,6 +111,7 @@
         :modes '(rustic-mode)
 )
 (setq lsp-rust-analyzer-cargo-watch-command "clippy")
+(setq rustic-enable-detached-file-support 't)
 
 
 ;; Proxy
@@ -185,3 +186,8 @@
 (add-hook 'prog-mode-hook 'ggtags-mode)
 (map! :g "s-d" 'evil-multiedit-match-symbol-and-next)
 (map! :g "s-D" 'evil-multiedit-match-symbol-and-prev)
+
+(setq
+ org-download-method 'directory
+ org-download-image-dir "images"
+ )
