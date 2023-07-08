@@ -140,7 +140,7 @@
 (setq company-auto-select-first-candidate nil)
 
 ;; fcitx
-(require 'evil-fcitx)
+;; (require 'evil-fcitx)
 
 
 ;; Leetcode Plugin

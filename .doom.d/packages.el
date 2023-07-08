@@ -53,8 +53,8 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! evil-fcitx
-  :recipe (:host github :repo "ngzh/evil-fcitx.el" :files ("*.el")))
+;; (package! evil-fcitx
+;;   :recipe (:host github :repo "ngzh/evil-fcitx.el" :files ("*.el")))
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 (package! leetcode
