@@ -111,6 +111,7 @@
         :modes '(rustic-mode)
 )
 (setq lsp-rust-analyzer-cargo-watch-command "clippy")
+(setq rustic-enable-detached-file-support 't)
 
 
 ;; Proxy
