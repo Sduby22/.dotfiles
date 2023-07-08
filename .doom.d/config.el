@@ -26,7 +26,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-solarized-light)
-(setq doom-font (font-spec :family "Iosevka" :size 17))
+(setq doom-font (font-spec :family "Iosevka" :size 25))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -96,9 +96,9 @@
 
 
 ;; cpp
-  (c-add-style "work"
-               '((c-offsets-alist
-                  (access-label . -))))
+(c-add-style "work"
+             '((c-offsets-alist
+                (access-label . -))))
 
 ;; Setting this as the default style:
 (setq c-default-style "work")
@@ -106,10 +106,10 @@
 
 ;; Rust
 (set-formatter!
-        'cargo-fmt
-        '("rustfmt" "--edition" "2021")
-        :modes '(rustic-mode)
-)
+  'cargo-fmt
+  '("rustfmt" "--edition" "2021")
+  :modes '(rustic-mode)
+  )
 (setq lsp-rust-analyzer-cargo-watch-command "clippy")
 (setq rustic-enable-detached-file-support 't)
 
@@ -156,8 +156,13 @@
     ('light (load-theme 'doom-solarized-light t))
     ('dark (load-theme 'doom-dark+ t))))
 
-(my/apply-theme ns-system-appearance)
-(add-hook 'ns-system-appearance-change-functions #'my/apply-theme)
+(if (eq system-type 'darwin)
+                                        ; something for OS X if true
+                                        ; optional something if not
+    (progn
+      (my/apply-theme ns-system-appearance)
+      (add-hook 'ns-system-appearance-change-functions #'my/apply-theme))
+  )
 (setq frame-resize-pixelwise t)
 
 (set-file-template! ".*\.h(pp)?" :trigger "__new_header.hpp" :mode 'c++-mode)
@@ -172,12 +177,12 @@
   (eshell/export "HTTP_PROXY=http://localhost:7890")
   (eshell/export "HTTPS_PROXY=http://localhost:7890")
   (eshell/export "ALL_PROXY=http://localhost:7890")
-)
+  )
 (defun eshell/unproxy()
   (eshell/export "HTTP_PROXY=")
   (eshell/export "HTTPS_PROXY=")
   (eshell/export "ALL_PROXY=")
-)
+  )
 
 (add-hook 'before-save-hook 'time-stamp)
 (setq time-stamp-pattern (concat "15/.*LastModified:\\\\?[ \t]+%:y-%02m-%02d %02H:%02M:%02S\\\\?$"))
