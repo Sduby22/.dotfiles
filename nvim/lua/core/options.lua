@@ -62,7 +62,7 @@ vim.opt.sidescrolloff = 5
 vim.opt.foldlevelstart = 99
 vim.opt.ruler = false
 vim.opt.list = true
-vim.opt.showtabline = 2
+vim.opt.showtabline = 1
 vim.opt.winwidth = 30
 vim.opt.winminwidth = 10
 vim.opt.pumheight = 15
@@ -70,7 +70,7 @@ vim.opt.helpheight = 12
 vim.opt.previewheight = 12
 vim.opt.showcmd = false
 -- just for nightly
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 1
 vim.opt.cmdwinheight = 5
 vim.opt.equalalways = false
 vim.opt.laststatus = 2
@@ -117,27 +117,27 @@ if vim.loop.os_uname().sysname == 'Darwin' then
 end
 
 local vimcur = vim.opt.guicursor
-local termcur= "a:hor1-blinkon0"
+local termcur = 'a:hor1-blinkon0'
 
-vim.api.nvim_create_autocmd({"VimEnter", "VimResume"}, {
-  pattern = {"*"},
+vim.api.nvim_create_autocmd({ 'VimEnter', 'VimResume' }, {
+  pattern = { '*' },
   callback = function()
-    vim.opt.guicursor=vimcur
-  end
+    vim.opt.guicursor = vimcur
+  end,
 })
 
-vim.api.nvim_create_autocmd({"VimLeave", "VimSuspend"}, {
-  pattern = {"*"},
+vim.api.nvim_create_autocmd({ 'VimLeave', 'VimSuspend' }, {
+  pattern = { '*' },
   callback = function()
-    vim.opt.guicursor=termcur
-  end
+    vim.opt.guicursor = termcur
+  end,
 })
 
-vim.api.nvim_create_autocmd({"TextYankPost"}, {
-  pattern = {"*"},
+vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
+  pattern = { '*' },
   callback = function()
-    vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=false}
-  end
+    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 150, on_visual = false })
+  end,
 })
 
 -- if vim.g.vscode == 1 then

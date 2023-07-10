@@ -24,12 +24,16 @@ nmap({
   { '<Leader>ff', cmd('Telescope find_files'), opts(noremap, silent) },
   { '<Leader>fr', cmd('Telescope oldfiles'), opts(noremap, silent) },
   { '<Leader>.', cmd('Telescope find_files'), opts(noremap, silent) },
+  { '<Leader>*', cmd('Telescope grep_string'), opts(noremap, silent) },
   { '<Leader>pf', cmd('Telescope find_files'), opts(noremap, silent) },
-  
+
   { '<Leader>/', cmd('Telescope live_grep'), opts(noremap, silent) },
   { '<Leader>bb', cmd('Telescope buffers'), opts(noremap, silent) },
   { '<Leader>pp', cmd('Telescope projects'), opts(noremap, silent) },
   { '<Leader>fh', cmd('Telescope help_tags'), opts(noremap, silent) },
+
+  --git
+  { '<leader>g', cmd('Git') },
 })
 
 nmap({

@@ -15,16 +15,26 @@ plugin({
 
 plugin({ 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' })
 
-plugin({ 
-  'simrat39/rust-tools.nvim', 
-  ft = {'rust'},
+plugin({
+  'simrat39/rust-tools.nvim',
+  ft = { 'rust' },
   after = 'nvim-lspconfig',
-  config = conf.rust_tools
+  config = conf.rust_tools,
 })
 
-plugin({ 
-  'p00f/clangd_extensions.nvim', 
-  ft = {'c', 'cpp'},
+plugin({
+  'p00f/clangd_extensions.nvim',
+  ft = { 'c', 'cpp' },
   after = 'nvim-lspconfig',
-  config = conf.clangd_extensions
+  config = conf.clangd_extensions,
+})
+
+plugin({
+  'jose-elias-alvarez/null-ls.nvim',
+  config = conf.null_ls,
+  requires = { 'nvim-lua/plenary.nvim' },
+})
+
+plugin({
+  'lukas-reineke/lsp-format.nvim',
 })

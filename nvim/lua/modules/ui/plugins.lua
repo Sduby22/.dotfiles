@@ -5,16 +5,16 @@
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
--- plugin({ 'shaunsingh/nord.nvim', config = conf.nord })
+plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
 
-plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard })
+plugin({ 'nvimdev/dashboard-nvim', config = conf.dashboard })
 
-plugin({
-  'glepnir/galaxyline.nvim',
-  branch = 'main',
-  config = conf.galaxyline,
-  requires = 'kyazdani42/nvim-web-devicons',
-})
+-- plugin({
+--   'glepnir/galaxyline.nvim',
+--   branch = 'main',
+--   config = conf.galaxyline,
+--   requires = 'kyazdani42/nvim-web-devicons',
+-- })
 
 plugin({
   'kyazdani42/nvim-tree.lua',
@@ -23,13 +23,20 @@ plugin({
   requires = 'kyazdani42/nvim-web-devicons',
 })
 
-plugin({ 'akinsho/nvim-bufferline.lua',
- config = conf.nvim_bufferline,
- requires = 'kyazdani42/nvim-web-devicons' })
+plugin({ 'akinsho/nvim-bufferline.lua', config = conf.nvim_bufferline, requires = 'kyazdani42/nvim-web-devicons' })
 
 plugin({
-  "glepnir/lspsaga.nvim",
-  branch = "main",
+  'nvimdev/lspsaga.nvim',
   config = conf.lspsaga,
-  after = "nvim-lspconfig"
+  after = 'nvim-lspconfig',
+})
+
+plugin({
+  'lukas-reineke/indent-blankline.nvim',
+  config = function()
+    require('indent_blankline').setup({
+      show_current_context = true,
+      show_current_context_start = true,
+    })
+  end,
 })

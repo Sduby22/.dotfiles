@@ -12,15 +12,15 @@ function config.telescope()
     vim.cmd([[packadd telescope-file-browser.nvim]])
   end
 
-  local actions = require "telescope.actions"
+  local actions = require('telescope.actions')
   require('telescope').setup({
     defaults = {
       mappings = {
         i = {
-          ["<C-h>"] = "which_key",
-          ["<C-j>"] = actions.move_selection_next,
-          ["<C-k>"] = actions.move_selection_previous
-        }
+          ['<C-h>'] = 'which_key',
+          ['<C-j>'] = actions.move_selection_next,
+          ['<C-k>'] = actions.move_selection_previous,
+        },
       },
       layout_config = {
         horizontal = { prompt_position = 'top', results_width = 0.6 },
@@ -39,29 +39,30 @@ function config.telescope()
     },
   })
   require('telescope').load_extension('fzy_native')
-  require('telescope').load_extension('projects')
+  -- require('telescope').load_extension('projects')
 end
 
-function config.project() 
-  require("project_nvim").setup {}
+function config.project()
+  require('project_nvim').setup({})
 end
 
 function config.gitsigns()
-require('gitsigns').setup {
-  signs = {
-    add          = { text = '+' },
-    change       = { text = '=' },
-    delete       = { text = '-' },
-    topdelete    = { text = '-' },
-    changedelete = { text = '-' },
-    untracked    = { text = '?' },
-  },
-}
+  require('gitsigns').setup({
+    signs = {
+      add = { text = '+' },
+      change = { text = '=' },
+      delete = { text = '-' },
+      topdelete = { text = '-' },
+      changedelete = { text = '-' },
+      untracked = { text = '?' },
+    },
+  })
 end
 
 function config.comment()
   require('Comment').setup()
 end
 
+function config.formatter() end
 
 return config
