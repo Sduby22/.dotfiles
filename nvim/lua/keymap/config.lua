@@ -4,7 +4,7 @@
 -- recommend some vim mode key defines in this file
 
 local keymap = require('core.keymap')
-local nmap, imap, cmap, xmap, omap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.omap
+local nmap, imap, cmap, xmap, omap, map = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.omap, keymap.map
 local silent, noremap = keymap.silent, keymap.noremap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
@@ -16,13 +16,18 @@ vim.g.mapleader = ' '
 nmap({ ' ', '', opts(noremap) })
 xmap({ ' ', '', opts(noremap) })
 
+imap({
+  { '<M-l>', cmd('bn'), opts(noremap) },
+  { '<M-l>', cmd('bp'), opts(noremap) },
+  { '<C-s>', cmd('write'), opts(noremap) },
+  { '<M-s>', cmd('write'), opts(noremap) },
+})
+
 -- usage example
 nmap({
   -- noremal remap
   -- close buffer
   { '<C-x>k', cmd('bdelete'), opts(noremap, silent) },
-  -- save
-  { '<C-s>', cmd('write'), opts(noremap) },
   -- buffer jump
   { '<leader>bn', cmd('bn'), opts(noremap) },
   { '<leader>bp', cmd('bp'), opts(noremap) },
@@ -40,13 +45,13 @@ nmap({
 }, 'both')
 
 omap({
-  { 's', cmd("<Plug>Sneak_s"), opts(noremap) },
-  { 'S', cmd("<Plug>Sneak_S"), opts(noremap) },
+  { 's', cmd('<Plug>Sneak_s'), opts(noremap) },
+  { 'S', cmd('<Plug>Sneak_S'), opts(noremap) },
 }, 'both')
 
 xmap({
-  { '<C-0>', cmd("<Plug>Sneak_s"), opts(noremap) },
-  { '<C-0>', cmd("<Plug>Sneak_S"), opts(noremap) },
+  { '<C-0>', cmd('<Plug>Sneak_s'), opts(noremap) },
+  { '<C-0>', cmd('<Plug>Sneak_S'), opts(noremap) },
   -- surround
   { 's', 'S' },
 }, 'both')
@@ -55,7 +60,6 @@ imap({
   -- insert mode
   { '<C-h>', '<Bs>', opts(noremap) },
   { '<C-e>', '<End>', opts(noremap) },
-  { '<C-s>', '<esc>:w<cr>', opts(noremap) },
 })
 
 -- commandline remap
