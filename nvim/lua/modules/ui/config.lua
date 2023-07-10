@@ -7,26 +7,26 @@ local use_color = true
 vim.opt.termguicolors = false
 
 function config.lspsaga()
-  local saga = require 'lspsaga'
+  local saga = require('lspsaga')
   saga.setup({
-    move_in_saga = { prev = '<C-k>',next = '<C-j>'},
+    move_in_saga = { prev = '<C-k>', next = '<C-j>' },
   })
 end
 
 function config.zephyer()
-  vim.g.material_style = "oceanic"
+  vim.g.material_style = 'oceanic'
   load_colorscheme('material')
 end
 
 function config.material()
-  vim.g.material_style = "oceanic"
+  vim.g.material_style = 'oceanic'
   load_colorscheme('material')
 end
 
 function config.github()
   -- if (use_color) then
-    vim.opt.termguicolors = true
-    vim.cmd('colorscheme github_light')
+  vim.opt.termguicolors = true
+  vim.cmd('colorscheme github_light')
   -- end
 end
 
@@ -82,7 +82,7 @@ end
 
 function config.load_colorscheme(color)
   print(color)
-  if (use_color) then
+  if use_color then
     vim.opt.termguicolors = true
     vim.cmd('colorscheme ' .. color)
   end

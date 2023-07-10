@@ -9,12 +9,12 @@ plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
 
 plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard })
 
-plugin({
-  'glepnir/galaxyline.nvim',
-  branch = 'main',
-  config = conf.galaxyline,
-  requires = 'kyazdani42/nvim-web-devicons',
-})
+-- plugin({
+--   'glepnir/galaxyline.nvim',
+--   branch = 'main',
+--   config = conf.galaxyline,
+--   requires = 'kyazdani42/nvim-web-devicons',
+-- })
 
 plugin({
   'kyazdani42/nvim-tree.lua',
