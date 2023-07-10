@@ -29,7 +29,4 @@ plugin({ 'justinmk/vim-sneak' }, 'both')
 -- plugin({ 'Sduby22/fcitx.nvim', config=function() require('fcitx').setup() end }, 'both')
 plugin({
   'tpope/vim-fugitive',
-  config = function()
-    vim.keymap.set('n', '<leader>g', '<cmd>Git<CR>')
-  end,
 })
