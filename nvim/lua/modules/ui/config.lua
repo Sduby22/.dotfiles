@@ -41,25 +41,24 @@ end
 function config.dashboard()
   local home = os.getenv('HOME')
   local db = require('dashboard')
-  db.session_directory = home .. '/.cache/nvim/session'
-  db.preview_command = 'cat'
-  db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
-  db.preview_file_height = 18
-  db.preview_file_width = 103
-  db.custom_center = {
-    {
-      icon = '  ',
-      desc = 'Update Plugins                          ',
-      shortcut = 'SPC p u',
-      action = 'PackerUpdate',
+  db.setup({
+    theme = 'doom',
+    config = {
+      -- header = {}, --your header
+      center = {
+        {
+          icon = ' ',
+          icon_hl = 'Load',
+          desc = 'Load Last Session',
+          desc_hl = 'String',
+          key = 'l',
+          key_hl = 'Number',
+          action = 'SessionLoad',
+        },
+      },
+      -- footer = {}, --your footer
     },
-    {
-      icon = '  ',
-      desc = 'Find  File                              ',
-      action = 'Telescope find_files find_command=rg,--hidden,--files',
-      shortcut = 'SPC f f',
-    },
-  }
+  })
 end
 
 function config.nvim_bufferline()

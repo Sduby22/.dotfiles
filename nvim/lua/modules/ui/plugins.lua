@@ -7,7 +7,7 @@ local conf = require('modules.ui.config')
 
 plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
 
-plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard })
+plugin({ 'nvimdev/dashboard-nvim', config = conf.dashboard })
 
 -- plugin({
 --   'glepnir/galaxyline.nvim',
@@ -29,4 +29,14 @@ plugin({
   'nvimdev/lspsaga.nvim',
   config = conf.lspsaga,
   after = 'nvim-lspconfig',
+})
+
+plugin({
+  'lukas-reineke/indent-blankline.nvim',
+  config = function()
+    require('indent_blankline').setup({
+      show_current_context = true,
+      show_current_context_start = true,
+    })
+  end,
 })

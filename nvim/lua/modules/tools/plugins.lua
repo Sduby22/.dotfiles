@@ -30,3 +30,13 @@ plugin({ 'justinmk/vim-sneak' }, 'both')
 plugin({
   'tpope/vim-fugitive',
 })
+
+plugin({
+  'glepnir/dbsession.nvim',
+  cmd = { 'SessionSave', 'SessionDelete', 'SessionLoad' },
+  config = function()
+    require('dbsession').setup({
+      auto_save_on_exit = true,
+    })
+  end,
+})
