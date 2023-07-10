@@ -23,6 +23,13 @@ function config.material()
   load_colorscheme('material')
 end
 
+function config.github()
+  -- if (use_color) then
+    vim.opt.termguicolors = true
+    vim.cmd('colorscheme github_light')
+  -- end
+end
+
 function config.nord()
   load_colorscheme('nord')
 end

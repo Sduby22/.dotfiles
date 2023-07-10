@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "Sduby"
-      user-mail-address "supersduby@gmail.com")
+(setq user-full-name "Zihao"
+      user-mail-address "lzh401770@alibaba-inc.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -26,7 +26,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-solarized-light)
-(setq doom-font (font-spec :family "Iosevka" :size 25))
+(setq doom-font (font-spec :family "Iosevka" :size 17))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -124,8 +124,8 @@
 (global-wakatime-mode)
 
 ;; Tree-sitter
-;; (global-tree-sitter-mode)
-;; (add-hook! 'tree-sitter-mode-hook tree-sitter-hl-mode)
+(global-tree-sitter-mode)
+(global-ts-fold-mode)
 
 ;; Github copilot
 (use-package! copilot

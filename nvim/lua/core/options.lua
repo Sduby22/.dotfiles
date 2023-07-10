@@ -117,27 +117,27 @@ if vim.loop.os_uname().sysname == 'Darwin' then
 end
 
 local vimcur = vim.opt.guicursor
-local termcur= "a:hor1-blinkon0"
+local termcur = 'a:hor1-blinkon0'
 
-vim.api.nvim_create_autocmd({"VimEnter", "VimResume"}, {
-  pattern = {"*"},
+vim.api.nvim_create_autocmd({ 'VimEnter', 'VimResume' }, {
+  pattern = { '*' },
   callback = function()
-    vim.opt.guicursor=vimcur
-  end
+    vim.opt.guicursor = vimcur
+  end,
 })
 
-vim.api.nvim_create_autocmd({"VimLeave", "VimSuspend"}, {
-  pattern = {"*"},
+vim.api.nvim_create_autocmd({ 'VimLeave', 'VimSuspend' }, {
+  pattern = { '*' },
   callback = function()
-    vim.opt.guicursor=termcur
-  end
+    vim.opt.guicursor = termcur
+  end,
 })
 
-vim.api.nvim_create_autocmd({"TextYankPost"}, {
-  pattern = {"*"},
+vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
+  pattern = { '*' },
   callback = function()
-    vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=false}
-  end
+    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 150, on_visual = false })
+  end,
 })
 
 -- if vim.g.vscode == 1 then
