@@ -1,7 +1,16 @@
-return function(client, bufnr)
-  require('lsp-format').on_attach(client)
+local format_disable_ft = { 'proto' }
 
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+return function(client, bufnr)
+  if vim.opt.diff:get() then
+    return
+  end
+
+  local ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
+  if not vim.tbl_contains(format_disable_ft, ft) then
+    require('lsp-format').on_attach(client)
+  end
+
+  local bufopts = { noremap = true, silent = true, buffer = true }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
 

@@ -10,33 +10,36 @@ plugin({
   -- used filetype to lazyload lsp
   -- config your language filetype in here
   -- ft = conf.lsp_ft,
+  event = 'BufReadPost',
   config = conf.nvim_lsp,
 })
 
 plugin({
   'hrsh7th/nvim-cmp',
+  event = 'InsertEnter',
   config = conf.nvim_cmp,
-  requires = {
-    { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-    { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
-    { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
-    { 'hrsh7th/cmp-nvim-lsp', after = { 'nvim-cmp', 'nvim-lspconfig' }},
-    { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = { 'nvim-cmp', 'nvim-lspconfig' }},
-    { 'hrsh7th/cmp-nvim-lsp-signature-help', after = { 'nvim-cmp', 'nvim-lspconfig' }},
+  dependencies = {
+    { 'hrsh7th/cmp-path' },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-cmdline' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-nvim-lsp-document-symbol' },
+    { 'hrsh7th/cmp-nvim-lsp-signature-help' },
     { 'dcampos/nvim-snippy', config = conf.snippy },
-    { 'dcampos/cmp-snippy', after = {'nvim-cmp','nvim-snippy'} },
-    { 'honza/vim-snippets', after = 'cmp-snippy' },
+    { 'dcampos/cmp-snippy' },
+    { 'honza/vim-snippets' },
   },
 })
 
-plugin({ 
-  'windwp/nvim-autopairs', 
-  config=conf.nvim_autopairs,
-  after={'nvim-cmp'},
+plugin({
+  'windwp/nvim-autopairs',
+  event = 'InsertEnter',
+  config = conf.nvim_autopairs,
 })
 
 plugin({
-  'github/copilot.vim'
+  'github/copilot.vim',
+  event = 'InsertEnter',
 })
 
 -- plugin({

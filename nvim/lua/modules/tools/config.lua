@@ -5,13 +5,6 @@
 local config = {}
 
 function config.telescope()
-  if not packer_plugins['plenary.nvim'].loaded then
-    vim.cmd([[packadd plenary.nvim]])
-    vim.cmd([[packadd popup.nvim]])
-    vim.cmd([[packadd telescope-fzy-native.nvim]])
-    vim.cmd([[packadd telescope-file-browser.nvim]])
-  end
-
   local actions = require('telescope.actions')
   require('telescope').setup({
     defaults = {
@@ -64,5 +57,27 @@ function config.comment()
 end
 
 function config.formatter() end
+
+function config.neogit()
+  local neogit = require('neogit')
+  neogit.setup({
+    integrations = {
+      diffview = true,
+    },
+  })
+end
+
+function config.diffview()
+  local actions = require('diffview.actions')
+  require('diffview').setup({
+    keymaps = {
+      view = {
+        ['<C-j>'] = ']c',
+        ['<C-k>'] = '[c',
+      },
+      file_panel = {},
+    },
+  })
+end
 
 return config

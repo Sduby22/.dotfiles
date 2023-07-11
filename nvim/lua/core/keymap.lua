@@ -51,6 +51,19 @@ function keymap.nowait(opt)
   end
 end
 
+function keymap.replace_keycodes(opt)
+  return function()
+    opt.expr = true
+    opt.replace_keycodes = true
+  end
+end
+
+function keymap.callback(opt)
+  return function()
+    opt.callback = true
+  end
+end
+
 function keymap.new_opts(...)
   local args = { ... }
   local o = opts:new()

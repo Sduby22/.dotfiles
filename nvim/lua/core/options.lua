@@ -53,6 +53,7 @@ vim.opt.splitright = true
 vim.opt.switchbuf = 'useopen'
 vim.opt.backspace = 'indent,eol,start'
 vim.opt.diffopt = 'filler,iwhite,internal,algorithm:patience'
+vim.opt.fillchars:append({ diff = '╱' })
 vim.opt.completeopt = 'menu,menuone,noselect'
 vim.opt.jumpoptions = 'stack'
 vim.opt.showmode = false
@@ -97,7 +98,7 @@ vim.opt.colorcolumn = '80'
 vim.opt.foldenable = true
 -- vim.opt.signcolumn = 'yes'
 vim.opt.conceallevel = 2
-vim.opt.concealcursor = 'niv'
+vim.opt.concealcursor = ''
 
 if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.clipboard = {

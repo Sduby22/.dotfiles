@@ -5,7 +5,7 @@
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
-plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
+plugin({ 'projekt0n/github-nvim-theme', priority = 99, config = conf.github })
 
 plugin({ 'nvimdev/dashboard-nvim', config = conf.dashboard })
 
@@ -13,26 +13,32 @@ plugin({ 'nvimdev/dashboard-nvim', config = conf.dashboard })
 --   'glepnir/galaxyline.nvim',
 --   branch = 'main',
 --   config = conf.galaxyline,
---   requires = 'kyazdani42/nvim-web-devicons',
+--   dependencies = 'kyazdani42/nvim-web-devicons',
 -- })
 
 plugin({
   'kyazdani42/nvim-tree.lua',
   cmd = 'NvimTreeToggle',
   config = conf.nvim_tree,
-  requires = 'kyazdani42/nvim-web-devicons',
+  dependencies = { 'kyazdani42/nvim-web-devicons' },
 })
 
-plugin({ 'akinsho/nvim-bufferline.lua', config = conf.nvim_bufferline, requires = 'kyazdani42/nvim-web-devicons' })
+plugin({
+  'akinsho/nvim-bufferline.lua',
+  config = conf.nvim_bufferline,
+  event = 'BufReadPost',
+  dependencies = { 'kyazdani42/nvim-web-devicons' },
+})
 
 plugin({
   'nvimdev/lspsaga.nvim',
+  event = 'BufReadPost',
   config = conf.lspsaga,
-  after = 'nvim-lspconfig',
 })
 
 plugin({
   'lukas-reineke/indent-blankline.nvim',
+  event = 'BufReadPost',
   config = function()
     require('indent_blankline').setup({
       show_current_context = true,

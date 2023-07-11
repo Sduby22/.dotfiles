@@ -8,6 +8,7 @@ function config.nvim_treesitter()
     ignore_install = { 'phpdoc' },
     highlight = {
       enable = true,
+      additional_vim_regex_highlighting = { 'org' },
     },
     textobjects = {
       select = {
@@ -24,19 +25,19 @@ function config.nvim_treesitter()
 end
 
 function config.rust_tools()
-  require('rust-tools').setup{
+  require('rust-tools').setup({
     server = {
-      on_attach = require('keymap.lsp_onattach')
-    }
-  }
+      on_attach = require('keymap.lsp_onattach'),
+    },
+  })
 end
 
 function config.clangd_extensions()
-  require("clangd_extensions").setup{
+  require('clangd_extensions').setup({
     server = {
-      on_attach = require('keymap.lsp_onattach')
-    }
-  }
+      on_attach = require('keymap.lsp_onattach'),
+    },
+  })
 end
 
 function config.null_ls()

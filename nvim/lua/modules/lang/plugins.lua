@@ -7,34 +7,33 @@ local conf = require('modules.lang.config')
 
 plugin({
   'nvim-treesitter/nvim-treesitter',
-  -- event = 'BufReadPre',
-  -- after = 'telescope.nvim',
-  run = ':TSUpdate',
+  event = { 'BufReadPost', 'BufNewFile' },
+  build = ':TSUpdate',
   config = conf.nvim_treesitter,
 })
 
-plugin({ 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' })
+plugin({ 'nvim-treesitter/nvim-treesitter-textobjects', event = { 'BufReadPost', 'BufNewFile' } })
 
 plugin({
   'simrat39/rust-tools.nvim',
   ft = { 'rust' },
-  after = 'nvim-lspconfig',
   config = conf.rust_tools,
 })
 
 plugin({
   'p00f/clangd_extensions.nvim',
   ft = { 'c', 'cpp' },
-  after = 'nvim-lspconfig',
   config = conf.clangd_extensions,
 })
 
 plugin({
   'jose-elias-alvarez/null-ls.nvim',
   config = conf.null_ls,
-  requires = { 'nvim-lua/plenary.nvim' },
+  lazy = true,
+  dependencies = { 'nvim-lua/plenary.nvim' },
 })
 
 plugin({
+  lazy = true,
   'lukas-reineke/lsp-format.nvim',
 })

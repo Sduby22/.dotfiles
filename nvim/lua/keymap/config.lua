@@ -5,9 +5,19 @@
 
 local keymap = require('core.keymap')
 local nmap, imap, cmap, xmap, omap, map = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.omap, keymap.map
-local silent, noremap = keymap.silent, keymap.noremap
+local silent, noremap, callback = keymap.silent, keymap.noremap, keymap.callback
 local opts = keymap.new_opts
 local cmd = keymap.cmd
+
+function diff_then_else(then_, else_)
+  return function()
+    if vim.opt.diff:get() then
+      vim.api.nvim_input(then_)
+    else
+      vim.api.nvim_input(else_)
+    end
+  end
+end
 
 -- Use space as leader key
 vim.g.mapleader = ' '
