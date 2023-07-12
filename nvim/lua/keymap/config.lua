@@ -5,16 +5,16 @@
 
 local keymap = require('core.keymap')
 local nmap, imap, cmap, xmap, omap, map = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.omap, keymap.map
-local silent, noremap, callback = keymap.silent, keymap.noremap, keymap.callback
+local silent, noremap, expr = keymap.silent, keymap.noremap, keymap.expr
 local opts = keymap.new_opts
 local cmd = keymap.cmd
 
 function diff_then_else(then_, else_)
   return function()
     if vim.opt.diff:get() then
-      vim.api.nvim_input(then_)
+      return then_
     else
-      vim.api.nvim_input(else_)
+      return else_
     end
   end
 end
@@ -32,6 +32,19 @@ map({
   { '<C-s>', cmd('write'), opts(noremap) },
   { '<M-s>', cmd('write'), opts(noremap) },
   { '<M-w>', cmd('bd'), opts(noremap) },
+})
+
+nmap({
+  {
+    '<C-j>',
+    diff_then_else(']c', '<C-j>'),
+    opts(noremap, expr),
+  },
+  {
+    '<C-k>',
+    diff_then_else('[c', '<C-k>'),
+    opts(noremap, expr),
+  },
 })
 
 -- usage example

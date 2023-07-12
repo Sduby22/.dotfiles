@@ -9,11 +9,11 @@ local function diagnostic_goto(next, severity)
 end
 
 return function(client, bufnr)
-  vim.opt_local.winbar = ''
   if vim.opt.diff:get() then
     return
   end
 
+  vim.opt_local.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
   local ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
   if not vim.tbl_contains(format_disable_ft, ft) then
     require('lsp-format').on_attach(client)
