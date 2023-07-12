@@ -14,8 +14,6 @@ local cmd = key.cmd
 nmap({
   -- dashboard
   { '<Leader>n', cmd('DashboardNewFile'), opts(noremap, silent) },
-  { '<Leader>ss', cmd('SessionSave'), opts(noremap, silent) },
-  { '<Leader>sl', cmd('SessionLoad'), opts(noremap, silent) },
   -- nvimtree
   -- Telescope
   { '<Leader><leader>', cmd('Telescope find_files'), opts(noremap, silent) },

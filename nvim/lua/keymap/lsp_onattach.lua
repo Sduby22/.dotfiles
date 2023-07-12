@@ -9,6 +9,7 @@ local function diagnostic_goto(next, severity)
 end
 
 return function(client, bufnr)
+  vim.opt_local.winbar = ''
   if vim.opt.diff:get() then
     return
   end
@@ -16,6 +17,12 @@ return function(client, bufnr)
   local ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
   if not vim.tbl_contains(format_disable_ft, ft) then
     require('lsp-format').on_attach(client)
+  end
+
+  if client.server_capabilities.documentSymbolProvider then
+    require('nvim-navic').attach(client, bufnr)
+    require('nvim-navbuddy').attach(client, bufnr)
+    vim.opt_local.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
   end
 
   local bufopts = { noremap = true, silent = true, buffer = true }

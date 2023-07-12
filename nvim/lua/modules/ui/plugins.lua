@@ -91,3 +91,18 @@ plugin({
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   opts = {},
 })
+
+plugin({ 'SmiteshP/nvim-navic', dependencies = { 'neovim/nvim-lspconfig' }, event = 'BufReadPost', opts = {} })
+plugin({
+  'SmiteshP/nvim-navbuddy',
+  keys = {
+    { '<leader>s', ':Navbuddy<CR>' },
+  },
+  requires = {
+    'neovim/nvim-lspconfig',
+    'SmiteshP/nvim-navic',
+    'MunifTanjim/nui.nvim',
+  },
+  opts = {},
+})
+plugin({ 'fgheng/winbar.nvim', opts = {}, event = 'BufReadPost' })
