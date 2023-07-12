@@ -42,7 +42,7 @@ nmap({
   -- buffer jump
   { '<leader>bn', cmd('bn'), opts(noremap) },
   { '<leader>bp', cmd('bp'), opts(noremap) },
-  { '<leader>bk', cmd('bd'), opts(noremap) },
+  -- { '<leader>bk', cmd('bd'), opts(noremap) },
   -- remove trailing white space
   { '<Leader>t', cmd('TrimTrailingWhitespace'), opts(noremap) },
   -- window

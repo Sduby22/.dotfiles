@@ -21,6 +21,12 @@ function config.nvim_treesitter()
         },
       },
     },
+    context_commentstring = {
+      enable = true,
+    },
+    indent = {
+      enable = true,
+    },
   })
 end
 

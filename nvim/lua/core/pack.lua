@@ -44,6 +44,7 @@ function Packer:ensure_plugins()
   vim.opt.rtp:prepend(lazypath)
   packer = require('lazy')
   self:load_plugins()
+  table.insert(self.repos, { 'folke/lazy.nvim', version = '*' })
   packer.setup(self.repos)
 end
 

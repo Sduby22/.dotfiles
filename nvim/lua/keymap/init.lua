@@ -17,10 +17,10 @@ nmap({
   { '<Leader>ss', cmd('SessionSave'), opts(noremap, silent) },
   { '<Leader>sl', cmd('SessionLoad'), opts(noremap, silent) },
   -- nvimtree
-  { '<Leader>e', cmd('NvimTreeToggle'), opts(noremap, silent) },
   -- Telescope
   { '<Leader><leader>', cmd('Telescope find_files'), opts(noremap, silent) },
 
+  { '<Leader>F', ':Telescope ', opts(noremap) },
   { '<Leader>ff', cmd('Telescope find_files'), opts(noremap, silent) },
   { '<Leader>fr', cmd('Telescope oldfiles'), opts(noremap, silent) },
   { '<Leader>.', cmd('Telescope find_files'), opts(noremap, silent) },

@@ -5,35 +5,55 @@
 local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
-plugin({ 'projekt0n/github-nvim-theme', priority = 99, config = conf.github })
-
+plugin({
+  'yorik1984/newpaper.nvim',
+  priority = 1000,
+  config = function()
+    vim.cmd.colorscheme('newpaper')
+  end,
+})
 plugin({ 'nvimdev/dashboard-nvim', config = conf.dashboard })
 
 -- plugin({
 --   'glepnir/galaxyline.nvim',
 --   branch = 'main',
 --   config = conf.galaxyline,
---   dependencies = 'kyazdani42/nvim-web-devicons',
+--   dependencies = 'nvim-tree/nvim-web-devicons',
 -- })
 
 plugin({
-  'kyazdani42/nvim-tree.lua',
-  cmd = 'NvimTreeToggle',
-  config = conf.nvim_tree,
-  dependencies = { 'kyazdani42/nvim-web-devicons' },
+  'nvim-neo-tree/neo-tree.nvim',
+  branch = 'v2.x',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'MunifTanjim/nui.nvim',
+    'nvim-tree/nvim-web-devicons',
+  },
+  cmd = 'Neotree',
+  keys = { { '<leader>e', ':Neotree toggle<CR>' } },
 })
 
 plugin({
   'akinsho/nvim-bufferline.lua',
   config = conf.nvim_bufferline,
   event = 'BufReadPost',
-  dependencies = { 'kyazdani42/nvim-web-devicons' },
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
 })
 
+-- plugin({
+--   'nvimdev/lspsaga.nvim',
+--   event = 'BufReadPost',
+--   config = conf.lspsaga,
+-- })
+
 plugin({
-  'nvimdev/lspsaga.nvim',
-  event = 'BufReadPost',
-  config = conf.lspsaga,
+  'folke/noice.nvim',
+  event = 'VeryLazy',
+  opts = {},
+  dependencies = {
+    'MunifTanjim/nui.nvim',
+    'rcarriga/nvim-notify',
+  },
 })
 
 plugin({
@@ -45,4 +65,29 @@ plugin({
       show_current_context_start = true,
     })
   end,
+})
+
+plugin({
+  'folke/todo-comments.nvim',
+  event = 'BufReadPost',
+  dependencies = { 'nvim-lua/plenary.nvim' },
+  opts = {},
+})
+
+plugin({
+  'kelly-lin/ranger.nvim',
+  -- stylua: ignore
+  keys = {
+    { '<leader>o-', function() require('ranger-nvim').open(true) end },
+  },
+  opts = { replace_netrw = true },
+})
+
+plugin({ 'stevearc/dressing.nvim' })
+
+plugin({
+  'folke/trouble.nvim',
+  event = 'BufReadPost',
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  opts = {},
 })

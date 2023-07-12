@@ -6,9 +6,19 @@ local plugin = require('core.pack').register_plugin
 local conf = require('modules.tools.config')
 
 plugin({ 'gpanders/editorconfig.nvim', event = 'BufReadPre' })
--- plugin({'lewis6991/gitsigns.nvim', event='BufReadPre', config=conf.gitsigns})
+plugin({ 'lewis6991/gitsigns.nvim', event = 'BufReadPost', config = true })
 plugin({ 'wakatime/vim-wakatime', event = 'InsertEnter' })
-plugin({ 'numToStr/Comment.nvim', event = 'InsertEnter', config = conf.comment }, 'both')
+plugin({
+  'echasnovski/mini.comment',
+  event = 'BufReadPost',
+  opts = {
+    options = {
+      custom_commentstring = function()
+        return require('ts_context_commentstring.internal').calculate_commentstring() or vim.bo.commentstring
+      end,
+    },
+  },
+}, 'both')
 
 plugin({
   'nvim-telescope/telescope.nvim',
@@ -17,7 +27,10 @@ plugin({
   dependencies = {
     { 'nvim-lua/popup.nvim', lazy = true },
     { 'nvim-lua/plenary.nvim', lazy = true },
-    { 'nvim-telescope/telescope-fzy-native.nvim', lazy = true },
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+    },
     -- { 'ahmedkhalf/project.nvim', config=conf.project },
   },
 })
@@ -42,4 +55,25 @@ plugin({
       auto_save_on_exit = true,
     })
   end,
+})
+
+plugin({
+  'echasnovski/mini.bufremove',
+  version = '*',
+  keys = {
+    {
+      '<leader>bk',
+      function()
+        require('mini.bufremove').delete(0, false)
+      end,
+      desc = 'Delete Buffer',
+    },
+    {
+      '<leader>bK',
+      function()
+        require('mini.bufremove').delete(0, true)
+      end,
+      desc = 'Delete Buffer (Force)',
+    },
+  },
 })

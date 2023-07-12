@@ -25,17 +25,30 @@ plugin({
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/cmp-nvim-lsp-document-symbol' },
     { 'hrsh7th/cmp-nvim-lsp-signature-help' },
-    { 'dcampos/nvim-snippy', config = conf.snippy },
-    { 'dcampos/cmp-snippy' },
-    { 'honza/vim-snippets' },
+    -- { 'dcampos/nvim-snippy', config = conf.snippy },
+    -- { 'dcampos/cmp-snippy' },
+    {
+      'saadparwaiz1/cmp_luasnip',
+      dependencies = {
+        {
+          'L3MON4D3/LuaSnip',
+          version = '1.*',
+          build = 'make install_jsregexp',
+          dependencies = { 'honza/vim-snippets' },
+          config = conf.lua_snip,
+        },
+      },
+    },
   },
 })
 
-plugin({
-  'windwp/nvim-autopairs',
-  event = 'InsertEnter',
-  config = conf.nvim_autopairs,
-})
+-- plugin({
+--   'windwp/nvim-autopairs',
+--   event = 'InsertEnter',
+--   config = conf.nvim_autopairs,
+-- })
+
+plugin({ 'echasnovski/mini.pairs', version = '*', opts = {}, event = 'InsertCharPre' })
 
 plugin({
   'github/copilot.vim',
