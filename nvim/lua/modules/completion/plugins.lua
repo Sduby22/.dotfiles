@@ -52,7 +52,6 @@ plugin({ 'echasnovski/mini.pairs', version = '*', opts = {}, event = 'InsertChar
 
 plugin({
   'github/copilot.vim',
-  event = 'InsertEnter',
 })
 
 -- plugin({

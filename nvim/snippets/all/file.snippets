@@ -1,0 +1,7 @@
+snippet file file header
+    @File: `expand("%:t")`
+    @Description: $1
+    @Author: `trim(system("git config --get user.name || whoami"))` <`trim(system("git config --get user.email || whoami@gmail.com"))`>
+    @Date: `strftime("%Y-%m-%d %H:%M:%S")`
+    @LastModified: `strftime("%Y-%m-%d %H:%M:%S")`
+    @Copyright: `strftime("%Y")` Alibaba Inc. All rights reserved.

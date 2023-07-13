@@ -140,6 +140,6 @@ keymap.vmap = map('v')
 keymap.xmap = map('x')
 keymap.tmap = map('t')
 keymap.omap = map('o')
-keymap.map = map({ 'n', 'v', 'i', 'c', 'x', 't', 'o' })
+keymap.map = map({ 'n', 'i', 'c', 'v', 'x', 't', 'o' })
 
 return keymap

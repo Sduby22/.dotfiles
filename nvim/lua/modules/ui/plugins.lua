@@ -80,7 +80,7 @@ plugin({
   keys = {
     { '<leader>o-', function() require('ranger-nvim').open(true) end },
   },
-  opts = { replace_netrw = true },
+  opts = { replace_netrw = false },
 })
 
 plugin({ 'stevearc/dressing.nvim' })

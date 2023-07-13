@@ -35,6 +35,12 @@ plugin({
   },
 })
 
+plugin({
+  'nvim-telescope/telescope-file-browser.nvim',
+  requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+  lazy = true,
+})
+
 plugin({ 'mg979/vim-visual-multi', event = 'BufReadPost' }, 'both')
 plugin({ 'tpope/vim-surround', event = 'BufReadPost' }, 'both')
 plugin({ 'justinmk/vim-sneak', event = 'BufReadPost' }, 'both')
@@ -74,6 +80,24 @@ plugin({
         require('mini.bufremove').delete(0, true)
       end,
       desc = 'Delete Buffer (Force)',
+    },
+  },
+})
+
+plugin({
+  'nvim-pack/nvim-spectre',
+  dependencies = { 'nvim-lua/plenary.nvim' },
+  cmd = { 'Spectre' },
+})
+
+plugin({
+  'gabrielpoca/replacer.nvim',
+  keys = {
+    {
+      '<C-e>',
+      function()
+        require('replacer').run()
+      end,
     },
   },
 })

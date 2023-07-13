@@ -5,7 +5,7 @@
 
 require('keymap.config')
 local key = require('core.keymap')
-local nmap = key.nmap
+local nmap, nvxmap = key.nmap, key.nvxmap
 local silent, noremap = key.silent, key.noremap
 local opts = key.new_opts
 local cmd = key.cmd
@@ -19,21 +19,23 @@ nmap({
   { '<Leader><leader>', cmd('Telescope find_files'), opts(noremap, silent) },
 
   { '<Leader>F', ':Telescope ', opts(noremap) },
-  { '<Leader>ff', cmd('Telescope find_files'), opts(noremap, silent) },
+  { '<Leader>ff', cmd('Telescope file_browser'), opts(noremap, silent) },
   { '<Leader>fr', cmd('Telescope oldfiles'), opts(noremap, silent) },
   { '<Leader>.', cmd('Telescope find_files'), opts(noremap, silent) },
-  { '<Leader>*', cmd('Telescope grep_string'), opts(noremap, silent) },
   { '<Leader>pf', cmd('Telescope find_files'), opts(noremap, silent) },
   { '<Leader>fd', cmd('Telescope find_files search_dirs={"~/.dotfiles"}'), opts(noremap, silent) },
   { '<Leader>fn', cmd('Telescope find_files search_dirs={"~/org"}'), opts(noremap, silent) },
 
   { '<Leader>/', cmd('Telescope live_grep'), opts(noremap, silent) },
   { '<Leader>bb', cmd('Telescope buffers'), opts(noremap, silent) },
+  { '<Leader>bs', cmd('Telescope buffers'), opts(noremap, silent) },
   { '<Leader>fh', cmd('Telescope help_tags'), opts(noremap, silent) },
 
   --git
   { '<leader>g', cmd('Neogit') },
 })
+
+vim.keymap.set('', '<leader>*', cmd('Telescope grep_string'), opts(noremap, silent))
 
 nmap({
   { 'gt', cmd("call VSCodeCall('editor.action.goToTypeDefinition')"), opts(noremap, silent) },

@@ -65,7 +65,6 @@ function config.nvim_cmp()
     sources = {
       { name = 'luasnip' },
       { name = 'nvim_lsp' },
-      { name = 'cmdline' },
       { name = 'buffer' },
       { name = 'path' },
       { name = 'nvim_lsp_signature_help' },

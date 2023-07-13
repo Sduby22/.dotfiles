@@ -13,16 +13,25 @@ function config.telescope()
           ['<C-h>'] = 'which_key',
           ['<C-j>'] = actions.move_selection_next,
           ['<C-k>'] = actions.move_selection_previous,
+          ['<C-c>'] = actions.smart_send_to_qflist + actions.open_qflist,
+        },
+        n = {
+          ['<C-c>'] = actions.smart_send_to_qflist + actions.open_qflist,
         },
       },
       layout_config = {
         horizontal = { prompt_position = 'top', results_width = 0.6 },
-        vertical = { mirror = false },
+        vertical = { mirror = true },
       },
       sorting_strategy = 'ascending',
-      file_previewer = require('telescope.previewers').vim_buffer_cat.new,
-      grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
-      qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+      -- file_previewer = require('telescope.previewers').vim_buffer_cat.new,
+      -- grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
+      -- qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+    },
+    pickers = {
+      live_grep = {
+        only_sort_text = true,
+      },
     },
     extensions = {
       fzf = {
@@ -32,9 +41,15 @@ function config.telescope()
         case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
         -- the default case_mode is "smart_case"
       },
+      file_browser = {
+        theme = 'ivy',
+        -- disables netrw and use telescope-file-browser in its place
+        hijack_netrw = true,
+      },
     },
   })
   require('telescope').load_extension('fzf')
+  require('telescope').load_extension('file_browser')
   -- require('telescope').load_extension('projects')
 end
 
@@ -70,11 +85,9 @@ function config.diffview()
   local actions = require('diffview.actions')
   require('diffview').setup({
     keymaps = {
-      view = {
-        ['<C-j>'] = ']c',
-        ['<C-k>'] = '[c',
+      file_panel = {
+        ['<C-j>'] = ':',
       },
-      file_panel = {},
     },
   })
 end

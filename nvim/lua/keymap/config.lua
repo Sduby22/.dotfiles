@@ -26,7 +26,7 @@ vim.g.mapleader = ' '
 nmap({ ' ', '', opts(noremap) })
 xmap({ ' ', '', opts(noremap) })
 
-map({
+nmap({
   { '<M-l>', cmd('bn'), opts(noremap) },
   { '<M-h>', cmd('bp'), opts(noremap) },
   { '<C-s>', cmd('write'), opts(noremap) },
