@@ -52,7 +52,7 @@ plugin({
 
 plugin({ 'NeogitOrg/neogit', dependencies = { 'nvim-lua/plenary.nvim' }, config = conf.neogit, cmd = 'Neogit' })
 -- plugin({ 'sindrets/diffview.nvim', config = conf.diffview })
-plugin({ 'sindrets/diffview.nvim', config = conf.diffview, lazy = true })
+plugin({ 'sindrets/diffview.nvim', config = conf.diffview, lazy = true, cmd = { 'DiffviewOpen', 'DiffviewFileHistory' } })
 
 plugin({
   'glepnir/dbsession.nvim',

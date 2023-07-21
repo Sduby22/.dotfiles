@@ -26,7 +26,7 @@ plugin({ 'nvimdev/dashboard-nvim', config = conf.dashboard })
 
 plugin({
   'nvim-neo-tree/neo-tree.nvim',
-  branch = 'v2.x',
+  branch = 'v3.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'MunifTanjim/nui.nvim',
@@ -55,7 +55,12 @@ plugin({
   opts = {},
   dependencies = {
     'MunifTanjim/nui.nvim',
-    'rcarriga/nvim-notify',
+    {
+      'rcarriga/nvim-notify',
+      opts = {
+        render = 'compact', stages = 'static',
+      },
+    },
   },
 })
 

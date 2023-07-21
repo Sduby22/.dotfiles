@@ -24,11 +24,11 @@ plugin({
   config = conf.rust_tools,
 })
 
-plugin({
-  'p00f/clangd_extensions.nvim',
-  ft = { 'c', 'cpp' },
-  config = conf.clangd_extensions,
-})
+-- plugin({
+--   'p00f/clangd_extensions.nvim',
+--   ft = { 'c', 'cpp' },
+--   config = conf.clangd_extensions,
+-- })
 
 plugin({
   'jose-elias-alvarez/null-ls.nvim',
