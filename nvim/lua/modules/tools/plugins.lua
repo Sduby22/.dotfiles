@@ -27,10 +27,8 @@ plugin({
   dependencies = {
     { 'nvim-lua/popup.nvim', lazy = true },
     { 'nvim-lua/plenary.nvim', lazy = true },
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
-    },
+    { 'natecraddock/telescope-zf-native.nvim' },
+    { 'Sduby22/telescope-fuzzy-grep.nvim', lazy = true },
     -- { 'ahmedkhalf/project.nvim', config=conf.project },
   },
 })
@@ -52,7 +50,12 @@ plugin({
 
 plugin({ 'NeogitOrg/neogit', dependencies = { 'nvim-lua/plenary.nvim' }, config = conf.neogit, cmd = 'Neogit' })
 -- plugin({ 'sindrets/diffview.nvim', config = conf.diffview })
-plugin({ 'sindrets/diffview.nvim', config = conf.diffview, lazy = true, cmd = { 'DiffviewOpen', 'DiffviewFileHistory' } })
+plugin({
+  'sindrets/diffview.nvim',
+  config = conf.diffview,
+  lazy = true,
+  cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
+})
 
 plugin({
   'glepnir/dbsession.nvim',
@@ -98,6 +101,22 @@ plugin({
       function()
         require('replacer').run()
       end,
+    },
+  },
+})
+
+plugin({
+  'metakirby5/codi.vim',
+  cmd = {
+    'Codi',
+    'CodiNew',
+    'CodiSelect',
+    'CodiExpand',
+  },
+  keys = {
+    {
+      '<leader>x',
+      ':Codi typescript<CR>',
     },
   },
 })

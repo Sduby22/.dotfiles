@@ -151,7 +151,7 @@ plugin {'nvim-telescope/telescope.nvim',
   dependencies = {
     {'nvim-lua/popup.nvim', opt = true},
     {'nvim-lua/plenary.nvim',opt = true},
-    {'nvim-telescope/telescope-fzf-native.nvim',opt = true},
+    {'natecraddock/telescope-zf-native.nvim',opt = true},
   }
 }
 ```

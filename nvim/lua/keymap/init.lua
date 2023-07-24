@@ -10,6 +10,14 @@ local silent, noremap = key.silent, key.noremap
 local opts = key.new_opts
 local cmd = key.cmd
 
+local function fzf()
+  require('telescope.builtin').grep_string({
+    shorten_path = true,
+    word_match = '-w',
+    search = '',
+  })
+end
+
 -- usage of plugins
 nmap({
   -- dashboard
@@ -26,7 +34,7 @@ nmap({
   { '<Leader>fd', cmd('Telescope find_files search_dirs={"~/.dotfiles"}'), opts(noremap, silent) },
   { '<Leader>fn', cmd('Telescope find_files search_dirs={"~/org"}'), opts(noremap, silent) },
 
-  { '<Leader>/', cmd('Telescope live_grep'), opts(noremap, silent) },
+  { '<Leader>/', cmd('Telescope fuzzy_grep'), opts(noremap, silent) },
   { '<Leader>bb', cmd('Telescope buffers'), opts(noremap, silent) },
   { '<Leader>bs', cmd('Telescope buffers'), opts(noremap, silent) },
   { '<Leader>fh', cmd('Telescope help_tags'), opts(noremap, silent) },

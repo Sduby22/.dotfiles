@@ -48,8 +48,9 @@ function config.telescope()
       },
     },
   })
-  require('telescope').load_extension('fzf')
+  require('telescope').load_extension('zf-native')
   require('telescope').load_extension('file_browser')
+  require('telescope').load_extension('fuzzy_grep')
   -- require('telescope').load_extension('projects')
 end
 
