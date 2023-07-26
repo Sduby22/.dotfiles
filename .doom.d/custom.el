@@ -3,7 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(safe-local-variable-values '((ssh-deploy-async . 1) (ssh-deploy-on-explicit-save . t))))
+ '(org-download-method 'directory)
+ '(safe-local-variable-values '((ssh-deploy-async . 1) (ssh-deploy-on-explicit-save . t)))
+ '(warning-suppress-types '((org-roam) (defvaralias))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

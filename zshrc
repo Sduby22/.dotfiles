@@ -78,8 +78,6 @@ unproxy() {
 
 alias v=nvim
 
-myproxy
-
 # export NVM_DIR="$HOME/.nvm"
   # [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   # [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
@@ -90,3 +88,25 @@ alias rmds='find . | egrep "DS|dSYM" | xargs rm'
 alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/base16-alacritty/colors'
 
 eval "$(pyenv init -)"
+
+export PATH=$PATH:/Users/sduby/.config/alacritty/color_scripts:/Users/sduby/Library/Python/3.9/bin
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ \( -f "/Users/sduby/.alilang-ssh.exp" \) -a \( ! -f /Users/sduby/.alilang-lock-922463 \) ]; then touch /Users/sduby/.alilang-lock-922463;expect /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-lock-922463;fi
+if [ \( -f "/Users/sduby/.alilang-ssh.exp" \) -a \( ! -f /Users/sduby/.alilang-lock-648911 \) ]; then touch /Users/sduby/.alilang-lock-648911;expect /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-lock-648911;fi
+if [ \( -f "/Users/sduby/.alilang-ssh.exp" \) -a \( ! -f /Users/sduby/.alilang-lock-253203 \) ]; then touch /Users/sduby/.alilang-lock-253203;expect /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-lock-253203;fi
+if [ \( -f "/Users/sduby/.alilang-ssh.exp" \) -a \( ! -f /Users/sduby/.alilang-lock-396323 \) ]; then touch /Users/sduby/.alilang-lock-396323;expect /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-lock-396323;fi
+if [ \( -f "/Users/sduby/.alilang-ssh.exp" \) -a \( ! -f /Users/sduby/.alilang-lock-297343 \) ]; then touch /Users/sduby/.alilang-lock-297343;expect /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-lock-297343;fi
+if [ \( -f "/Users/sduby/.alilang-ssh.exp" \) -a \( ! -f /Users/sduby/.alilang-lock-403086 \) ]; then touch /Users/sduby/.alilang-lock-403086;expect /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-lock-403086;fi
+if [ \( -f "/Users/sduby/.alilang-ssh.exp" \) -a \( ! -f /Users/sduby/.alilang-lock-504687 \) ]; then touch /Users/sduby/.alilang-lock-504687;expect /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-lock-504687;fi
+if [ \( -f "/Users/sduby/.alilang-ssh.exp" \) -a \( ! -f /Users/sduby/.alilang-lock-681308 \) ]; then touch /Users/sduby/.alilang-lock-681308;expect /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-lock-681308;fi
+if [ \( -f "/Users/sduby/.alilang-ssh.exp" \) -a \( ! -f /Users/sduby/.alilang-lock-798848 \) ]; then touch /Users/sduby/.alilang-lock-798848;expect /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-lock-798848;fi
+if [ \( -f "/Users/sduby/.alilang-ssh.exp" \) -a \( ! -f /Users/sduby/.alilang-lock-507499 \) ]; then touch /Users/sduby/.alilang-lock-507499;expect /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-ssh.exp;rm -f /Users/sduby/.alilang-lock-507499;fi
+
+# pnpm
+export PNPM_HOME="/Users/sduby/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

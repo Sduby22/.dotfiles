@@ -1,8 +1,5 @@
-if status is-login
-
-    source ~/.profile
-
-end
+source ~/.profile
+source ~/alias
 if status is-interactive
     # Commands to run in interactive sessions can go here
     if [ "$(uname -s)" = "Darwin" ];
@@ -53,3 +50,7 @@ if status is-interactive
     alias l=exa
 end
 
+thefuck --alias | source
+brew shellenv | source
+pyenv init - | source
+source ~/.config/fish/nvm.fish

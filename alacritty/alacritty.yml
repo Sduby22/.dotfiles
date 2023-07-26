@@ -112,11 +112,9 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     #family: Cascadia Mono PL
-    family: JetbrainsMono Nerd Font
+    family: Sarasa Mono SC Nerd Font
+    family: Iosevka
     #family: Gohu GohuFont
-
-    # The `style` can be specified to pick a specific face.
-    style: Regular
 
   ## Point size
   size: 16
@@ -139,7 +137,6 @@ font:
   #
   # Thin strokes are suitable for retina displays, but for non-retina screens
   # it is recommended to set `use_thin_strokes` to `false`.
-  use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
@@ -149,8 +146,8 @@ font:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-# shell:
-#   program: /opt/homebrew/bin/fish
+shell:
+  program: /opt/homebrew/bin/fish
   #args:
     #- -c
     #- "tmux new-session -A -s main"
@@ -450,8 +447,8 @@ font:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-#key_bindings:
-  #- { key: Paste,                                       action: Paste          }
+key_bindings:
+  - { key: X, mods: Command, chars: "\x1bx" }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
   #- { key: L,         mods: Control, mode: ~Vi|~Search, chars: "\x0c"          }
@@ -565,38 +562,38 @@ font:
   # Display the time it takes to redraw each frame.
   #render_timer: false
 colors:
-  # COLORSCHEME: base16-default-dark.yml
+  # COLORSCHEME: base16-cupcake.yml
   # Default colors
   primary:
-    background: '0x181818'
-    foreground: '0xd8d8d8'
+    background: '0xfbf1f2'
+    foreground: '0x8b8198'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x181818'
-    cursor: '0xd8d8d8'
+    text: '0xfbf1f2'
+    cursor: '0x8b8198'
 
   # Normal colors
   normal:
-    black: '0x181818'
-    red: '0xab4642'
-    green: '0xa1b56c'
-    yellow: '0xf7ca88'
-    blue: '0x7cafc2'
-    magenta: '0xba8baf'
-    cyan: '0x86c1b9'
-    white: '0xd8d8d8'
+    black: '0xfbf1f2'
+    red: '0xd57e85'
+    green: '0xa3b367'
+    yellow: '0xdcb16c'
+    blue: '0x7297b9'
+    magenta: '0xbb99b4'
+    cyan: '0x69a9a7'
+    white: '0x8b8198'
 
   # Bright colors
   bright:
-    black: '0x585858'
-    red: '0xdc9656'
-    green: '0x282828'
-    yellow: '0x383838'
-    blue: '0xb8b8b8'
-    magenta: '0xe8e8e8'
-    cyan: '0xa16946'
-    white: '0xf8f8f8'
+    black: '0xbfb9c6'
+    red: '0xebb790'
+    green: '0xf2f1f4'
+    yellow: '0xd8d5dd'
+    blue: '0xa59daf'
+    magenta: '0x72677e'
+    cyan: '0xbaa58c'
+    white: '0x585062'
 
   dim:
     black: '0x232323'
