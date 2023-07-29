@@ -53,6 +53,9 @@
     ~/.config/fish/config.fish:
       path: fish/config.fish
       force: true
+    ~/.config/fish/nvm.fish:
+      path: fish/nvm.fish
+      force: true
     ~/.config/omf:
       path: omf
       force: true

@@ -3,6 +3,7 @@ source ~/alias
 if status is-interactive
     # Commands to run in interactive sessions can go here
     if [ "$(uname -s)" = "Darwin" ];
+	brew shellenv | source
         alias xcp=pbcopy
         alias brew='/opt/homebrew/bin/brew' # ARM Homebrew
         alias ibrew='arch -x86_64 /usr/local/bin/brew' # X86 Homebrew
@@ -51,6 +52,5 @@ if status is-interactive
 end
 
 thefuck --alias | source
-brew shellenv | source
 pyenv init - | source
 source ~/.config/fish/nvm.fish
