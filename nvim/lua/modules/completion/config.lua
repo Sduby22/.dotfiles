@@ -10,7 +10,7 @@ function config.nvim_lsp()
   local on_attach = require('keymap.lsp_onattach')
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.offsetEncoding = 'utf-8'
-  local lsps = { 'pyright', 'clangd', 'vtsls' }
+  local lsps = { 'pyright', 'clangd', 'vtsls', 'eslint' }
   for _, v in ipairs(lsps) do
     lspconfig[v].setup({ on_attach = on_attach, capabilities = capabilities })
   end

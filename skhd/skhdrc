@@ -1,7 +1,7 @@
 alt - e : open ~
 # alt - c : /Applications/Microsoft\ Edge\ Dev.app/Contents/MacOS/Microsoft\ Edge\ Dev
 # alt - c : open -a "Firefox Developer Edition"
-alt - c : open -a "Microsoft Edge"
+alt - c : open -a "Arc"
 alt - d : open -a "Eudic"
 # alt - return : iterm2  
 # alt - return : /Applications/WezTerm.app/Contents/MacOS/wezterm start --always-new-process
