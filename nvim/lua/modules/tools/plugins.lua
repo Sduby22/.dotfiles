@@ -29,6 +29,7 @@ plugin({
     { 'nvim-lua/plenary.nvim', lazy = true },
     { 'natecraddock/telescope-zf-native.nvim' },
     { 'Sduby22/telescope-fuzzy-grep.nvim', lazy = true },
+    -- { 'folke/trouble.nvim', lazy = true },
     -- { 'ahmedkhalf/project.nvim', config=conf.project },
   },
 })

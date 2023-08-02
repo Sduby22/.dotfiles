@@ -1,5 +1,3 @@
-local format_disable_ft = { 'proto' }
-
 local function diagnostic_goto(next, severity)
   local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
   severity = severity and vim.diagnostic.severity[severity] or nil
@@ -14,11 +12,6 @@ return function(client, bufnr)
   end
 
   vim.opt_local.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-  local ft = vim.api.nvim_buf_get_option(bufnr, 'filetype')
-  if not vim.tbl_contains(format_disable_ft, ft) then
-    require('lsp-format').on_attach(client)
-  end
-
   if client.server_capabilities.documentSymbolProvider then
     require('nvim-navic').attach(client, bufnr)
     require('nvim-navbuddy').attach(client, bufnr)

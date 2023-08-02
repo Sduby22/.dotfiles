@@ -41,6 +41,8 @@ nmap({
 
   --git
   { '<leader>g', cmd('Neogit') },
+
+  { '<Leader>fe', cmd('TroubleToggle'), opts(noremap, silent) },
 })
 
 vim.keymap.set('', '<leader>*', cmd('Telescope grep_string'), opts(noremap, silent))

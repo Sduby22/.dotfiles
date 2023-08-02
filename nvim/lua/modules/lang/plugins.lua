@@ -37,10 +37,10 @@ plugin({
   dependencies = { 'nvim-lua/plenary.nvim' },
 })
 
-plugin({
-  event = 'BufWritePre',
-  'lukas-reineke/lsp-format.nvim',
-})
+-- plugin({
+--   event = 'BufWritePre',
+--   'lukas-reineke/lsp-format.nvim',
+-- })
 
 plugin({
   'nvim-neorg/neorg',
