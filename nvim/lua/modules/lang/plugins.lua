@@ -10,6 +10,9 @@ plugin({
   event = { 'BufReadPost', 'BufNewFile' },
   build = ':TSUpdate',
   config = conf.nvim_treesitter,
+  dependencies = {
+    { 'windwp/nvim-ts-autotag', lazy = true },
+  },
 })
 
 plugin({

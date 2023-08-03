@@ -10,6 +10,9 @@ function config.nvim_treesitter()
       enable = true,
       additional_vim_regex_highlighting = { 'org' },
     },
+    autotag = {
+      enable = true,
+    },
     textobjects = {
       select = {
         enable = true,
