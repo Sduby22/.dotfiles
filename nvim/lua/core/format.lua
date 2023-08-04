@@ -25,9 +25,6 @@ end
 ---@param opts? {force?:boolean}
 function M.format(opts)
   local buf = vim.api.nvim_get_current_buf()
-  if vim.b.autoformat == false and not (opts and opts.force) then
-    return
-  end
 
   local formatters = M.get_formatters(buf)
   local client_ids = vim.tbl_map(function(client)
@@ -52,7 +49,7 @@ end
 
 ---@param formatters LazyVimFormatters
 function M.notify(formatters)
-  local lines = { '# Active:' }
+  local lines = { '# Active: ' .. vim.bo.filetype }
 
   for _, client in ipairs(formatters.active) do
     local line = '- **' .. client.name .. '**'
@@ -141,13 +138,25 @@ function M.setup(opts)
   vim.api.nvim_create_autocmd('BufWritePre', {
     group = vim.api.nvim_create_augroup('LazyVimFormat', {}),
     callback = function()
-      if M.opts.autoformat then
-        M.format()
+      if vim.b.autoformat == false and not (opts and opts.force) then
+        return
       end
+
+      if not M.opts.autoformat then
+        return
+      end
+
+      -- if filetype in disabled list, return
+      if vim.tbl_contains(M.opts.disabled_ft, vim.bo.filetype) then
+        return
+      end
+
+      M.format()
     end,
   })
 end
 
 vim.keymap.set('n', '<leader>cf', M.toggle, { silent = true })
+vim.keymap.set('n', '<leader>f.', M.format, { silent = true })
 
 return M

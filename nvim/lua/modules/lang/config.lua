@@ -37,6 +37,16 @@ function config.rust_tools()
   require('rust-tools').setup({
     server = {
       on_attach = require('keymap.lsp_onattach'),
+      settings = {
+        ['rust-analyzer'] = {
+          cargo = {
+            autoReload = true,
+          },
+          checkOnSave = {
+            command = 'clippy',
+          },
+        },
+      },
     },
   })
 end
@@ -57,6 +67,7 @@ function config.null_ls()
       null_ls.builtins.formatting.black,
       null_ls.builtins.formatting.prettier,
       null_ls.builtins.formatting.clang_format,
+      null_ls.builtins.formatting.taplo,
     },
     on_attach = require('keymap.lsp_onattach'),
   })

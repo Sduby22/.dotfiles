@@ -60,4 +60,5 @@ pack:ensure_plugins()
 require('core.format').setup({
   autoformat = true,
   format_notify = true,
+  disabled_ft = { 'proto' },
 })
