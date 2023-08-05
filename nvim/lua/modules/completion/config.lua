@@ -3,16 +3,23 @@
 -- License: MIT
 
 local config = {}
+local lsps = require('modules.completion.lsps')
 
 -- config server in this function
 function config.nvim_lsp()
   local lspconfig = require('lspconfig')
   local on_attach = require('keymap.lsp_onattach')
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.offsetEncoding = 'utf-8'
-  local lsps = { 'pyright', 'clangd', 'vtsls', 'eslint' }
-  for _, v in ipairs(lsps) do
-    lspconfig[v].setup({ on_attach = on_attach, capabilities = capabilities })
+  local default = {
+    on_attach = on_attach,
+  }
+
+  for k, v in pairs(lsps) do
+    if type(k) == 'string' then
+      lspconfig[k].setup(vim.tbl_deep_extend('force', default, v))
+    else
+      lspconfig[v].setup(default)
+    end
   end
 end
 
@@ -41,6 +48,7 @@ function config.nvim_cmp()
       ['<C-k>'] = cmp.mapping.select_prev_item(),
       ['<C-e>'] = cmp.mapping.close(),
       ['<CR>'] = cmp.mapping.confirm({ select = false }),
+      ['<C-l>'] = cmp.mapping.confirm({ select = false }),
       -- ["<Tab>"] = vim.schedule_wrap(function(fallback)
       --   if cmp.visible() and has_words_before() then
       --     cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
@@ -66,12 +74,12 @@ function config.nvim_cmp()
     },
     sources = {
       { name = 'luasnip' },
+      { name = 'luasnip_choice' },
       { name = 'nvim_lsp' },
       { name = 'buffer' },
-      { name = 'path' },
+      { name = 'async-path' },
       { name = 'nvim_lsp_signature_help' },
       { name = 'nvim_lsp_document_symbol' },
-      { name = 'cmp-cmdline' },
     },
     -- preselect = cmp.PreselectMode.Item,
   })
@@ -87,37 +95,27 @@ function config.nvim_cmp()
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = 'path' },
+      { name = 'async-path' },
       { name = 'cmdline' },
-    },
-  })
-end
-
-function config.snippy()
-  local snippy = require('snippy')
-  snippy.setup({
-    mappings = {
-      is = { ['<Tab>'] = 'expand_or_advance', ['<S-Tab>'] = 'previous' },
-      nx = { ['<leader>x'] = 'cut_text' },
     },
   })
 end
 
 function config.lua_snip()
   local ls = require('luasnip')
-  local types = require('luasnip.util.types')
-  ls.config.set_config({
-    history = true,
-    enable_autosnippets = true,
-    updateevents = 'TextChanged,TextChangedI',
-    ext_opts = {
-      [types.choiceNode] = {
-        active = {
-          virt_text = { { '<- choiceNode', 'Comment' } },
-        },
-      },
-    },
-  })
+  -- local types = require('luasnip.util.types')
+  -- ls.config.set_config({
+  --   history = true,
+  --   enable_autosnippets = true,
+  --   updateevents = 'TextChanged,TextChangedI',
+  --   ext_opts = {
+  --     [types.choiceNode] = {
+  --       active = {
+  --         virt_text = { { '<- choiceNode', 'Comment' } },
+  --       },
+  --     },
+  --   },
+  -- })
   require('luasnip.loaders.from_vscode').lazy_load()
   require('luasnip.loaders.from_lua').lazy_load()
   require('luasnip.loaders.from_snipmate').lazy_load()

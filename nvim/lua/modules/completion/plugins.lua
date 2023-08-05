@@ -19,20 +19,24 @@ plugin({
   event = 'InsertEnter',
   config = conf.nvim_cmp,
   dependencies = {
-    { 'hrsh7th/cmp-path' },
+    { 'FelipeLema/cmp-async-path' },
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/cmp-cmdline' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/cmp-nvim-lsp-document-symbol' },
     { 'hrsh7th/cmp-nvim-lsp-signature-help' },
-    -- { 'dcampos/nvim-snippy', config = conf.snippy },
-    -- { 'dcampos/cmp-snippy' },
     {
-      'saadparwaiz1/cmp_luasnip',
+      'L3MON4D3/cmp-luasnip-choice',
+      config = function()
+        require('cmp_luasnip_choice').setup({
+          auto_open = true, -- Automatically open nvim-cmp on choice node (default: true)
+        })
+      end,
       dependencies = {
+        { 'saadparwaiz1/cmp_luasnip' },
         {
           'L3MON4D3/LuaSnip',
-          version = '1.*',
+          version = '2.*',
           build = 'make install_jsregexp',
           dependencies = { 'honza/vim-snippets' },
           config = conf.lua_snip,

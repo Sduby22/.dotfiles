@@ -33,32 +33,6 @@ function config.nvim_treesitter()
   })
 end
 
-function config.rust_tools()
-  require('rust-tools').setup({
-    server = {
-      on_attach = require('keymap.lsp_onattach'),
-      settings = {
-        ['rust-analyzer'] = {
-          cargo = {
-            autoReload = true,
-          },
-          checkOnSave = {
-            command = 'clippy',
-          },
-        },
-      },
-    },
-  })
-end
-
-function config.clangd_extensions()
-  require('clangd_extensions').setup({
-    server = {
-      on_attach = require('keymap.lsp_onattach'),
-    },
-  })
-end
-
 function config.null_ls()
   local null_ls = require('null-ls')
   null_ls.setup({

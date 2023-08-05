@@ -21,11 +21,11 @@ plugin({
   dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
 })
 
-plugin({
-  'simrat39/rust-tools.nvim',
-  ft = { 'rust' },
-  config = conf.rust_tools,
-})
+-- plugin({
+--   'simrat39/rust-tools.nvim',
+--   ft = { 'rust' },
+--   config = conf.rust_tools,
+-- })
 
 -- plugin({
 --   'p00f/clangd_extensions.nvim',
