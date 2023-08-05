@@ -38,6 +38,10 @@ app_options:
     ascii_mode: true
   com.jetbrains.toolbox.linkapp.pcom.jetbrains.toolbox__ntelli_ommunity_dition_2023_1_2:
     ascii_mode: true
+  com.apple.SecurityAgent:
+    ascii_mode: true
+  com.apple.authorizationhost:
+    ascii_mode: true
 
 style:
   # 选择皮肤，亮色与暗色主题
