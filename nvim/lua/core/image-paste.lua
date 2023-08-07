@@ -46,7 +46,7 @@ function M.paste_image()
   local get_width_command =
     string.format("%s | identify -ping -units PixelsPerInch -format '%%w,%%x' -", options.paste_script)
 
-  fn.jobstart(get_width_command, {
+  local job_width = fn.jobstart(get_width_command, {
     stdout_buffered = true,
     on_stdout = function(_, data)
       local str_width, str_ppi = unpack(vim.split(fn.join(data), ','))
@@ -68,16 +68,17 @@ function M.paste_image()
   fn.jobstart(upload_command, {
     stdout_buffered = true,
     on_stdout = function(_, data)
-      url = fn.join(data):gsub('^%s*(.+)%s*$', '%1')
+      url = fn.join(data):gsub('^%s*(.-)%s*$', '%1')
     end,
     on_exit = function(_, exit_code)
+      fn.jobwait({ job_width })
       log.info(string.format('Width: %s, URL: %s, Exit Code: %s', width, url, exit_code))
       local failed = url == '' or width == '' or exit_code ~= 0
       local replacement = ''
 
       -- Create the HTML replacement string
       if not failed then
-        local paths = unpack(vim.split(url, '/'))
+        local paths = vim.split(url, '/')
         local image_name = paths[#paths]
         if is_hdpi and width ~= nil then
           replacement = string.format(template_html, image_name, width, url)
@@ -100,7 +101,7 @@ end
 
 function M.setup(opts)
   options = vim.tbl_deep_extend('force', options, opts or {})
-  vim.keymap.set('n', '<A-v>', M.paste_image)
+  vim.keymap.set({ 'n', 'i' }, '<A-v>', M.paste_image)
 end
 
 return M
