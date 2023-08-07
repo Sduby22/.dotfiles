@@ -8,12 +8,19 @@ local fn = vim.fn
 local options = {
   -- The script used to produce te image on STDOUT
   paste_script = [[osascript -e "get the clipboard as «class PNGf»" | sed "s/«data PNGf//; s/»//" | xxd -r -p]],
+  ft = { 'markdown', 'rmd' },
 }
 
 -- PPI that is considered HDPI
 local high_ppi = 72 * 2
 
 function M.paste_image()
+  local ft = api.nvim_buf_get_option(0, 'filetype')
+  if not vim.tbl_contains(options.ft, ft) then
+    log.info('Not a markdown file')
+    return
+  end
+
   log.info('Pasting image')
   local template_md = '![%s](%s)'
   local template_html = [[<img alt="%s" width="%s" src="%s" />]]
@@ -101,7 +108,7 @@ end
 
 function M.setup(opts)
   options = vim.tbl_deep_extend('force', options, opts or {})
-  vim.keymap.set({ 'n', 'i' }, '<A-v>', M.paste_image)
+  -- vim.keymap.set({ 'n', 'i' }, '<A-v>', M.paste_image)
 end
 
 return M
