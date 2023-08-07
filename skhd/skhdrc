@@ -8,7 +8,6 @@ alt - d : open -a "Eudic"
 # alt - return : /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
 #alt - return: alacritty
 alt-return: kitty ~
-alt-v: open -a "Visual Studio Code"
 alt - 0x2A: emacs
 
 ## Navigation

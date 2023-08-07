@@ -62,3 +62,5 @@ require('core.format').setup({
   format_notify = true,
   disabled_ft = { 'proto' },
 })
+
+require('core.image-paste').setup()
