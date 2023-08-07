@@ -52,7 +52,11 @@ plugin({
 --   config = conf.nvim_autopairs,
 -- })
 
-plugin({ 'echasnovski/mini.pairs', version = '*', opts = {}, event = 'InsertCharPre' })
+plugin({
+  'windwp/nvim-autopairs',
+  event = 'InsertEnter',
+  config = conf.nvim_autopairs,
+})
 
 plugin({
   'zbirenbaum/copilot.lua',

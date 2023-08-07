@@ -58,7 +58,8 @@ plugin({
     {
       'rcarriga/nvim-notify',
       opts = {
-        render = 'compact', stages = 'static',
+        render = 'compact',
+        stages = 'static',
       },
     },
   },
@@ -114,3 +115,6 @@ plugin({
   opts = {},
 })
 plugin({ 'fgheng/winbar.nvim', opts = {}, event = 'BufReadPost' })
+
+plugin({ 'monkoose/matchparen.nvim', event = 'BufReadPost', opts = {} })
+plugin({ 'echasnovski/mini.cursorword', event = 'BufReadPost', opts = {} })

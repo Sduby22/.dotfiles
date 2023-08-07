@@ -6,12 +6,10 @@ local lsps = {
   rust_analyzer = {
     settings = {
       ['rust-analyzer'] = {
-        cargo = {
-          autoReload = true,
-        },
         checkOnSave = {
           command = 'clippy',
         },
+        procMacro = { enable = true },
       },
     },
   },

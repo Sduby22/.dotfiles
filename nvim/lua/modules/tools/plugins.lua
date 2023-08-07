@@ -119,3 +119,5 @@ plugin({
     },
   },
 })
+
+plugin({ 'RaafatTurki/hex.nvim', opts = {} })
