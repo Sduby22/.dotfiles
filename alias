@@ -1,0 +1,12 @@
+alias tmux-default="tmux new -A -s default"
+alias fd="fd -H -E .git/"
+alias lgit=lazygit
+alias cl=clear
+alias fy='fy -S'
+alias fanyi='fanyi -S'
+alias v=nvim
+alias em="emacsclient -c"
+alias j=z
+alias rmds='find . | egrep "DS|dSYM" | xargs rm'
+alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/base16-alacritty/colors'
+alias l=exa

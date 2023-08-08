@@ -55,6 +55,9 @@
     ~/.config/fish/config.fish:
       path: fish/config.fish
       force: true
+    ~/.config/fish/conf.d:
+      path: fish/conf.d/
+      force: true
     ~/.config/omf:
       path: omf
       force: true
