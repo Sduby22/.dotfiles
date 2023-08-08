@@ -68,10 +68,21 @@ plugin({
 plugin({
   'lukas-reineke/indent-blankline.nvim',
   event = 'BufReadPost',
+  opts = {},
+})
+
+plugin({
+  'echasnovski/mini.indentscope',
+  version = '*',
+  event = 'BufReadPost',
   config = function()
-    require('indent_blankline').setup({
-      show_current_context = true,
-      show_current_context_start = true,
+    local m = require('mini.indentscope')
+    m.setup({
+      draw = {
+        delay = 0,
+        animation = m.gen_animation.none(),
+      },
+      symbol = '│',
     })
   end,
 })
@@ -114,6 +125,7 @@ plugin({
   },
   opts = {},
 })
+
 plugin({ 'fgheng/winbar.nvim', opts = {}, event = 'BufReadPost' })
 
 plugin({ 'monkoose/matchparen.nvim', event = 'BufReadPost', opts = {} })

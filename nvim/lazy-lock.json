@@ -23,6 +23,7 @@
   "matchparen.nvim": { "branch": "main", "commit": "9f39b61f846befe5eda80a20cdc76c86c4a4f2fd" },
   "mini.bufremove": { "branch": "main", "commit": "14805473144fffbd019d07e51bed2d176e065ee9" },
   "mini.cursorword": { "branch": "main", "commit": "066770d17218d783dc76abde80fde89967f94907" },
+  "mini.indentscope": { "branch": "main", "commit": "f60e9b51a6214c73a170ffc5445ce91560981031" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "7951701fd21291ac473ea92d3fd57ec5c8bf10bb" },
   "neogit": { "branch": "master", "commit": "23459f02dac199d9029dd1a03db3aeaff974a51a" },
   "neorg": { "branch": "main", "commit": "0b3df8633cc1cbb3ffd6f34d4e9073fd6f5083ab" },
