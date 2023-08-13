@@ -81,6 +81,9 @@
       platform: linux
     ~/.config/lazygit:
       path: lazygit
+    ~/Library/Rime:
+      path: Rime
+      platform: darwin
 
 - create:
     - ~/.vim/undo-history
@@ -100,3 +103,11 @@
   - command: cd ./alacritty/color_scripts/ && python3 _genscripts.py
     description: generate color scripts 
   - command: git config --global core.excludesfile ~/.gitignore
+  - command: git config --global alias.co checkout
+  - command: git config --global alias.br branch
+  - command: git config --global alias.pl pull
+  - command: git config --global alias.ps push
+  - command: git config --global alias.sw switch
+  - command: git config --global alias.rs reset
+  - command: git config --global alias.st status
+  - command: git config --global alias.c commit
