@@ -57,10 +57,29 @@ plugin({
 })
 
 plugin({
-  'glepnir/dbsession.nvim',
+  'gennaro-tedesco/nvim-possession',
+  lazy = false,
+  dependencies = {
+
+    {
+      'tiagovla/scope.nvim',
+      lazy = false,
+      config = true,
+    },
+  },
   config = function()
-    require('dbsession').setup({
-      auto_save_on_exit = true,
+    require('nvim-possession').setup({
+      autoload = true,
+      autosave = true,
+      autoswitch = {
+        enable = true,
+      },
+      save_hook = function()
+        vim.cmd([[ScopeSaveState]]) -- Scope.nvim saving
+      end,
+      post_hook = function()
+        vim.cmd([[ScopeLoadState]]) -- Scope.nvim loading
+      end,
     })
   end,
 })
@@ -121,3 +140,18 @@ plugin({
 })
 
 plugin({ 'RaafatTurki/hex.nvim', opts = {} })
+plugin({
+  'danymat/neogen',
+  dependencies = 'nvim-treesitter/nvim-treesitter',
+  keys = { {
+    '<C-l>',
+    function()
+      require('neogen').generate({ snippet_engine = 'luasnip' })
+    end,
+  } },
+  opts = {},
+})
+
+plugin({ 'natecraddock/workspaces.nvim', opts = {
+  cd_type = 'tab',
+} })

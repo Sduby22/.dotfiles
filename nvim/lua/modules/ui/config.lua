@@ -53,7 +53,7 @@ function config.dashboard()
           desc_hl = 'String',
           key = 'l',
           key_hl = 'Number',
-          action = 'SessionLoad',
+          action = 'ScopeLoadState',
         },
       },
       -- footer = {}, --your footer
@@ -85,6 +85,19 @@ function config.load_colorscheme(color)
     vim.opt.termguicolors = true
     vim.cmd('colorscheme ' .. color)
   end
+end
+
+function config.toggleterm()
+  local Terminal = require('toggleterm.terminal').Terminal
+  local fish = Terminal:new({
+    cmd = 'fish',
+    on_open = function()
+      vim.cmd('startinsert!')
+    end,
+  })
+  vim.keymap.set({ 'n', 'v', 't', 'i', 'c', 'o', 's' }, '<C-t>', function()
+    fish:toggle()
+  end)
 end
 
 return config

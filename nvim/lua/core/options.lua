@@ -12,7 +12,11 @@ vim.opt.magic = true
 vim.opt.virtualedit = 'block'
 vim.opt.encoding = 'utf-8'
 vim.opt.viewoptions = 'folds,cursor,curdir,slash,unix'
-vim.opt.sessionoptions = 'curdir,help,tabpages,winsize'
+vim.opt.sessionoptions = { -- required
+  'buffers',
+  'tabpages',
+  'globals',
+}
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.wildignorecase = true
 vim.opt.wildignore =

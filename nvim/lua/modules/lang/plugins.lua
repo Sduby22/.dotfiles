@@ -11,8 +11,8 @@ plugin({
   build = ':TSUpdate',
   config = conf.nvim_treesitter,
   dependencies = {
-    { 'windwp/nvim-ts-autotag', lazy = true },
-    { 'HiPhish/nvim-ts-rainbow2', event = 'BufReadPost', lazy = true },
+    { 'windwp/nvim-ts-autotag' },
+    { 'HiPhish/nvim-ts-rainbow2' },
     {
       'nvim-treesitter/nvim-treesitter-context',
       opts = {
@@ -69,25 +69,21 @@ plugin({
 --   event = 'BufWritePre',
 --   'lukas-reineke/lsp-format.nvim',
 -- })
+--
+plugin({
+  'iamcco/markdown-preview.nvim',
+  -- cmd = { 'MarkdownPreview' },
+  build = 'cd app && yarn install',
+})
 
 plugin({
-  'nvim-neorg/neorg',
-  build = ':Neorg sync-parsers',
-  ft = { 'norg' },
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  'cloudsftp/peek.nvim',
+  branch = 'bundle',
+  build = 'deno task --quiet build:fast',
   config = function()
-    require('neorg').setup({
-      load = {
-        ['core.defaults'] = {}, -- Loads default behaviour
-        ['core.concealer'] = {}, -- Adds pretty icons to your documents
-        ['core.dirman'] = { -- Manages Neorg workspaces
-          config = {
-            workspaces = {
-              notes = '~/org',
-            },
-          },
-        },
-      },
-    })
+    require('peek').setup()
+    -- refer to `configuration to change defaults`
+    vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
+    vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
   end,
 })

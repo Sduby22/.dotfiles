@@ -152,9 +152,6 @@ function M.setup(opts)
       M.format()
     end,
   })
-
-  vim.keymap.set('n', '<leader>cf', M.toggle, { silent = true })
-  vim.keymap.set('n', '<leader>f.', M.format, { silent = true })
 end
 
 return M
