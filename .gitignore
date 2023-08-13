@@ -9,3 +9,6 @@ alacritty/color_scripts/base16*
 lazygit/state.yml
 Rime/build/
 .DS_Store
+
+fish/conf.d/omf.fish
+nvim/.luarc.json

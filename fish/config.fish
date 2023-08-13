@@ -13,16 +13,6 @@ if status is-interactive
     alias ssh="kitty +kitten ssh"
   end
 
-  alias lgit=lazygit
-  alias cl=clear
-  alias fy='fy -S'
-  alias fanyi='fanyi -S'
-  alias v=nvim
-  alias em="emacsclient -c"
-  alias j=z
-  alias rmds='find . | egrep "DS|dSYM" | xargs rm'
-  alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/base16-alacritty/colors'
-
   function myproxy
     export ALL_PROXY=http://127.0.0.1:7890;
     export HTTP_PROXY=http://127.0.0.1:7890;
@@ -39,7 +29,7 @@ if status is-interactive
     mkdir -p $argv && cd $argv; 
   end
 
-  myproxy
+  #myproxy
 
   set -Ux PYENV_ROOT $HOME/.pyenv
   set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
@@ -47,7 +37,5 @@ if status is-interactive
   thefuck --alias | source
 
   source ~/.profile
-  source ~/alias
-
-  alias l=exa
+  source ~/.aliasrc
 end

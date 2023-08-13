@@ -1,7 +1,6 @@
 local logger = require('core.log')
 local M = {}
 
----@type PluginLspOpts
 M.opts = nil
 
 function M.enabled()
@@ -132,7 +131,6 @@ function M.supports_format(client)
   return client.supports_method('textDocument/formatting') or client.supports_method('textDocument/rangeFormatting')
 end
 
----@param opts PluginLspOpts
 function M.setup(opts)
   M.opts = opts
   vim.api.nvim_create_autocmd('BufWritePre', {
@@ -155,8 +153,5 @@ function M.setup(opts)
     end,
   })
 end
-
-vim.keymap.set('n', '<leader>cf', M.toggle, { silent = true })
-vim.keymap.set('n', '<leader>f.', M.format, { silent = true })
 
 return M

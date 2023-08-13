@@ -56,6 +56,12 @@ local function code()
   return vim.g.vscode == 1
 end
 
+function Packer.register_local_plugin(repo, mode)
+  repo.dir = modules_dir .. '/local/'
+  repo.name = repo[1]
+  Packer.register_plugin(repo, mode)
+end
+
 function Packer.register_plugin(repo, mode)
   mode = mode or 'nvim'
 

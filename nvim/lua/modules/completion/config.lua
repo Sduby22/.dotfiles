@@ -25,6 +25,7 @@ end
 
 function config.nvim_cmp()
   local cmp = require('cmp')
+  local cmp_autopairs = require('nvim-autopairs.completion.cmp')
   local luasnip = require('luasnip')
   local has_words_before = function()
     if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then
@@ -85,6 +86,8 @@ function config.nvim_cmp()
   })
   vim.api.nvim_set_hl(0, 'CmpItemKindCopilot', { fg = '#6CC644' })
 
+  cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+
   cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
@@ -140,36 +143,10 @@ function config.nvim_autopairs()
   })
 
   npairs.add_rules({
-    Rule(' ', ' '):with_pair(function(opts)
-      local pair = opts.line:sub(opts.col - 1, opts.col)
-      return vim.tbl_contains({ '()', '[]', '{}' }, pair)
-    end),
-    Rule('( ', ' )')
-      :with_pair(function()
-        return false
-      end)
-      :with_move(function(opts)
-        return opts.prev_char:match('.%)') ~= nil
-      end)
-      :use_key(')'),
-    Rule('{ ', ' }')
-      :with_pair(function()
-        return false
-      end)
-      :with_move(function(opts)
-        return opts.prev_char:match('.%}') ~= nil
-      end)
-      :use_key('}'),
-    Rule('[ ', ' ]')
-      :with_pair(function()
-        return false
-      end)
-      :with_move(function(opts)
-        return opts.prev_char:match('.%]') ~= nil
-      end)
-      :use_key(']'),
+    Rule("'''", "'''", 'python'),
+    Rule(':::', ':::', 'markdown'),
+    Rule(':::.*$', ':::', { 'markdown', 'vimwiki', 'rmarkdown', 'rmd', 'pandoc' }):only_cr():use_regex(true),
   })
-  npairs.add_rule(Rule("'''", "'''", 'python'))
 end
 
 return config

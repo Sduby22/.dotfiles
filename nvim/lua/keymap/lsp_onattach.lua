@@ -28,7 +28,6 @@ return function(client, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, bufopts)
 
   vim.keymap.set('n', ']e', diagnostic_goto(true), bufopts)
   vim.keymap.set('n', '[e', diagnostic_goto(false), bufopts)

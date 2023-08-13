@@ -3,12 +3,14 @@
       relink: true
 
 - shell:
-  - command: git submodule update --init --recursive
-    description: Installing submodules 
-      
-- clean: ['~']
+    - command: git submodule update --init --recursive
+      description: Installing submodules
+
+- clean: ["~"]
 
 - crossplatform-link:
+    ~/.aliasrc:
+      path: alias
     ~/.config/systemd/emacs.service:
       path: systemd/emacs.service
       platform: linux
@@ -53,8 +55,8 @@
     ~/.config/fish/config.fish:
       path: fish/config.fish
       force: true
-    ~/.config/fish/nvm.fish:
-      path: fish/nvm.fish
+    ~/.config/fish/conf.d:
+      path: fish/conf.d/
       force: true
     ~/.config/omf:
       path: omf

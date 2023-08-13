@@ -30,6 +30,12 @@ function config.nvim_treesitter()
     indent = {
       enable = true,
     },
+    rainbow = {
+      enable = true,
+      disable = { 'jsx' },
+      query = 'rainbow-parens',
+      strategy = require('ts-rainbow').strategy.global,
+    },
   })
 end
 
