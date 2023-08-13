@@ -135,3 +135,15 @@ plugin({
   version = '*',
   config = conf.toggleterm,
 })
+
+plugin({
+  'norcalli/nvim-colorizer.lua',
+  opts = {
+    'css',
+    'javascript',
+    'html',
+    'typescript',
+    'typescriptreact',
+    'javascriptreact',
+  },
+})

@@ -71,9 +71,12 @@ plugin({
 -- })
 --
 plugin({
-  'iamcco/markdown-preview.nvim',
-  -- cmd = { 'MarkdownPreview' },
-  build = 'cd app && yarn install',
+  'Sduby22/markdown-preview.nvim',
+  -- build = 'cd app && yarn install',
+  build = function()
+    vim.fn['mkdp#util#install']()
+  end,
+  ft = { 'markdown' },
 })
 
 plugin({
