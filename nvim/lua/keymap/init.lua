@@ -32,7 +32,9 @@ nmap({
   { '<Leader>.', cmd('Telescope find_files'), opts(noremap, silent) },
   { '<Leader>pf', cmd('Telescope find_files'), opts(noremap, silent) },
   { '<Leader>fd', cmd('Telescope find_files search_dirs={"~/.dotfiles"}'), opts(noremap, silent) },
-  { '<Leader>fn', cmd('Telescope find_files search_dirs={"~/org"}'), opts(noremap, silent) },
+
+  { '<Leader>nf', cmd('Telescope find_files search_dirs={"~/lark"}'), opts(noremap, silent) },
+  { '<Leader>ns', cmd('Telescope fuzzy_grep search_dirs={"~/lark"}'), opts(noremap, silent) },
 
   { '<Leader>/', cmd('Telescope fuzzy_grep'), opts(noremap, silent) },
   { '<Leader>bb', cmd('Telescope buffers'), opts(noremap, silent) },

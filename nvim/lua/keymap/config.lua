@@ -66,6 +66,19 @@ nmap({
   { 'Y', 'y$', opts(noremap) },
 }, 'both')
 
+nmap({
+  { '<leader><tab>n', cmd('tabnew'), opts(noremap) },
+  { '<leader><tab>1', cmd('tabn 1'), opts(noremap) },
+  { '<leader><tab>2', cmd('tabn 2'), opts(noremap) },
+  { '<leader><tab>3', cmd('tabn 3'), opts(noremap) },
+  { '<leader><tab>4', cmd('tabn 4'), opts(noremap) },
+  { '<leader><tab>5', cmd('tabn 5'), opts(noremap) },
+  { '<leader><tab>6', cmd('tabn 6'), opts(noremap) },
+  { '<leader><tab>7', cmd('tabn 7'), opts(noremap) },
+  { '<leader><tab>8', cmd('tabn 8'), opts(noremap) },
+  { '<leader><tab>9', cmd('tabn 9'), opts(noremap) },
+})
+
 omap({
   { 's', cmd('<Plug>Sneak_s'), opts(noremap) },
   { 'S', cmd('<Plug>Sneak_S'), opts(noremap) },

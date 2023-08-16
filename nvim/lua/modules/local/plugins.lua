@@ -4,8 +4,18 @@ plugin({
   'format',
   event = 'BufWritePre',
   keys = {
-    { '<leader>cf', function() require('format').toggle() end },
-    { '<leader>f.', function() require('format').format() end },
+    {
+      '<leader>cf',
+      function()
+        require('format').toggle()
+      end,
+    },
+    {
+      '<leader>f.',
+      function()
+        require('format').format()
+      end,
+    },
   },
   config = function()
     local format = require('format')
@@ -19,13 +29,9 @@ plugin({
 
 plugin({
   'image-paste',
-  keys = {
-    {
-      '<A-v>',
-      function()
-        require('image-paste').paste_image()
-      end,
-    },
-  },
-  opts = {},
+  config = function()
+    local paste = require('image-paste')
+    paste.setup()
+    vim.keymap.set({ 'n', 'v', 's', 'x', 'o', 'i', 'l' }, '<A-v>', paste.paste_image, { noremap = true, silent = true })
+  end,
 })

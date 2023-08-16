@@ -32,6 +32,22 @@ function config.telescope()
       live_grep = {
         only_sort_text = true,
       },
+
+      find_files = {
+        -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+        find_command = {
+          'fd',
+          '-H',
+          '-E',
+          '.git/',
+          '-E',
+          'node_modules/',
+          '--type',
+          'f',
+          '--color',
+          'never',
+        },
+      },
     },
     extensions = {
       fzf = {

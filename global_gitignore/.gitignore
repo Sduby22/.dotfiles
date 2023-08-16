@@ -5,3 +5,4 @@ compile_flags.txt
 .cache
 .vscode
 node_modules
+.ccls-cache
