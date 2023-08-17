@@ -152,6 +152,12 @@ plugin({
   opts = {},
 })
 
-plugin({ 'natecraddock/workspaces.nvim', opts = {
-  cd_type = 'tab',
-} })
+plugin({
+  'natecraddock/workspaces.nvim',
+  opts = {
+    cd_type = 'tab',
+    hooks = {
+      open = 'Telescope find_files',
+    },
+  },
+})

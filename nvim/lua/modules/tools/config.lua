@@ -62,11 +62,16 @@ function config.telescope()
         -- disables netrw and use telescope-file-browser in its place
         hijack_netrw = true,
       },
+      workspaces = {
+        -- keep insert mode after selection in the picker, default is false
+        keep_insert = true,
+      },
     },
   })
   require('telescope').load_extension('zf-native')
   require('telescope').load_extension('file_browser')
   require('telescope').load_extension('fuzzy_grep')
+  require('telescope').load_extension('workspaces')
   -- require('telescope').load_extension('projects')
 end
 

@@ -67,7 +67,7 @@ vim.opt.sidescrolloff = 5
 vim.opt.foldlevelstart = 99
 vim.opt.ruler = false
 vim.opt.list = true
-vim.opt.showtabline = 1
+vim.opt.showtabline = 2
 vim.opt.winwidth = 30
 vim.opt.winminwidth = 10
 vim.opt.pumheight = 15
@@ -150,4 +150,8 @@ local signs = { Error = '', Warn = '', Hint = '󰌶', Info = '' }
 for type, icon in pairs(signs) do
   local hl = 'DiagnosticSign' .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+if vim.g.neovide then
+  require('core.neovide')
 end

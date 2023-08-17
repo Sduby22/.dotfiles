@@ -443,3 +443,4 @@ tmux_conf_uninstall_plugins_on_reload=true
 
 # set -g @plugin 'tmux-plugins/tmux-yank'
 set -g default-command /opt/homebrew/bin/fish
+set -g allow-passthrough on

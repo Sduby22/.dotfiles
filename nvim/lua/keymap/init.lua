@@ -31,6 +31,7 @@ nmap({
   { '<Leader>fr', cmd('Telescope oldfiles'), opts(noremap, silent) },
   { '<Leader>.', cmd('Telescope find_files'), opts(noremap, silent) },
   { '<Leader>pf', cmd('Telescope find_files'), opts(noremap, silent) },
+  { '<Leader>pp', cmd('Telescope workspaces'), opts(noremap, silent) },
   { '<Leader>fd', cmd('Telescope find_files search_dirs={"~/.dotfiles"}'), opts(noremap, silent) },
 
   { '<Leader>nf', cmd('Telescope find_files search_dirs={"~/lark"}'), opts(noremap, silent) },

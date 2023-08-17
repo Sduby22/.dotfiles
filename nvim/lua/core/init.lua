@@ -2,6 +2,9 @@
 -- date: 2022-07-02
 -- License: MIT
 
+package.path = package.path .. ';' .. vim.fn.expand('$HOME') .. '/.luarocks/share/lua/5.1/?/init.lua'
+package.path = package.path .. ';' .. vim.fn.expand('$HOME') .. '/.luarocks/share/lua/5.1/?.lua'
+
 local vim = vim
 local home = os.getenv('HOME')
 -- remove check is windows because I only use mac or linux

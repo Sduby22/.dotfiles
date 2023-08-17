@@ -4,12 +4,12 @@
 -- recommend some vim mode key defines in this file
 
 local keymap = require('core.keymap')
-local nmap, imap, cmap, xmap, omap, map = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.omap, keymap.map
+local nmap, imap, cmap, xmap, omap, tmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.omap, keymap.tmap
 local silent, noremap, expr = keymap.silent, keymap.noremap, keymap.expr
 local opts = keymap.new_opts
 local cmd = keymap.cmd
 
-function diff_then_else(then_, else_)
+local function diff_then_else(then_, else_)
   return function()
     if vim.opt.diff:get() then
       return then_
@@ -99,3 +99,5 @@ imap({
 
 -- commandline remap
 cmap({ '<C-b>', '<Left>', opts(noremap) })
+
+tmap({ '<ESC>', '<C-\\><C-n>', opts(noremap) })
