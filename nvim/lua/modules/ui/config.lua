@@ -114,7 +114,7 @@ function config.lualine()
     options = {
       theme = 'newpaper',
       -- empty with newpaper colorscheme
-      section_separators = { left = '', right = ' ' },
+      section_separators = { left = '', right = '' },
       component_separators = { left = '', right = '' },
       refresh = {
         statusline = -1,
@@ -147,17 +147,30 @@ function config.lualine()
             end
           end,
         },
+        'branch',
+        'diff',
       },
       lualine_c = { { 'filename', path = 1 } },
-      lualine_x = { 'branch', 'diff', 'diagnostics' },
+      lualine_x = {},
       lualine_y = {},
-      lualine_z = {},
+      lualine_z = {
+        {
+          'tabs',
+          mode = 2,
+          fmt = function(name, context)
+            local tabnr = context.tabnr
+            local tabcwd = vim.fn.getcwd(-1, tabnr)
+            local parts = vim.split(tabcwd, '/')
+            return parts[#parts]
+          end,
+        },
+      },
     },
     tabline = {
       lualine_a = {
         { 'buffers', padding = 2 },
       },
-      lualine_z = { { 'tabs', mode = 2 } },
+      lualine_z = {},
     },
   })
 
