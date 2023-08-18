@@ -120,11 +120,17 @@ end
 
 local function change_curr_tab_name()
   local current_tabnr = vim.fn.tabpagenr()
-  vim.t.tabname = vim.fn.input({
+  vim.t.tabname = vim.ui.input({
     prompt = 'Tab name: ',
     default = get_tab_name(current_tabnr),
   }, function(name)
+    if name == nil then
+      return
+    end
     vim.t[current_tabnr].tabname = name
+    require('lualine').refresh({
+      place = { 'statusline' },
+    })
   end)
 end
 
@@ -191,9 +197,7 @@ function config.lualine()
           mode = 2,
           fmt = function(name, context)
             local tabnr = context.tabnr
-            local tabcwd = vim.fn.getcwd(-1, tabnr)
-            local parts = vim.split(tabcwd, '/')
-            return parts[#parts]
+            return get_tab_name(tabnr)
           end,
         },
       },
