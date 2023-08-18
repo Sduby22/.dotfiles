@@ -114,6 +114,7 @@ function config.lualine()
     options = {
       theme = 'newpaper',
       -- empty with newpaper colorscheme
+      globalstatus = true,
       section_separators = { left = '', right = '' },
       component_separators = { left = '', right = '' },
       refresh = {

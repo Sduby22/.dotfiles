@@ -7,7 +7,7 @@ plugin({
     {
       '<leader>cf',
       function()
-        require('format').toggle()
+        require('format').toggle_tab()
       end,
     },
     {

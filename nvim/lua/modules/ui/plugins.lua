@@ -96,12 +96,11 @@ plugin({
 })
 
 plugin({
-  'kelly-lin/ranger.nvim',
+  'theniceboy/joshuto.nvim',
   -- stylua: ignore
   keys = {
-    { '<leader>o-', function() require('ranger-nvim').open(true) end },
+    { '<leader>o-', function() require('joshuto').joshuto() end },
   },
-  opts = { replace_netrw = false },
 })
 
 plugin({ 'stevearc/dressing.nvim' })

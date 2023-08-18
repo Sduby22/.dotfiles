@@ -3,17 +3,16 @@ local M = {}
 
 M.opts = nil
 
-function M.enabled()
+function M.enabled_global()
   return M.opts.autoformat
 end
 
-function M.toggle()
-  if vim.b.autoformat == false then
-    vim.b.autoformat = nil
-    M.opts.autoformat = true
-  else
-    M.opts.autoformat = not M.opts.autoformat
-  end
+function M.enabled_tab()
+  return vim.t.autoformat == true
+end
+
+function M.toggle_global()
+  M.opts.autoformat = not M.opts.autoformat
   if M.opts.autoformat then
     logger.info('Enabled format on save')
   else
@@ -21,8 +20,19 @@ function M.toggle()
   end
 end
 
----@param opts? {force?:boolean}
-function M.format(opts)
+function M.toggle_tab()
+  if vim.t.autoformat == nil then
+    vim.t.autoformat = M.opts.autoformat
+  end
+  vim.t.autoformat = not vim.t.autoformat
+  if vim.t.autoformat then
+    logger.info('Enabled format on save for current tab')
+  else
+    logger.info('Disabled format on save for current tab')
+  end
+end
+
+function M.format()
   local buf = vim.api.nvim_get_current_buf()
 
   local formatters = M.get_formatters(buf)
@@ -136,11 +146,7 @@ function M.setup(opts)
   vim.api.nvim_create_autocmd('BufWritePre', {
     group = vim.api.nvim_create_augroup('LazyVimFormat', {}),
     callback = function()
-      if vim.b.autoformat == false and not (opts and opts.force) then
-        return
-      end
-
-      if not M.opts.autoformat then
+      if not (M.enabled_global() and M.enabled_tab()) then
         return
       end
 

@@ -66,8 +66,13 @@ nmap({
   { 'Y', 'y$', opts(noremap) },
 }, 'both')
 
+local function tabnew()
+  vim.cmd('tabnew')
+  vim.cmd('Telescope workspaces')
+end
+
 nmap({
-  { '<leader><tab>n', cmd('tabnew'), opts(noremap) },
+  { '<leader><tab>n', tabnew, opts(noremap) },
   { '<leader><tab>1', cmd('tabn 1'), opts(noremap) },
   { '<leader><tab>2', cmd('tabn 2'), opts(noremap) },
   { '<leader><tab>3', cmd('tabn 3'), opts(noremap) },
