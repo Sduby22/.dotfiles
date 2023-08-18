@@ -8,7 +8,7 @@ function M.enabled_global()
 end
 
 function M.enabled_tab()
-  return vim.t.autoformat == true
+  return vim.t.autoformat == true or vim.t.autoformat == nil and M.opts.autoformat
 end
 
 function M.toggle_global()

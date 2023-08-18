@@ -85,3 +85,18 @@ nmap({
   { '<leader>wc', cmd("call VSCodeNotify('workbench.action.closeActiveEditor')"), opts(noremap, silent) },
   { '<leader>bk', cmd("call VSCodeNotify('workbench.action.closeActiveEditor')"), opts(noremap, silent) },
 }, 'vscode')
+
+nmap({
+  {
+    '<f1>',
+    function()
+      require('plenary.profile').start('profile.log', { flame = true })
+    end,
+  },
+  {
+    '<f2>',
+    function()
+      require('plenary.profile').stop()
+    end,
+  },
+})

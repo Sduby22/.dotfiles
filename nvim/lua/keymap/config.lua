@@ -67,7 +67,7 @@ nmap({
 }, 'both')
 
 local function tabnew()
-  vim.cmd('tabnew')
+  vim.cmd('$tabnew')
   vim.cmd('Telescope workspaces')
 end
 

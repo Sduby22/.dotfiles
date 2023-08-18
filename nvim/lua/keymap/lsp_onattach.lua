@@ -11,11 +11,9 @@ return function(client, bufnr)
     return
   end
 
-  vim.opt_local.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
   if client.server_capabilities.documentSymbolProvider then
     require('nvim-navic').attach(client, bufnr)
     require('nvim-navbuddy').attach(client, bufnr)
-    vim.opt_local.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
   end
 
   local bufopts = { noremap = true, silent = true, buffer = true }

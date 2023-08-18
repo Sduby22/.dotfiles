@@ -80,7 +80,7 @@ plugin({
     local m = require('mini.indentscope')
     m.setup({
       draw = {
-        delay = 0,
+        delay = 50,
         animation = m.gen_animation.none(),
       },
       symbol = '│',
@@ -126,7 +126,7 @@ plugin({
   opts = {},
 })
 
-plugin({ 'fgheng/winbar.nvim', opts = {}, event = 'BufReadPost' })
+-- plugin({ 'fgheng/winbar.nvim', opts = {}, event = 'BufReadPost' })
 
 plugin({ 'monkoose/matchparen.nvim', event = 'BufReadPost', opts = {} })
 plugin({ 'echasnovski/mini.cursorword', event = 'BufReadPost', opts = {} })

@@ -8,7 +8,9 @@ function config.nvim_treesitter()
     ignore_install = { 'phpdoc' },
     highlight = {
       enable = true,
-      additional_vim_regex_highlighting = { 'org' },
+      disable = function(lang, bufnr) -- Disable in large C++ buffers
+        return vim.fn.wordcount().bytes > 1024 * 1024 * 2
+      end,
     },
     autotag = {
       enable = true,

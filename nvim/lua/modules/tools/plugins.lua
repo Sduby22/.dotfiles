@@ -23,10 +23,10 @@ plugin({
   cmd = 'Telescope',
   config = conf.telescope,
   dependencies = {
-    { 'nvim-lua/popup.nvim', lazy = true },
-    { 'nvim-lua/plenary.nvim', lazy = true },
+    { 'nvim-lua/popup.nvim',                  lazy = true },
+    { 'nvim-lua/plenary.nvim',                lazy = true },
     { 'natecraddock/telescope-zf-native.nvim' },
-    { 'Sduby22/telescope-fuzzy-grep.nvim', lazy = true },
+    { 'Sduby22/telescope-fuzzy-grep.nvim',    lazy = true },
     -- { 'folke/trouble.nvim', lazy = true },
     -- { 'ahmedkhalf/project.nvim', config=conf.project },
   },
@@ -160,4 +160,9 @@ plugin({
       open = 'Telescope find_files',
     },
   },
+})
+
+plugin({
+  'nvim-lua/plenary.nvim',
+  lazy = true,
 })

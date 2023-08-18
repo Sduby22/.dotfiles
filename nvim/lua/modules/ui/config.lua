@@ -108,6 +108,28 @@ function config.toggleterm()
   end, { noremap = true, silent = true })
 end
 
+local function get_tab_name(tabnr)
+  local set_tabname = vim.t[tabnr].tabname
+  if set_tabname == nil or set_tabname == '' then
+    local tabcwd = vim.fn.getcwd(-1, tabnr)
+    local parts = vim.split(tabcwd, '/')
+    return parts[#parts]
+  end
+  return set_tabname
+end
+
+local function change_curr_tab_name()
+  local current_tabnr = vim.fn.tabpagenr()
+  vim.t.tabname = vim.fn.input({
+    prompt = 'Tab name: ',
+    default = get_tab_name(current_tabnr),
+  }, function(name)
+    vim.t[current_tabnr].tabname = name
+  end)
+end
+
+vim.keymap.set('n', '<leader><tab>,', change_curr_tab_name, { noremap = true, silent = true })
+
 function config.lualine()
   local lualine = require('lualine')
   lualine.setup({
@@ -151,7 +173,16 @@ function config.lualine()
         'branch',
         'diff',
       },
-      lualine_c = { { 'filename', path = 1 } },
+      lualine_c = {
+        { 'filename', path = 1 },
+        -- {
+        --   'navic',
+        --   fmt = function()
+        --     return require('nvim-navic').get_location()
+        --   end,
+        --   color = 'gray',
+        -- },
+      },
       lualine_x = {},
       lualine_y = {},
       lualine_z = {
