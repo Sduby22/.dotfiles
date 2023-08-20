@@ -58,6 +58,11 @@ function config.dashboard()
       },
       -- footer = {}, --your footer
     },
+    hide = {
+      statusline = false, -- hide statusline default is true
+      tabline = true, -- hide the tabline
+      winbar = true, -- hide winbar
+    },
   })
 end
 
@@ -194,10 +199,14 @@ function config.lualine()
       lualine_z = {
         {
           'tabs',
-          mode = 2,
+          mode = 1,
           fmt = function(name, context)
             local tabnr = context.tabnr
-            return get_tab_name(tabnr)
+            local name = get_tab_name(tabnr)
+            if name == '' then
+              return tabnr
+            end
+            return string.format('%s %s', tabnr, name)
           end,
         },
       },
