@@ -34,7 +34,7 @@ plugin({
     'nvim-tree/nvim-web-devicons',
   },
   cmd = 'Neotree',
-  keys = { { '<leader>e', ':Neotree toggle reveal<CR>' } },
+  keys = { { '<leader>e', function() vim.cmd('Neotree toggle reveal') end } },
 })
 
 -- plugin({
@@ -116,7 +116,7 @@ plugin({ 'SmiteshP/nvim-navic', dependencies = { 'neovim/nvim-lspconfig' }, even
 plugin({
   'SmiteshP/nvim-navbuddy',
   keys = {
-    { '<leader>s', ':Navbuddy<CR>' },
+    { '<leader>s', function() vim.cmd('Navbuddy') end },
   },
   dependencies = {
     'neovim/nvim-lspconfig',

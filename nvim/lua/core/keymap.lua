@@ -83,7 +83,9 @@ function keymap.new_opts(...)
 end
 
 function keymap.cmd(str)
-  return '<cmd>' .. str .. '<CR>'
+  return function()
+    vim.cmd(str)
+  end
 end
 
 -- visual

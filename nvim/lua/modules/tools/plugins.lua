@@ -134,7 +134,7 @@ plugin({
   keys = {
     {
       '<leader>x',
-      ':Codi typescript<CR>',
+      function() vim.cmd('Codi typescript') end,
     },
   },
 })

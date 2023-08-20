@@ -4,7 +4,7 @@ local opts = keymap.new_opts
 local cmd = keymap.cmd
 local nmap, imap, cmap, xmap, omap, tmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.omap, keymap.tmap
 
-vim.o.guifont = 'Sarasa Mono SC Nerd Font:h17' -- text below applies for VimScript
+vim.o.guifont = 'Sarasa Term SC Nerd:h17' -- text below applies for VimScript
 -- vim.g.neovide_hide_mouse_when_typing = true
 
 vim.opt.linespace = 0
@@ -17,7 +17,7 @@ vim.g.neovide_padding_left = 0
 vim.g.neovide_input_macos_alt_is_meta = true
 vim.g.neovide_input_use_logo = true
 
--- vim.keymap.set('n', '<D-s>', ':w<CR>') -- Save
+-- vim.keymap.set('n', '<D-s>', function() vim.cmd('w') end) -- Save
 -- vim.keymap.set('v', '<D-c>', '"+y') -- Copy
 -- vim.keymap.set('n', '<D-v>', '"+P') -- Paste normal mode
 -- vim.keymap.set('v', '<D-v>', '"+P') -- Paste visual mode

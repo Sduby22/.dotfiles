@@ -33,7 +33,7 @@ plugin({
       'folke/twilight.nvim',
       opts = {},
       keys = {
-        { '<leader>t', ':Twilight<CR>' },
+        { '<leader>t', function() vim.cmd('Twilight') end },
       },
     },
   },
