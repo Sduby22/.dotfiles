@@ -1,3 +1,9 @@
+local keymap = require('core.keymap')
+local silent, noremap, expr = keymap.silent, keymap.noremap, keymap.expr
+local opts = keymap.new_opts
+local cmd = keymap.cmd
+local nmap, imap, cmap, xmap, omap, tmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap, keymap.omap, keymap.tmap
+
 vim.o.guifont = 'Sarasa Mono SC Nerd Font:h17' -- text below applies for VimScript
 -- vim.g.neovide_hide_mouse_when_typing = true
 
@@ -7,3 +13,20 @@ vim.g.neovide_padding_top = 0
 vim.g.neovide_padding_bottom = 0
 vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
+
+vim.g.neovide_input_macos_alt_is_meta = true
+vim.g.neovide_input_use_logo = true
+
+-- vim.keymap.set('n', '<D-s>', ':w<CR>') -- Save
+-- vim.keymap.set('v', '<D-c>', '"+y') -- Copy
+-- vim.keymap.set('n', '<D-v>', '"+P') -- Paste normal mode
+-- vim.keymap.set('v', '<D-v>', '"+P') -- Paste visual mode
+-- vim.keymap.set('c', '<D-v>', '<C-R>+') -- Paste command mode
+-- vim.keymap.set('i', '<D-v>', '<ESC>l"+Pli') -- Paste insert mode
+
+nmap({
+  { '<D-l>', cmd('bn'), opts(noremap) },
+  { '<D-h>', cmd('bp'), opts(noremap) },
+  { '<D-s>', cmd('write'), opts(noremap) },
+  { '<D-w>', cmd('bd'), opts(noremap) },
+})

@@ -27,9 +27,9 @@ nmap({ ' ', '', opts(noremap) })
 xmap({ ' ', '', opts(noremap) })
 
 nmap({
+  { '<C-s>', cmd('write'), opts(noremap) },
   { '<M-l>', cmd('bn'), opts(noremap) },
   { '<M-h>', cmd('bp'), opts(noremap) },
-  { '<C-s>', cmd('write'), opts(noremap) },
   { '<M-s>', cmd('write'), opts(noremap) },
   { '<M-w>', cmd('bd'), opts(noremap) },
 })
