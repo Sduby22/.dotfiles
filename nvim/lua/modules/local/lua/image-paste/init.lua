@@ -74,8 +74,14 @@ function M.paste_image()
   -- Start uploading
   fn.jobstart(upload_command, {
     stdout_buffered = true,
+    on_stderr = function(_, data)
+      local str = fn.join(data)
+      log.warn(str)
+    end,
     on_stdout = function(_, data)
-      url = fn.join(data):gsub('^%s*(.-)%s*$', '%1')
+      local str = fn.join(data)
+      log.info(str)
+      url = str:gsub('^%s*(.-)%s*$', '%1')
     end,
     on_exit = function(_, exit_code)
       fn.jobwait({ job_width })
@@ -93,7 +99,7 @@ function M.paste_image()
           replacement = string.format(template_md, image_name, url)
         end
       else
-        print('Failed to upload or paste image')
+        log.warn('Failed to upload or paste image')
       end
 
       -- Locate the mark

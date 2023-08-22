@@ -24,6 +24,15 @@ vim.g.neovide_input_use_logo = true
 -- vim.keymap.set('c', '<D-v>', '<C-R>+') -- Paste command mode
 -- vim.keymap.set('i', '<D-v>', '<ESC>l"+Pli') -- Paste insert mode
 
+local function paste()
+  local reg = vim.fn.getreg('+')
+  vim.api.nvim_feedkeys(reg, 'n', true)
+end
+
+-- all modes
+vim.keymap.set({ '!', 't' }, '<D-v>', paste)
+vim.keymap.set({ 'v' }, '<D-v>', 'p')
+
 nmap({
   { '<D-l>', cmd('bn'), opts(noremap) },
   { '<D-h>', cmd('bp'), opts(noremap) },

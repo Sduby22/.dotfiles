@@ -106,3 +106,11 @@ imap({
 cmap({ '<C-b>', '<Left>', opts(noremap) })
 
 tmap({ '<ESC>', '<C-\\><C-n>', opts(noremap) })
+
+nmap({ 'yg', 'y<C-g>', opts(noremap) })
+
+-- noremap Q q
+-- noremap q <Nop>
+
+vim.keymap.set('', 'Q', 'q', { noremap = true })
+vim.keymap.set('', 'q', '<Nop>', { noremap = true })

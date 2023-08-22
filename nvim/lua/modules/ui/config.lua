@@ -99,17 +99,20 @@ function config.toggleterm()
       vim.cmd('startinsert!')
     end,
   })
+
   local Terminal = require('toggleterm.terminal').Terminal
-  local terminals = {}
-  for i = 1, 10, 1 do
-    terminals[i] = Terminal:new({
-      cmd = 'fish',
-    })
-  end
+  local t = {}
 
   vim.keymap.set({ 'n', 'v', 't', 'i', 'c', 'o', 's' }, '<C-t>', function()
-    local tabnr = vim.fn.tabpagenr()
-    terminals[tabnr]:toggle()
+    local tabid = vim.api.nvim_get_current_tabpage()
+    if t[tabid] == nil then
+      t[tabid] = Terminal:new({
+        cmd = 'fish',
+      })
+    end
+
+    t[tabid]:toggle()
+    -- vim.t[tabid].term:toggle()
   end, { noremap = true, silent = true })
 end
 
@@ -201,7 +204,7 @@ function config.lualine()
         {
           'tabs',
           mode = 1,
-          fmt = function(name, context)
+          fmt = function(_name, context)
             local tabid = context.tabId
             local tabnr = context.tabnr
             local name = get_tab_name(tabid)
