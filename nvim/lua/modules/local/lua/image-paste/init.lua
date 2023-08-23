@@ -21,7 +21,6 @@ function M.paste_image()
     return
   end
 
-  log.info('Pasting image')
   local template_md = '![%s](%s)'
   local template_html = [[<img alt="%s" width="%s" src="%s" />]]
 
@@ -60,7 +59,7 @@ function M.paste_image()
       local ppi = tonumber(str_ppi, 10)
       width = tonumber(str_width, 10)
 
-      if width ~= nil and ppi == high_ppi then
+      if width ~= nil and math.abs(ppi - high_ppi) <= 1 then
         is_hdpi = true
         width = width / 2
       end
@@ -80,12 +79,10 @@ function M.paste_image()
     end,
     on_stdout = function(_, data)
       local str = fn.join(data)
-      log.info(str)
       url = str:gsub('^%s*(.-)%s*$', '%1')
     end,
     on_exit = function(_, exit_code)
       fn.jobwait({ job_width })
-      log.info(string.format('Width: %s, URL: %s, Exit Code: %s', width, url, exit_code))
       local failed = url == '' or width == '' or exit_code ~= 0
       local replacement = ''
 
@@ -99,7 +96,6 @@ function M.paste_image()
           replacement = string.format(template_md, image_name, url)
         end
       else
-        log.warn('Failed to upload or paste image')
       end
 
       -- Locate the mark
