@@ -59,3 +59,5 @@ require('commands')
 
 local pack = require('core.pack')
 pack:ensure_plugins()
+
+require('core.ftplugin')

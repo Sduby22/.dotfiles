@@ -17,7 +17,7 @@ vim.g.neovide_padding_left = 0
 vim.g.neovide_input_macos_alt_is_meta = true
 vim.g.neovide_hide_mouse_when_typing = true
 
-vim.keymap.set('n', '<D-s>', function()
+vim.keymap.set({ '', '!' }, '<D-s>', function()
   vim.cmd('w')
 end)
 
@@ -33,6 +33,7 @@ vim.keymap.set({ 'v' }, '<D-v>', 'p')
 nmap({
   { '<D-l>', cmd('bn'), opts(noremap) },
   { '<D-h>', cmd('bp'), opts(noremap) },
-  { '<D-s>', cmd('write'), opts(noremap) },
   { '<D-w>', cmd('bd'), opts(noremap) },
 })
+
+vim.g.neovide_cursor_vfx_mode = 'sonicboom'

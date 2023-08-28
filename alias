@@ -10,3 +10,4 @@ alias j=z
 alias rmds='find . | egrep "DS|dSYM" | xargs rm'
 alias termcolor='alacritty-colorscheme -C ~/.config/alacritty/base16-alacritty/colors'
 alias l=exa
+alias ranger=joshuto
