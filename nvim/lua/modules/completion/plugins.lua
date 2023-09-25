@@ -93,7 +93,7 @@ plugin({
         },
       },
       filetypes = {
-        markdown = false,
+        markdown = true,
         gitcommit = false,
         gitrebase = false,
         hgcommit = false,

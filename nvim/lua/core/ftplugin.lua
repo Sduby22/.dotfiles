@@ -7,7 +7,6 @@ local function get_ft_plugins_list()
   for _, f in ipairs(tmp) do
     local ft = string.match(f, ft_path .. '(.+).lua$')
     list[#list + 1] = ft
-    print(ft)
   end
   return list
 end

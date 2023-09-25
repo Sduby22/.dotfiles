@@ -23,10 +23,10 @@ plugin({
   cmd = 'Telescope',
   config = conf.telescope,
   dependencies = {
-    { 'nvim-lua/popup.nvim',                  lazy = true },
-    { 'nvim-lua/plenary.nvim',                lazy = true },
+    { 'nvim-lua/popup.nvim', lazy = true },
+    { 'nvim-lua/plenary.nvim', lazy = true },
     { 'natecraddock/telescope-zf-native.nvim' },
-    { 'Sduby22/telescope-fuzzy-grep.nvim',    lazy = true },
+    { 'Sduby22/telescope-fuzzy-grep.nvim', lazy = true },
     -- { 'folke/trouble.nvim', lazy = true },
     -- { 'ahmedkhalf/project.nvim', config=conf.project },
   },
@@ -38,7 +38,7 @@ plugin({
   lazy = true,
 })
 
-plugin({ 'mg979/vim-visual-multi', event = 'BufReadPost' }, 'both')
+plugin({ 'mg979/vim-visual-multi' }, 'both')
 plugin({ 'tpope/vim-surround', event = 'BufReadPost' }, 'both')
 plugin({ 'justinmk/vim-sneak', event = 'BufReadPost' }, 'both')
 
@@ -60,7 +60,6 @@ plugin({
   'gennaro-tedesco/nvim-possession',
   lazy = false,
   dependencies = {
-
     {
       'tiagovla/scope.nvim',
       lazy = false,
@@ -134,7 +133,9 @@ plugin({
   keys = {
     {
       '<leader>x',
-      function() vim.cmd('Codi typescript') end,
+      function()
+        vim.cmd('Codi typescript')
+      end,
     },
   },
 })
@@ -166,3 +167,5 @@ plugin({
   'nvim-lua/plenary.nvim',
   lazy = true,
 })
+
+plugin({ 'nmac427/guess-indent.nvim', opts = {} })

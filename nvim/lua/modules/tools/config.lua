@@ -115,7 +115,12 @@ function config.formatter() end
 function config.neogit()
   local neogit = require('neogit')
   neogit.setup({
+    disable_insert_on_commit = 'auto',
+    disable_builtin_notifications = true,
+    disable_commit_confirmation = true,
+    kind = 'tab',
     integrations = {
+      telescope = true,
       diffview = true,
     },
   })

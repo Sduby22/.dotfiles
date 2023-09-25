@@ -16,7 +16,8 @@ plugin({
     vim.cmd.colorscheme('newpaper')
   end,
 })
-plugin({ 'nvimdev/dashboard-nvim', config = conf.dashboard })
+
+-- plugin({ 'nvimdev/dashboard-nvim', config = conf.dashboard })
 
 -- plugin({
 --   'glepnir/galaxyline.nvim',
@@ -34,7 +35,12 @@ plugin({
     'nvim-tree/nvim-web-devicons',
   },
   cmd = 'Neotree',
-  keys = { { '<leader>e', function() vim.cmd('Neotree toggle reveal') end } },
+  keys = { {
+    '<leader>e',
+    function()
+      vim.cmd('Neotree toggle reveal')
+    end,
+  } },
 })
 
 -- plugin({
@@ -116,7 +122,12 @@ plugin({ 'SmiteshP/nvim-navic', dependencies = { 'neovim/nvim-lspconfig' }, even
 plugin({
   'SmiteshP/nvim-navbuddy',
   keys = {
-    { '<leader>s', function() vim.cmd('Navbuddy') end },
+    {
+      '<leader>s',
+      function()
+        vim.cmd('Navbuddy')
+      end,
+    },
   },
   dependencies = {
     'neovim/nvim-lspconfig',

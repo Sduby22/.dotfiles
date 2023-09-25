@@ -108,6 +108,7 @@ cmap({ '<C-b>', '<Left>', opts(noremap) })
 tmap({ '<ESC>', '<C-\\><C-n>', opts(noremap) })
 
 nmap({ 'yg', 'y<C-g>', opts(noremap) })
+nmap({ ',', '%', opts(noremap) })
 
 -- noremap Q q
 -- noremap q <Nop>

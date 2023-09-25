@@ -8,7 +8,7 @@ alt - d : open -a "Eudic"
 # alt - return : /System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal
 #alt - return: alacritty
 alt-return: kitty ~
-alt - 0x2A: fish -C 'neovide --frame none'
+alt - 0x2A: fish -C 'open -a "Neovide" --args --frame none'
 
 ## Navigation
 #alt - h : yabai -m window --focus west

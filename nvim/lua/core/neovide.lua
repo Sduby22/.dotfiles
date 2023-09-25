@@ -15,7 +15,7 @@ vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
 
 vim.g.neovide_input_macos_alt_is_meta = true
-vim.g.neovide_hide_mouse_when_typing = true
+vim.g.neovide_hide_mouse_when_typing = false
 
 vim.keymap.set({ '', '!' }, '<D-s>', function()
   vim.cmd('w')

@@ -3,6 +3,7 @@ local lsps = {
   'clangd',
   'vtsls',
   'eslint',
+  'marksman',
   rust_analyzer = {
     settings = {
       ['rust-analyzer'] = {
