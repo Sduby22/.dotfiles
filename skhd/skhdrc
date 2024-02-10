@@ -9,32 +9,39 @@ alt - d : open -a "Eudic"
 #alt - return: alacritty
 alt-return: kitty ~
 alt - 0x2A: fish -C 'open -a "Neovide" --args --frame none'
-
-## Navigation
-#alt - h : yabai -m window --focus west
-#alt - j : yabai -m window --focus south
-#alt - k : yabai -m window --focus north
-#alt - l : yabai -m window --focus east
+# ]
+shift + alt - 0x2A: emacs
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+cmd - tab : ;
 #
 ## Layout
-#alt - t : yabai -m space --layout stack
-#alt - s : yabai -m space --layout bsp
+alt - s : yabai -m space --layout bsp
+alt - f : yabai -m space --layout float
 #
 ## Moving windows
-#shift + alt - h : yabai -m window --warp west
-#shift + alt - j : yabai -m window --warp south
-#shift + alt - k : yabai -m window --warp north
-#shift + alt - l : yabai -m window --warp east
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
 #
 ## Move focus container to workspace
 #shift + alt - m : yabai -m window --space last; yabai -m space --focus last
 #shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
 #shift + alt - n : yabai -m window --space next; yabai -m space --focus next
-#shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
-#shift + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
-#shift + alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
-#shift + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
-#
+shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
+shift + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
+shift + alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
+shift + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
+shift + alt - 5 : yabai -m window --space 5; yabai -m space --focus 5
+shift + alt - 6 : yabai -m window --space 6; yabai -m space --focus 6
+shift + alt - 7 : yabai -m window --space 7; yabai -m space --focus 7
+shift + alt - 8 : yabai -m window --space 8; yabai -m space --focus 8
+shift + alt - 9 : yabai -m window --space 9; yabai -m space --focus 9
+
+
 ## Resize windows
 ##lctrl + alt - h : yabai -m window --resize left:-50:0; \
 ##                  yabai -m window --resize right:-50:0
@@ -46,7 +53,7 @@ alt - 0x2A: fish -C 'open -a "Neovide" --args --frame none'
 ##                  yabai -m window --resize left:50:0
 #
 ## Equalize size of windows
-#lctrl + alt - e : yabai -m space --balance
+# alt - = : yabai -m space --balance
 #
 ## Enable / Disable gaps in current workspace
 #lctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
@@ -68,13 +75,13 @@ alt - 0x2A: fish -C 'open -a "Neovide" --args --frame none'
 #alt - f         : yabai -m window --toggle zoom-fullscreen
 #
 ## Focus space
-#alt - 1 : yabai -m space --focus 1
-#alt - 2 : yabai -m space --focus 2
-#alt - 3 : yabai -m space --focus 3
-#alt - 4 : yabai -m space --focus 4
-#alt - 5 : yabai -m space --focus 5
-#alt - 6 : yabai -m space --focus 6
-#alt - 7 : yabai -m space --focus 7
-#alt - 8 : yabai -m space --focus 8
-#alt - 9 : yabai -m space --focus 9
-#alt - 0 : yabai -m space --focus 10
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+alt - 9 : yabai -m space --focus 9
+alt - 0 : yabai -m space --focus 10

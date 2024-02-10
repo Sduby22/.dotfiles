@@ -75,7 +75,9 @@ plugin({
 plugin({
   'lukas-reineke/indent-blankline.nvim',
   event = 'BufReadPost',
-  opts = {},
+  config = function()
+    require('ibl').setup()
+  end,
 })
 
 plugin({
@@ -182,7 +184,7 @@ plugin({
         'RainbowDelimiterViolet',
         'RainbowDelimiterCyan',
       },
-      blacklist = { 'c', 'cpp' },
+      -- blacklist = { 'c', 'cpp' },
     }
   end,
 })

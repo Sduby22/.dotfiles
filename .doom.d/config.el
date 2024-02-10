@@ -50,10 +50,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-(define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
-(define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
+;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+;; (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+;; (define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
+;; (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
 (setq lsp-pyright-python-executable-cmd "python3")
 ;; ;; to debug with DAP-MODE
 ;; (setq dap-auto-configure-mode t)
@@ -163,6 +163,7 @@
       (my/apply-theme ns-system-appearance)
       (add-hook 'ns-system-appearance-change-functions #'my/apply-theme))
   )
+
 (setq frame-resize-pixelwise t)
 
 (set-file-template! ".*\.h(pp)?" :trigger "__new_header.hpp" :mode 'c++-mode)
@@ -187,12 +188,21 @@
 (add-hook 'before-save-hook 'time-stamp)
 (setq time-stamp-pattern (concat "15/.*LastModified:\\\\?[ \t]+%:y-%02m-%02d %02H:%02M:%02S\\\\?$"))
 
-
-(add-hook 'prog-mode-hook 'ggtags-mode)
+(setq treemacs-follow-after-init t)
 (map! :g "s-d" 'evil-multiedit-match-symbol-and-next)
 (map! :g "s-D" 'evil-multiedit-match-symbol-and-prev)
+(map! :g "s-h" 'centaur-tabs-backward)
+(map! :g "s-l" 'centaur-tabs-forward)
+(map! :g "s-s" 'save-buffer)
+(map! :g "s-w" 'kill-buffer)
+(map! :g "s-M-t" 'centaur-tabs-kill-other-buffers-in-current-group)
+(map! :g "s-e" (lambda () (interactive) (+treemacs/toggle) (treemacs-follow-mode t)))
+(map! :g "s-t" '+eshell/toggle)
 
 (setq
  org-download-method 'directory
  org-download-image-dir "images"
  )
+
+(add-to-list 'default-frame-alist '(undecorated-round . t))
+(setq docstr-key-support t)

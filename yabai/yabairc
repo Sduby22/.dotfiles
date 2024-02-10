@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
 
 # ====== Variables =============================
 
@@ -18,36 +18,27 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 RED="0x00010101"
 BLUE="0xE0ffb3b4"
 
-yabai -m config external_bar                all:24:0
+# yabai -m config external_bar                all:24:0
 # yabai -m config top_padding                 "${gaps["top"]}"
 # yabai -m config bottom_padding              "${gaps["bottom"]}"
-yabai -m config left_padding                2
-yabai -m config right_padding               2
-yabai -m config window_gap                  5
+yabai -m config left_padding                0
+yabai -m config right_padding               0
+yabai -m config window_gap                  3
 
 yabai -m config layout                      bsp
 
 yabai -m config mouse_follows_focus         off
-yabai -m config focus_follows_mouse         autofocus
+yabai -m config focus_follows_mouse         autoraise
 
-yabai -m config window_topmost              on
-yabai -m config window_opacity              off
+yabai -m config window_opacity              on
 yabai -m config window_shadow               float
-
-yabai -m config window_border               on 
-yabai -m config window_border_width         2
-yabai -m config active_window_border_color  "${BLUE}"
-yabai -m config normal_window_border_color  "${RED}"
-yabai -m config insert_feedback_color       "${color["preselect"]}"
 
 yabai -m config active_window_opacity       1.0
 yabai -m config normal_window_opacity       0.9
 yabai -m config split_ratio                 0.50
 
-yabai -m config auto_balance                off
-
 yabai -m config mouse_drop_action             swap
-yabai -m config mouse_modifer               alt
+yabai -m config mouse_modifier               alt
 yabai -m config mouse_action1               move
 yabai -m config mouse_action2               resize
 
