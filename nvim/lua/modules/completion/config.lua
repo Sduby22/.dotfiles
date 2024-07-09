@@ -75,7 +75,6 @@ function config.nvim_cmp()
     },
     sources = {
       { name = 'luasnip' },
-      { name = 'luasnip_choice' },
       { name = 'nvim_lsp' },
       { name = 'buffer' },
       { name = 'async-path' },

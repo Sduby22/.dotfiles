@@ -15,6 +15,14 @@ plugin({
 })
 
 plugin({
+          'L3MON4D3/LuaSnip',
+          version = '2.*',
+          build = 'make install_jsregexp',
+          dependencies = { 'honza/vim-snippets' },
+          config = conf.lua_snip,
+})
+
+plugin({
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
   config = conf.nvim_cmp,
@@ -25,24 +33,7 @@ plugin({
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/cmp-nvim-lsp-document-symbol' },
     { 'hrsh7th/cmp-nvim-lsp-signature-help' },
-    {
-      'L3MON4D3/cmp-luasnip-choice',
-      config = function()
-        require('cmp_luasnip_choice').setup({
-          auto_open = true, -- Automatically open nvim-cmp on choice node (default: true)
-        })
-      end,
-      dependencies = {
-        { 'saadparwaiz1/cmp_luasnip' },
-        {
-          'L3MON4D3/LuaSnip',
-          version = '2.*',
-          build = 'make install_jsregexp',
-          dependencies = { 'honza/vim-snippets' },
-          config = conf.lua_snip,
-        },
-      },
-    },
+    { 'saadparwaiz1/cmp_luasnip' },
   },
 })
 
